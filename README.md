@@ -5,7 +5,7 @@ MIT licence
 Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
 ## Features
-- [ ] ISO installable by script (on development)
+- [ ] ISO installable by script (Work in progress towards version 1.0)
 - [x] Qtile adapts with the wallpaper colors 
 - [x] Auto detects the network card in use and displays it on widgets
 - [x] Many rofi panels like:
