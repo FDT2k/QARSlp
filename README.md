@@ -1,3 +1,13 @@
+[//]: # _______  _______  ______  _______  __        
+[//]: #|       ||   _   ||   __ \|     __||  |.-----.
+[//]: #|   -  _||       ||      <|__     ||  ||  _  |
+[//]: #|_______||___|___||___|__||_______||__||   __|
+[//]: #                                       |__|   
+[//]: # QARSlp Qtile + Arch Ricing Script
+[//]: # by: gibranlp <thisdoesnotwork@gibranlp.dev>
+[//]: # MIT licence 
+[//]: #
+
 # QARSlp OS
 
 Qtile Arch Ricing Script
