@@ -1,16 +1,16 @@
-[//]: # _______  _______  ______  _______  __        
-[//]: #|       ||   _   ||   __ \|     __||  |.-----.
-[//]: #|   -  _||       ||      <|__     ||  ||  _  |
-[//]: #|_______||___|___||___|__||_______||__||   __|
-[//]: #                                       |__|   
-[//]: # QARSlp Qtile + Arch Ricing Script
-[//]: # by: gibranlp <thisdoesnotwork@gibranlp.dev>
-[//]: # MIT licence 
-[//]: #
+ _____ _____ _____ _____ _        _____ _____ 
+|     |  _  | __  |   __| |___   |     |   __|
+|  |  |     |    -|__   | | . |  |  |  |__   |
+|__  _|__|__|__|__|_____|_|  _|  |_____|_____|
+   |__|                   |_|                 
 
-# QARSlp OS
+**QARSlp** 
+ by: gibranlp <thisdoesnotwork@gibranlp.dev>
+ MIT licence 
 
-Qtile Arch Ricing Script
+
+
+# QARSlp OS Qtile + Arch + Ricing + Installable ISO
 
 Fork / upgrade from QAAS
 
