@@ -1,25 +1,11 @@
+# QARSlp OS Qtile + Arch + AutoRicing + Installable ISO
 
-# _____ _____ _____ _____ _        _____ _____ 
-#|     |  _  | __  |   __| |___   |     |   __|
-#|  |  |     |    -|__   | | . |  |  |  |__   |
-#|__  _|__|__|__|__|_____|_|  _|  |_____|_____|
-#   |__|                   |_|                 
-#
-# QARSlp Qtile + Arch Ricing Script
-# by: gibranlp <thisdoesnotwork@gibranlp.dev>
-# MIT licence 
-#
+by: gibranlp thisdoesnotwork@gibranlp.dev MIT licence
 
-# QARSlp OS
-
-Qtile Arch Ricing Script
-
-Fork / upgrade from QAAS
-
-
+Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
 ## Features
-- [ ] ISO installable by script (on development)
+- [ ] ISO installable by script (Work in progress towards version 1.0)
 - [x] Qtile adapts with the wallpaper colors 
 - [x] Auto detects the network card in use and displays it on widgets
 - [x] Many rofi panels like:
@@ -39,6 +25,7 @@ Fork / upgrade from QAAS
   - [ ] Agregar mercadolibre a surfraw / elvi
   - [ ] Autoconnect hdmi display on laptop
   - [ ] assign specific group to external display
+  - [ ] Choose on different palettes
 
 ## Apps integrated so far
 - [x] Firefox
