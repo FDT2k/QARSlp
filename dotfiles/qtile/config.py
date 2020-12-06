@@ -423,6 +423,12 @@ if __name__ in ["config", "__main__"]:
         {'wmclass': 'oblogout'},
         {'wmclass': 'Oblogout'},
         {'wmclass': 'Pavucontrol'},
+        {'wmclass': 'control.exe'},
+        {'wmclass': 'wineboot.exe'},
+        {'wmclass': 'wbattle.net-setup.exe'},
+        {'wmclass': 'battle.net-setup.exe'},
+        {'wmclass': 'battle.net.exe'},
+        {'wmclass': 'winecfg.exe'},
         {'wmclass': 'Obconf'},  # ssh-askpass
     ])
     layout_theme = init_layout_theme()
