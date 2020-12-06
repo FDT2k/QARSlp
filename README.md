@@ -1,8 +1,8 @@
-# QARSlp OS Qtile + Arch + Ricing + Installable ISO
+# QARSlp OS Qtile + Arch + AutoRicing + Installable ISO
 by: gibranlp <thisdoesnotwork@gibranlp.dev>
 MIT licence 
 
-Fork / upgrade from QAAS
+Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
 ## Features
 - [ ] ISO installable by script (on development)
@@ -25,6 +25,7 @@ Fork / upgrade from QAAS
   - [ ] Agregar mercadolibre a surfraw / elvi
   - [ ] Autoconnect hdmi display on laptop
   - [ ] assign specific group to external display
+  - [ ] Choose on different palettes
 
 ## Apps integrated so far
 - [x] Firefox
