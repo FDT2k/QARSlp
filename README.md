@@ -1,20 +1,8 @@
- _____ _____ _____ _____ _        _____ _____ 
-|     |  _  | __  |   __| |___   |     |   __|
-|  |  |     |    -|__   | | . |  |  |  |__   |
-|__  _|__|__|__|__|_____|_|  _|  |_____|_____|
-   |__|                   |_|                 
-
-**QARSlp** 
- by: gibranlp <thisdoesnotwork@gibranlp.dev>
- MIT licence 
-
-
-
 # QARSlp OS Qtile + Arch + Ricing + Installable ISO
+by: gibranlp <thisdoesnotwork@gibranlp.dev>
+MIT licence 
 
 Fork / upgrade from QAAS
-
-
 
 ## Features
 - [ ] ISO installable by script (on development)
