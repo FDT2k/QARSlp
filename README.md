@@ -35,4 +35,15 @@ Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wal
 
 # Screenshots
 
-![1](./screenshots/1.png)
+![1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/1.%20.png)
+![2](https://github.com/gibranlp/QARSlp/blob/main/screenshots/2.%20.png)
+![3](https://github.com/gibranlp/QARSlp/blob/main/screenshots/3.%20.png)
+![4](https://github.com/gibranlp/QARSlp/blob/main/screenshots/4.%20.png)
+![5](https://github.com/gibranlp/QARSlp/blob/main/screenshots/5.%20.png)
+![6](https://github.com/gibranlp/QARSlp/blob/main/screenshots/6.%20.png)
+![7](https://github.com/gibranlp/QARSlp/blob/main/screenshots/7.%20.png)
+![8](https://github.com/gibranlp/QARSlp/blob/main/screenshots/8.%20.png)
+![9](https://github.com/gibranlp/QARSlp/blob/main/screenshots/9.%20.png)
+![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.%20.png)
+![11](https://github.com/gibranlp/QARSlp/blob/main/screenshots/11.%20.png)
+![12](https://github.com/gibranlp/QARSlp/blob/main/screenshots/12.%20.png)
