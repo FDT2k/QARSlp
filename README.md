@@ -33,4 +33,6 @@ Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wal
 - [x] Qtile
 - [x] Rofi
 
+# Screenshots
 
+![1](./screenshots/1.png)
