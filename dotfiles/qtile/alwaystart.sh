@@ -1,22 +1,13 @@
 #!/usr/bin/env bash
-#------------------------------------------------------------------------#
-
-#                        mmmm
-#   mmm                 m"  "m
-#  #" "#                #    #
-#  #   #                #    #
-#  "#m#"                 #mm#
-#
-#        """""""""""""
-# Autoinicio para Qtile
-
-#------------------------------------------------------------------------#
-
-## Creado por GIBRANLP 2020
-## Cualquier cosa --> info@gibranlp.dev
-## No sólo ejecutes este script, analiza o__O Investiga!
-## ¡Aprende y Diviertete!
-#------------------------------------------------------------------------#
+# _______  _______  ______  _______  __        
+#|       ||   _   ||   __ \|     __||  |.-----.
+#|   -  _||       ||      <|__     ||  ||  _  |
+#|_______||___|___||___|__||_______||__||   __|
+#                                       |__|   
+# QARSlp Qtile + Arch Ricing Script
+# By: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
 
 wvis &
 pywalfox update &
