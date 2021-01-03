@@ -7,50 +7,29 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
- 
-import os, re
-from libqtile.config import Key,Group, Match, Drag, Click, Rule
+from libqtile.config import Group, Match, Drag, Rule
+from libqtile.config import Key, Drag, Click
 from libqtile.command import lazy
-from hooks import *
 from theme import *
-from keys import *
+from groups import *
+from functions import *
 
-home = os.path.expanduser('~')
-
-##### Window Functions / Funciones de las ventanas #####
-
-@lazy.function
-def window_to_prev_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
-
-@lazy.function
-def window_to_next_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
-
-##### Specific Apps/Groups / Apps/Grupos especificos #####
-
-def app_or_group(group, app):
-    def f(qtile):
-        if qtile.groups_map[group].windows:
-            qtile.groups_map[group].cmd_toscreen(toggle=False)
-            qtile.cmd_spawn(app)
-        else:
-            qtile.groups_map[group].cmd_toscreen(toggle=False)
-            qtile.cmd_spawn(app)
-    return f
+mod = "mod4"
+alt = "mod1"                                   
+term = "urxvt"
 
 #### Shortcuts  ####
 
 def init_keys():
-    keys = [           
+    keys = [ 
+            #### Basics ####          
+            Key([mod], "Return", lazy.spawn(term)), # Open Terminal
+            #vim Key([mod], "d",lazy.spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")),
+            Key([mod, "shift"], "Return", lazy.spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")), 
             Key([mod], "q",lazy.window.kill()), # Kill Window / Cerrar ventana
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile / Reiniciar Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout / Cerrar sesión
-            Key([mod], "Escape", lazy.function(xk)), # Select window with mouse to kill / Cerrar ventana con el raton
+            Key([mod], "Escape", lazy.spawn('xkill')), # Select window with mouse to kill / Cerrar ventana con el raton
             Key([mod], "h",lazy.function(scuts)),
             Key([mod], "r",lazy.spawn('/opt/bin/qback')),
             Key([mod], "w",lazy.spawn('/opt/bin/genwal')),
@@ -104,7 +83,7 @@ def init_keys():
             ##### GROUPS (DESKTOPS) #####
 
             ## Group 1 (Tools, )
-            Key([mod], "Return", lazy.function(urx)),
+            
             Key([mod],"e",lazy.function(rangercli)),
             Key([mod],"x",lazy.spawn(lock)),
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
@@ -137,33 +116,15 @@ def init_keys():
             Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
 
             ## Group 7 (Música)
-            Key([mod],"s",lazy.function(ncsp)),
-
-            ### Dmenu Run Launcher
-            Key([mod], "d",lazy.spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")),]
+            Key([mod],"s",lazy.function(ncsp)),]
 
     for i in groups:
             keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
             keys.append(Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)))
     return keys
 
-##### GROUPS #####
 
-groups = [
-    Group("1",position=1,matches=[Match(wm_class=['thunar', 'Thunar', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Simplenote', 'Anydesk'])],layout="matrix",label=""),
-    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Mailspring', 'mailspring', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
-    Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="monadtall",label=""),
-    Group("4",position=4,matches=[Match(wm_class=['firefox'])],layout="monadtall",label=""),
-    Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla'])],layout="monadtall",label=""),
-    Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder'])],layout="monadtall",label=""),
-    Group("7",position=7,layout="monadtall",label=""),
-    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Albion Online Launcher'])],layout="monadtall",label=""),
-    Group("9",position=9,layout="monadtall",label="")]
-
-
-
-
-##### FLOATING WINDOWS #####
+##### FLOATING WINDOWS ##### 
 
 def init_mouse():
     return [Drag([mod], "Button1", lazy.window.set_position_floating(),      # Move floating windows
@@ -174,16 +135,5 @@ def init_mouse():
 
 ##### DEFINING A FEW THINGS #####
 
-if __name__ in ["config", "__main__"]:
-    mod = "mod4"
-    alt = "mod1"                                   
-    myTerm = "urxvt"                                    
-
-    
-    keys = init_keys()
-    mouse = init_mouse()
-
-
-
-#wmname = "LG3D"
-wmname = "qtile"
+keys = init_keys()
+mouse = init_mouse()

@@ -11,14 +11,14 @@
 rofi_command="rofi -theme ~/.config/rofi/theme.rasi"
 
 ## Icons
-B1="Dark / Wal"
-W1="Light / Wal"
-B2="Dark / Haishoku"
-W2="Light / Haishoku"
-B3="Dark / Colorz"
-W3="Light / Colorz"
-B4="Dark / Colorthief"
-W4="Light / Colorthief"
+B1="Dark -> Wal"
+W1="Light -> Wal"
+B2="Dark -> Haishoku"
+W2="Light -> Haishoku"
+B3="Dark -> Colorz"
+W3="Light -> Colorz"
+B4="Dark -> Colorthief"
+W4="Light -> Colorthief"
 
 options="$B1\n$W1\n$B2\n$W2\n$B3\n$W3\n$B4\n$W4"
 
