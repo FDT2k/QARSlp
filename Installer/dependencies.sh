@@ -8,9 +8,6 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-
-#!/usr/bin/env bash
-
 function i_base () {
   packets=(
     'htop'
@@ -78,8 +75,8 @@ function i_base () {
     'arandr'
     'gparted'
     'system-config-printer'
-
-
+    'cmatrix'
+    'kdeconnect'
 )
 
 for packet in "${packets[@]}"; do
@@ -116,6 +113,10 @@ function i_pip(){
     'ipc'
     'pywalfox'
     'python-dateutil'
+    'colorz'
+    'colorthief'
+    'haishoku'
+    'schemer2'
   )
 
   for pip_packet in "${pip_packets[@]}"; do
