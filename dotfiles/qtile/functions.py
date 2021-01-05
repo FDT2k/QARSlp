@@ -40,17 +40,10 @@ def ran(qtile):
 def men(qtile):
     qtile.cmd_spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")
 
-def wsh(qtile):
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn("/opt/bin/wsearch")
-    
-
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)
     qtile.cmd_spawn('urxvt -e ncspot')
 
-def xki(qtile):
-    qtile.cmd_spawn("xkill")
-
-def scuts(qtile):
-    qtile.cmd_spawn("/opt/bin/shortcuts")
+def wsearx(qtile):
+    qtile.groups_map["4"].cmd_toscreen(toggle=False)
+    qtile.cmd_spawn('/opt/bin/wsearch')

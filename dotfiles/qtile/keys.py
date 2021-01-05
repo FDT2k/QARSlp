@@ -10,6 +10,7 @@
 from libqtile.config import Group, Match, Drag, Rule
 from libqtile.config import Key, Drag, Click
 from libqtile.command import lazy
+from libqtile.lazy import lazy
 from theme import *
 from groups import *
 from functions import *
@@ -24,17 +25,59 @@ def init_keys():
     keys = [ 
             #### Basics ####          
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
-            #vim Key([mod], "d",lazy.spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")),
-            Key([mod, "shift"], "Return", lazy.spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")), 
-            Key([mod], "q",lazy.window.kill()), # Kill Window / Cerrar ventana
-            Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile / Reiniciar Qtile
-            Key([mod, "shift"], "q",lazy.shutdown()), # Logout / Cerrar sesión
-            Key([mod], "Escape", lazy.spawn('xkill')), # Select window with mouse to kill / Cerrar ventana con el raton
-            Key([mod], "h",lazy.function(scuts)),
-            Key([mod], "r",lazy.spawn('/opt/bin/qback')),
-            Key([mod], "w",lazy.spawn('/opt/bin/genwal')),
+            Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')), 
+            Key([mod], "q",lazy.window.kill()), # Close Window 
+            Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
+            Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
+            Key([mod], "Escape", lazy.spawn('xkill')), # Click window to close
+            
+            #### Widgets
+            Key([mod], "h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
+            Key([mod], "r",lazy.spawn('/opt/bin/qback')), # Launcher
+            Key([mod],"f",lazy.function(wsearx)), # WEB Search
+            Key([mod],"x",lazy.spawn(lock)),
+            #### Theming ####
+            Key([mod], "w",lazy.spawn('/opt/bin/genwal')), # Set randwom wallpaper / colors to entire system
 
-            ####  ####
+            #### Apps ####
+
+            Key([mod],"e",lazy.spawn('pcmanfm')), # File manager
+            Key([mod, "shift"],"e",lazy.spawn(term + '-e ranger')), # CLI file manager
+
+            Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
+            Key([mod, "shift"],"s",lazy.function(app_or_group('1', 'simplenote'))),
+
+            ## Group 2 (Organization)
+            Key([mod],"m",lazy.function(app_or_group('2', 'mailspring'))),
+           
+
+            ## Group 2 (Social: Whatsapp, Telegram, )
+            Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
+            Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),
+            Key([mod, "shift"],"d",lazy.function(app_or_group('3', 'discord'))),
+
+
+            ## Group 3 (WEB: Firefox)(Admin: Mail, notes, social)
+            Key([mod, "shift"],"f",lazy.function(app_or_group('4', 'firefox'))),
+            
+
+            ## Group 4 (Code/Write/Office: visual studio, typora, onlyofice)
+            Key([mod],"o",lazy.function(app_or_group("6", 'libreoffice'))),
+            Key([mod],"c",lazy.function(app_or_group('5', 'code'))),
+
+            ## Group 5 (Design: Gimp, Inkscape, feh)
+            Key([mod],"g",lazy.function(app_or_group('6', 'gimp'))),
+
+            ## Group 6 (Virtual Stuff games)
+            Key([mod],"v",lazy.function(app_or_group('8', 'virtualbox'))),
+            Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
+
+            ## Group 7 (Música)
+            Key([mod],"s",lazy.function(ncsp)),
+            
+            
+            
+            #### Layouts ####
             Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down
             Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
             Key([alt], "Tab", lazy.layout.swap_left()),
@@ -78,45 +121,7 @@ def init_keys():
             Key([mod], "Right", lazy.layout.right()),
 
             ### Screenshots
-            Key([], "Print", lazy.spawn('screenshot')),
-
-            ##### GROUPS (DESKTOPS) #####
-
-            ## Group 1 (Tools, )
-            
-            Key([mod],"e",lazy.function(rangercli)),
-            Key([mod],"x",lazy.spawn(lock)),
-            Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
-             Key([mod, "shift"],"s",lazy.function(app_or_group('1', 'simplenote'))),
-
-            ## Group 2 (Organization)
-            Key([mod],"m",lazy.function(app_or_group('2', 'mailspring'))),
-           
-
-            ## Group 2 (Social: Whatsapp, Telegram, )
-            Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
-            Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),
-            Key([mod, "shift"],"d",lazy.function(app_or_group('3', 'discord'))),
-
-
-            ## Group 3 (WEB: Firefox)(Admin: Mail, notes, social)
-            Key([mod, "shift"],"f",lazy.function(app_or_group('4', 'firefox'))),
-            Key([mod],"f",lazy.spawn('/opt/bin/wsearch')),
-
-            ## Group 4 (Code/Write/Office: visual studio, typora, onlyofice)
-            Key([mod],"o",lazy.function(app_or_group("6", 'libreoffice'))),
-            Key([mod],"c",lazy.function(app_or_group('5', 'code'))),
-
-            ## Group 5 (Design: Gimp, Inkscape, feh)
-            Key([mod],"g",lazy.function(app_or_group('6', 'gimp'))),
-            Key([mod, "shift"],"m",lazy.function(app_or_group('6', 'com.github.phase1geo.minder'))),
-
-            ## Group 6 (Virtual Stuff games)
-            Key([mod],"v",lazy.function(app_or_group('8', 'virtualbox'))),
-            Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
-
-            ## Group 7 (Música)
-            Key([mod],"s",lazy.function(ncsp)),]
+            Key([], "Print", lazy.spawn('screenshot')),]
 
     for i in groups:
             keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))

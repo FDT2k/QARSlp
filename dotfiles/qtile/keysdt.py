@@ -4,7 +4,7 @@ import re
 import socket
 import subprocess
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click
-from libqtile.command import lazylambda qtile: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')
+from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from typing import List  # noqa: F401
@@ -383,8 +383,7 @@ def init_widgets_list():
                        fontsize = 37
                        ),
               widget.TextBox(
-                       text = "
-                       ",
+                       text = " ⟳",
                        padding = 2,
                        foreground = colors[2],
                        background = colors[4],
