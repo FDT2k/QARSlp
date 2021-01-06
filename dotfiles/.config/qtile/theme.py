@@ -7,12 +7,13 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-import os, re, subprocess, json
+import os, re
 import socket
-from libqtile.config import Key, Screen, Group, Match, Drag, Click, Rule
+import subprocess, json
+from libqtile.config import Screen, Drag, Click, Rule
 from libqtile import layout
 from libqtile import bar, widget
-from libqtile.widget import Spacer
+from libqtile.widget import Spacer, Notify
 from keys import *
 
 home = os.path.expanduser('~')
@@ -70,12 +71,12 @@ def init_layouts():
 def init_widgets_defaults():
     return dict(font="Fira Code Medium",fontsize=16,padding=2,background=colors[0])
 
-def init_widgets_list_top():
+def in_wid_li_t():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     
-    widgets_list_top = [
+    wid_li_t = [
                 #### Shortcuts ####
-                widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1':men},fontshadow=colors[3]),
+                widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1':lambda qtile: qtile.cmd_spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': wsearx},fontshadow=colors[3]),        
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1':lambda qtile: qtile.cmd_spawn('urxvt')},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1':lambda qtile: qtile.cmd_spawn('pcmanfm')},fontshadow=colors[3]),
@@ -85,14 +86,14 @@ def init_widgets_list_top():
                 
                 #### Groups ####
                 widget.GroupBox(font='Font Awesome 5 Free',fontsize=14, disable_drag=True, hide_unused=False, fontshadow=colors[0], margin_y=1, padding_x=5, borderwidth=0, active=colors[7],  inactive=colors[1], rounded=False, highlight_method="text", this_current_screen_border=colors[0], this_screen_border=colors[3], other_current_screen_border=colors[0], other_screen_border=colors[0], foreground=colors[2], background=colors[1]),
-                widget.TextBox(background=colors[0],foreground=colors[1],text="◤ ",fontsize=45,padding=-2),
-                widget.Prompt(prompt = prompt, foreground=colors[0], background = colors[1]),
                 
                 #### Notification ####
-                widget.Notify(default_timeout=15, foreground_low=colors[3],foreground_urgent=colors[6], foreground=colors[7], background=colors[0]),
-                
+                widget.TextBox(text="◢", background=colors[1], foreground=colors[3], padding=-2, fontsize=45),
+                widget.Prompt(prompt = prompt, foreground=colors[0], background = colors[3]),
+                widget.Notify(default_timeout=15, foreground_low=colors[3],foreground_urgent=colors[6], foreground=colors[7], background=colors[3]),
+                widget.TextBox(background=colors[0],foreground=colors[3],text="◤ ",fontsize=45,padding=-2),
                 #### Spacer ####
-                widget.Spacer(length=bar.STRETCH,),
+                widget.Spacer(length=bar.STRETCH,background=colors[0],foreground=colors[0]),
                 
                 #### Spotify ####
                 widget.TextBox(text="◢", background=colors[0], foreground=colors[6], padding=-2, fontsize=45),
@@ -113,13 +114,8 @@ def init_widgets_list_top():
                 #### Updates ####
                 widget.TextBox(text='◢', background=colors[5], foreground=colors[3], padding=-2,fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,background=colors[3], foreground=colors[0],fontshadow=colors[7],text=" "),
-                widget.CheckUpdates(update_interval = 1800, foreground=colors[0], mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')}, background = colors[3], colour_have_updates=colors[0],colour_no_updates=colors[0], display_format='Updates: {updates}',distro='Arch'),
-
-                #### Battery for laptops ####
-                #widget.TextBox(font='Font Awesome 5 Free',text="", padding=5, foreground=colors[0], background=colors[3], fontshadow=colors[7], fontsize=14),
-                #widget.BatteryIcon(show_short_text=False, notify_below=30, charge_char=' ', discharge_char=' ', empty_char='', full_char=' ',background=colors[3], foreground=colors[0]),
-                #widget.Battery(format='{percent:2.0%}', show_short_text=False,update_interval=5,background=colors[3], foreground=colors[0]),
-                
+                widget.CheckUpdates(update_interval=1800, foreground=colors[0], mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')}, background = colors[3], colour_have_updates=colors[0],colour_no_updates=colors[0], display_format='Updates: {updates}'),
+        
                 #### Khal Calendar ####
                 #widget.KhalCalendar(lookahead=15, remindertime=60, foreground=colors[0], background=colors[7]),
                 #widget.BitcoinTicker(),
@@ -144,11 +140,11 @@ def init_widgets_list_top():
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': lock},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': lout},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': poff},fontshadow=colors[3]),
-              ]
-    return widgets_list_top
+    ]
+    return wid_li_t
 
-def init_widgets_list_bot():
-    widgets_list_bot = [
+def in_wid_li_b():
+    wid_li_b = [
                 #widget.DebugInfo(foreground=colors[7], background=colors[0], fontshadow=colors[2]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=15,foreground=colors[7],fontshadow=colors[4],text=""),
                 widget.WindowName(foreground=colors[7], background=colors[0], padding=5),
@@ -173,7 +169,7 @@ def init_widgets_list_bot():
                 #widget.CPUGraph(type='linefill', fill_color=colors[7], border_color=colors[0], graph_color=colors[0], foreground=colors[0], background=colors[5], padding=5, mouse_callbacks={'Button1': htop}),
                 widget.TextBox(text="◢", background=colors[5], foreground=colors[3], padding=-2, fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,background=colors[3], foreground=colors[0],fontshadow=colors[7],text=""),
-                widget.DF(format='{p} ({uf}{m}|{r:.0f}%)', measure='G', Partition='/', update_interval=60, foreground=colors[0], background=colors[3], padding=5, visible_on_warn=False,mouse_callbacks={'Button1':rangercli}),
+                widget.DF(format='{p} ({uf}{m}|{r:.0f}%)', measure='G', Partition='/', update_interval=60, foreground=colors[0], background=colors[3], padding=5, visible_on_warn=False,mouse_callbacks={'Button1':lambda qtile: qtile.cmd_spawn(term + '-e ranger')}, warn_color="ff0000"),
                 
                 #### Thermal Sensors ####
                 widget.TextBox(text="◢",background = colors[3],foreground=colors[7],padding=-2,fontsize=45),
@@ -188,36 +184,49 @@ def init_widgets_list_bot():
                 #### Caps lock Num Lock Indicator ####
                 widget.TextBox(text="◢",background = colors[0],foreground=colors[7],padding=-2,fontsize=45),
                 widget.CapsNumLockIndicator(foreground=colors[0],background=colors[7],padding=5),
+
+                #### Battery for laptops ####
+                widget.TextBox(text="◢",background = colors[7],foreground=colors[0],padding=-2,fontsize=45),
+                widget.BatteryIcon(show_short_text=True, notify_below=30, discharge_char=' ', empty_char='', full_char=' ',background=colors[0], foreground=colors[7]),
+                widget.Battery(format='{percent:2.0%}', show_short_text=False,update_interval=5,background=colors[0], foreground=colors[7]),
                 
                 #### Systray ####
-                widget.TextBox(text="◢",background = colors[7],foreground=colors[0],padding=-2,fontsize=45),
                 widget.Systray(icon_size=18, background=colors[0], foreground=colors[7]),]
-    return widgets_list_bot
+    return wid_li_b
 
+def in_wid_li_s():
+    wid_li_s = [
+                widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1':lambda qtile: qtile.cmd_spawn('urxvt')},fontshadow=colors[3]),
+
+            ]
+    return wid_li_s
 ##### SCREENS #####
 
 def init_widgets_top():
-    widgets_screen_top = init_widgets_list_top()
+    widgets_screen_top = in_wid_li_t()
     return widgets_screen_top
 def init_widgets_bot():
-    widgets_screen_bot = init_widgets_list_bot()
+    widgets_screen_bot = in_wid_li_b()
     return widgets_screen_bot
-
+def init_widgets_sec():
+    widgets_screen_sec = in_wid_li_s()
+    return widgets_screen_sec
 def init_screens():
     return [
         Screen(top=bar.Bar(widgets=init_widgets_top(),  size=20, background=colors[0]),
         bottom=bar.Bar(widgets=init_widgets_bot(), size=20, background=colors[0])),
-        Screen(top=bar.Bar(widgets=init_widgets_top(),  size=20, background=colors[0]),
-        bottom=bar.Bar(widgets=init_widgets_bot(), size=20, background=colors[0]))
+        Screen(bottom=bar.Bar(widgets=init_widgets_sec(), size=20, background=colors[0]))
         ]
 
 colors = init_colors()
 layout_theme = init_layout_theme()
 layouts = init_layouts()
 widget_defaults = init_widgets_defaults()
-widgets_list_top = init_widgets_list_top()
-widgets_list_bot = init_widgets_list_bot()
+wid_li_t = in_wid_li_t()
+wid_li_b = in_wid_li_b()
+wid_li_s = in_wid_li_s()
 widgets_screen_top = init_widgets_top()
 widgets_screen_bot = init_widgets_bot()
+widgets_screen_sec = init_widgets_sec()
 screens = init_screens()
 

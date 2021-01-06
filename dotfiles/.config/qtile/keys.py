@@ -30,10 +30,11 @@ def init_keys():
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
             Key([mod], "Escape", lazy.spawn('xkill')), # Click window to close
+            Key([mod], "r", lazy.spawncmd()),# Close Window 
             
             #### Widgets
             Key([mod], "h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
-            Key([mod], "r",lazy.spawn('/opt/bin/qback')), # Launcher
+            Key([mod], "P",lazy.spawn('/opt/bin/qback')), # Launcher
             Key([mod],"f",lazy.function(wsearx)), # WEB Search
             Key([mod],"x",lazy.spawn(lock)),
             #### Theming ####
