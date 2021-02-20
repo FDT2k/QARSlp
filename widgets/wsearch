@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# _______  _______  ______  _______  __        
+#|       ||   _   ||   __ \|     __||  |.-----.
+#|   -  _||       ||      <|__     ||  ||  _  |
+#|_______||___|___||___|__||_______||__||   __|
+#                                       |__|   
+# QARSlp Qtile + Arch Ricing Script
+# by: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
+browser="/usr/bin/firefox"
+
+engine=$(echo "${@:1}")
+search=$(echo "${@:2}")
+
+if [[ -z "$engine" ]]; then
+	surf=$(surfraw -elvi | awk -F'-' '{print $1}' | sed '/:/d' | awk '{$1=$1};1' |
+	        rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "Engine")
+elif [[ -z "$search" ]]; then
+	surf=$(echo "" | rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "$engine ")
+else
+    surfraw -browser=$browser $engine
+    
+fi
+
+# If you leave the prompt empty it will close, otherwise displaying the prompt.
+case $surf in
+	"") ;;
+	*) $0 $engine $surf ;;
+esac

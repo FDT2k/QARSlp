@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# _______  _______  ______  _______  __        
+#|       ||   _   ||   __ \|     __||  |.-----.
+#|   -  _||       ||      <|__     ||  ||  _  |
+#|_______||___|___||___|__||_______||__||   __|
+#                                       |__|   
+# QARSlp Qtile + Arch Ricing Script
+# by: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
+rofi_command="rofi -theme ~/.config/rofi/theme.rasi"
+
+## Icons
+B1="Dark -> Wal"
+W1="Light -> Wal"
+B2="Dark -> Haishoku"
+W2="Light -> Haishoku"
+B3="Dark -> Colorz"
+W3="Light -> Colorz"
+B4="Dark -> Colorthief"
+W4="Light -> Colorthief"
+
+options="$B1\n$W1\n$B2\n$W2\n$B3\n$W3\n$B4\n$W4"
+
+## Main
+chosen="$(echo -e "$options" | $rofi_command -p "Select backend" -dmenu -selected-row 0)"
+case $chosen in
+    $B1)
+		/opt/bin/rldwal wal
+        ;;
+    $B2)
+		/opt/bin/rldwal haishoku
+        ;;
+    $B3)
+		/opt/bin/rldwal colorz
+        ;;
+    $B4)
+		/opt/bin/rldwal colorthief
+        ;;
+    $W1)
+		/opt/bin/rldwalw wal
+        ;;
+    $W2)
+		/opt/bin/rldwalw haishoku
+        ;;
+    $W3)
+		/opt/bin/rldwalw colorz
+        ;;
+    $W4)
+		/opt/bin/rldwalw colorthief
+        ;;
+esac
+

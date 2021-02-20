@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../QAAS"
+		},
+		{
+			"path": "../LARBS"
+		}
+	],
+	"settings": {}
+}
