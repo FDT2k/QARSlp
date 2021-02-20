@@ -42,7 +42,7 @@ def init_keys():
 
             #### Apps ####
 
-            Key([mod],"e",lazy.spawn('pcmanfm')), # File manager
+            Key([mod],"e",lazy.spawn('nautilus')), # File manager
             Key([mod, "shift"],"e",lazy.spawn(term + '-e ranger')), # CLI file manager
 
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),

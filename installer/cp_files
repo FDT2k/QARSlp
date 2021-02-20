@@ -8,7 +8,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-
-cp -R ~/QARSlp/dotfiles/shortc.conf ~/
-sudo cp -R ~/QARSlp/scripts/. /opt/bin
-sudo cp -R ~/QARSlp/widgets/. /opt/bin
+cp -r -v ~/QARSlp/dotfiles/. ~/
+cp -r -v ~/QARSlp/dotfiles/shortc.conf ~/
+sudo cp -r -v ~/QARSlp/scripts/* /opt/bin
+sudo cp -r -v ~/QARSlp/widgets/*  /opt/bin
