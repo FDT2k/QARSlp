@@ -84,15 +84,19 @@ def in_wid_li_t():
                 widget.GroupBox(font='Font Awesome 5 Free',fontsize=14, disable_drag=True, hide_unused=False, fontshadow=colors[0], margin_y=1, padding_x=5, borderwidth=0, active=colors[7],  inactive=colors[1], rounded=False, highlight_method="text", this_current_screen_border=colors[0], this_screen_border=colors[3], other_current_screen_border=colors[0], other_screen_border=colors[0], foreground=colors[2], background=colors[1]),
                 
                 #### Notification ####
-                widget.TextBox(text="◢", background=colors[1], foreground=colors[3], padding=-2, fontsize=45),
-                widget.Prompt(prompt = prompt, foreground=colors[0], background = colors[3]),
-                widget.Notify(default_timeout=15, foreground_low=colors[3],foreground_urgent=colors[6], foreground=colors[7], background=colors[3]),
-                widget.TextBox(background=colors[0],foreground=colors[3],text="◤ ",fontsize=45,padding=-2),
+                #widget.TextBox(foreground=colors[1],background = colors[1],text="◢",fontsize=45,padding=-2),
+                widget.Prompt(prompt = prompt, foreground=colors[0], background = colors[1]),
+                widget.Notify(),
+                widget.TextBox(background=colors[0],foreground=colors[1],text="◤ ",fontsize=45,padding=-2),
                 #### Spacer ####
                 widget.Spacer(length=bar.STRETCH,background=colors[0],foreground=colors[0]),
                 
+                #### Bitcoin ####
+                widget.TextBox(text="◢", background=colors[0], foreground=colors[1], padding=-2, fontsize=45),
+                widget.BitcoinTicker(background=colors[1], foreground=colors[0]),
+
                 #### Spotify ####
-                widget.TextBox(text="◢", background=colors[0], foreground=colors[6], padding=-2, fontsize=45),
+                widget.TextBox(text="◢", background=colors[1], foreground=colors[6], padding=-2, fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=15,text="", padding=5, foreground=colors[0], background=colors[6], fontshadow=colors[7], mouse_callbacks={'Button1': ncsp}),
                 widget.Mpris2(name='ncspot', objname='org.mpris.MediaPlayer2.ncspot', scroll_chars=25, background=colors[6], foreground=colors[0], stop_pause_text= '', display_metadata=['xesam:artist','xesam:title'],scroll_interval=0.5, scroll_wait_intervals=1000),
                 
@@ -110,29 +114,23 @@ def in_wid_li_t():
                 #### Updates ####
                 widget.TextBox(text='◢', background=colors[5], foreground=colors[3], padding=-2,fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,background=colors[3], foreground=colors[0],fontshadow=colors[7],text=" "),
-                widget.CheckUpdates(update_interval=1800, foreground=colors[0], mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')}, background = colors[3], colour_have_updates=colors[0],colour_no_updates=colors[0], display_format='Updates: {updates}'),
+                widget.CheckUpdates(update_interval=1800, distro='Arch', foreground=colors[0], mouse_callbacks={'Button1': lambda qtile: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')}, background = colors[3], colour_have_updates=colors[0],colour_no_updates=colors[0]),
         
                 #### Khal Calendar ####
                 #widget.KhalCalendar(lookahead=15, remindertime=60, foreground=colors[0], background=colors[7]),
-                #widget.BitcoinTicker(),
+                
                 
                 #### Sound Control ####
                 widget.TextBox(text='◢', background=colors[3], foreground=colors[7], padding=-2,fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',text=" ", foreground=colors[0], background=colors[7], padding=0, fontsize=15,mouse_callbacks={'Button1':pav},fontshadow=colors[3]),
                 widget.Volume(channel='Master', background=colors[7], foreground=colors[0], fontshadow=colors[7]),
                 
-                #### Date ####
+                #### Date Clock Session Control ####
                 widget.TextBox(text='◢', background=colors[7], foreground=colors[0], padding=-2,fontsize=45),
                 widget.TextBox(font='Font Awesome 5 Free',padding=1,text="",fontsize=14, foreground=colors[7],background=colors[0],fontshadow=colors[3]),
-                widget.Clock(foreground=colors[7], background=colors[0], format="%b %a %d", update_interval=1),
+                widget.Clock(foreground=colors[7], background=colors[0], format="%b %a %d -> %H:%M", update_interval=1),
                 
-                #### Clock ####
-                widget.TextBox(text='◢', background=colors[0], foreground=colors[7], padding=-2,fontsize=45),
-                widget.TextBox(font='Font Awesome 5 Free',fontsize=14, text="", foreground=colors[0],background=colors[7],fontshadow=colors[3]),
-                widget.Clock(foreground=colors[0], background=colors[7], format="%H:%M",update_interval=1,),
-                
-                ### Session Control ####
-                widget.TextBox(text='◢', background=colors[7], foreground=colors[0], padding=-2,fontsize=45),
+                ####
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': lock},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': lout},fontshadow=colors[3]),
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=14,foreground=colors[7],text="",mouse_callbacks={'Button1': poff},fontshadow=colors[3]),
@@ -145,9 +143,9 @@ def in_wid_li_b():
                 widget.TextBox(font='Font Awesome 5 Free',fontsize=15,foreground=colors[7],fontshadow=colors[4],text=""),
                 widget.WindowName(foreground=colors[7], background=colors[0], padding=5),
                 widget.Spacer(length=bar.STRETCH,),
-                #widget.TextBox(text="◢",background=colors[0], foreground=colors[1], padding=-2, fontsize=45),
-                #widget.YahooWeather(background=colors[1], foreground=colors[0], metric=True, update_interval=600, format='{location_city}: {condition_temp} °{units_temperature}', woeid='136973'),
-                widget.TextBox(text='◢',background=colors[0],foreground=colors[6],padding=-2,fontsize=45,mouse_callbacks={'Button1': ncsp}),
+                widget.TextBox(text="◢",background=colors[0], foreground=colors[1], padding=-2, fontsize=45),
+                widget.OpenWeather(app_key='e45a0f07f0c675b273ef8636663941db', cityid='3521342', background=colors[1], foreground=colors[0],format='{main_temp}°{units_temperature} {humidity}% {weather_details}', metric=True, update_interval=600),
+                widget.TextBox(text='◢',background=colors[1],foreground=colors[6],padding=-2,fontsize=45,mouse_callbacks={'Button1': ncsp}),
                 widget.Wlan(interface=netact, format='{essid} {percent:2.0%}', disconnected_message='Unplugged', foreground=colors[0], background=colors[6], mouse_callbacks={'Button1':netw}),
                 widget.Net(font='Font Awesome 5 Free',fontsize=15,interface=netact, format=' ',foreground=colors[0], background=colors[6], fontshadow=colors[7],mouse_callbacks={'Button1':netw}),
                 widget.Net(fontsize=15,interface=netact, format=netact, foreground=colors[0], background=colors[6],mouse_callbacks={'Button1':netw}),
@@ -178,11 +176,11 @@ def in_wid_li_b():
                 widget.KeyboardLayout(foreground=colors[7],background=colors[0],padding=5, fontshadow=colors[4]),
                 
                 #### Caps lock Num Lock Indicator ####
-                widget.TextBox(text="◢",background = colors[0],foreground=colors[7],padding=-2,fontsize=45),
-                widget.CapsNumLockIndicator(foreground=colors[0],background=colors[7],padding=5),
+                widget.TextBox(text="◢",background = colors[0],foreground=colors[1],padding=-2,fontsize=45),
+                widget.CapsNumLockIndicator(foreground=colors[0],background=colors[1],padding=5),
 
                 #### Battery for laptops ####
-                widget.TextBox(text="◢",background = colors[7],foreground=colors[0],padding=-2,fontsize=45),
+                widget.TextBox(text="◢",background = colors[1],foreground=colors[0],padding=-2,fontsize=45),
                 #widget.BatteryIcon(show_short_text=True, notify_below=30, discharge_char=' ', empty_char='', full_char=' ',background=colors[0], foreground=colors[7]),
                 #widget.Battery(format='{percent:2.0%}', show_short_text=False,update_interval=5,background=colors[0], foreground=colors[7]),
                 
