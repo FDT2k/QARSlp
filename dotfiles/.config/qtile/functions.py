@@ -7,43 +7,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-def netw(qtile):
-    qtile.cmd_spawn('network')
+from libqtile import qtile
 
-def urx(qtile):
-    qtile.cmd_spawn('urxvt')
-
-def htop(qtile):
-    qtile.cmd_spawn('urxvt -e htop')
-
-def rangercli(qtile):
-    qtile.cmd_spawn('pcmanfm')
-
-def lock(qtile):
-    qtile.cmd_spawn('betterlockscreen --lock')
-
-def rboot(qtile):
-    qtile.cmd_spawn('urxvt -e sudo reboot')
-
-def poff(qtile):
-    qtile.cmd_spawn('urxvt -e sudo poweroff')
-
-def lout(qtile):
-    qtile.cmd_spawn('qtile-cmd -o cmd -f shutdown')
     
-def pav(qtile):
-    qtile.cmd_spawn('pavucontrol')
 
-def ran(qtile):
-    qtile.cmd_spawn('/opt/bin/genwal')
-
-def men(qtile):
-    qtile.cmd_spawn("rofi -theme '~/.config/rofi/launcher.rasi' -show drun")
-
-def ncsp(qtile):
-    qtile.groups_map["7"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('urxvt -e ncspot')
-
-def wsearx(qtile):
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('/opt/bin/wsearch')

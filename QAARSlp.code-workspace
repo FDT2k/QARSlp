@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../LARBS"
+		},
+		{
+			"path": "../Cloud/t-ui"
 		}
 	],
 	"settings": {}
