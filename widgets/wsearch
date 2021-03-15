@@ -23,7 +23,7 @@ else
     
 fi
 
-# If you leave the prompt empty it will close, otherwise displaying the prompt.
+# Display prompt if !empty
 case $surf in
 	"") ;;
 	*) $0 $engine $surf ;;

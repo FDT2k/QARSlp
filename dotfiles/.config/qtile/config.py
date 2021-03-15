@@ -121,17 +121,11 @@ def netw(qtile):
 def rangercli(qtile):
     qtile.cmd_spawn('nautilus')
 
-def lock():
-    qtile.cmd_spawn('betterlockscreen --lock')
+def wsess():
+    run('/opt/bin/logout')
 
-def rboot():
-    qtile.cmd_spawn('urxvt -e sudo reboot')
-
-def poff():
-    qtile.cmd_spawn('urxvt -e sudo poweroff')
-
-def lout():
-    qtile.cmd_spawn('qtile-cmd -o cmd -f shutdown')
+def ksess(qtile):
+    run('/opt/bin/logout')
 
 #### End Functions ####
 
@@ -193,10 +187,10 @@ def init_keys():
             Key([mod], "r", lazy.spawncmd()),# Close Window 
             
             #### Widgets
-            Key([mod], "h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
-            Key([mod], "p",lazy.spawn('/opt/bin/qback')), # Launcher
+            Key([mod],"h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
+            Key([mod],"p",lazy.spawn('/opt/bin/qback')), # Launcher
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
-            #Key([mod],"x",lazy.spawn(lock)),
+            Key([mod],"x",lazy.function(ksess)),
             #### Theming ####
             Key([mod], "w",lazy.spawn('/opt/bin/genwal')), # Set randwom wallpaper / colors to entire system
 
@@ -572,24 +566,8 @@ def in_wid_li_t():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     foreground=colors[7],
-                    text="",
-                    mouse_callbacks={'Button1': lock},
-                    fontshadow=colors[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free',
-                    fontsize=15,
-                    foreground=colors[7],
-                    text="",
-                    mouse_callbacks={'Button1': lout},
-                    fontshadow=colors[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free',
-                    fontsize=15,
-                    foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': poff},
+                    mouse_callbacks={'Button1': wsess},
                     fontshadow=colors[3]
                     ),
     ]
@@ -802,22 +780,22 @@ def in_wid_li_b():
                     padding=-2,
                     fontsize=45
                     ),
-                widget.BatteryIcon(
-                    show_short_text=True,
-                    notify_below=30,
-                    discharge_char=' ',
-                    empty_char='',
-                    full_char=' ',
-                    background=colors[0],
-                    foreground=colors[7]
-                    ),
-                widget.Battery(
-                    format='{percent:2.0%}',
-                    show_short_text=False,
-                    update_interval=5,
-                    background=colors[0],
-                    foreground=colors[7]
-                    ),
+               # widget.BatteryIcon(
+                #    show_short_text=True,
+                #    notify_below=30,
+                #    discharge_char=' ',
+                #    empty_char='',
+                #    full_char=' ',
+                #    background=colors[0],
+                #    foreground=colors[7]
+                #    ),
+                #widget.Battery(
+                #    format='{percent:2.0%}',
+                #    show_short_text=False,
+                #    update_interval=5,
+                #    background=colors[0],
+                #    foreground=colors[7]
+                #    ),
                 #### Systray ####
                 widget.Systray(
                     icon_size=18,

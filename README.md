@@ -1,37 +1,42 @@
 # QARSlp OS Qtile + Arch + AutoRicing + Installable ISO
 
-by: gibranlp thisdoesnotwork@gibranlp.dev MIT licence
+by: gibranlp thisdoesnotwork@gibranlp.dev 
+MIT licence
 
-Fork / upgrade from QAAS, this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
+Fork / upgrade from ![QAAS](https://github.com/gibranlp/QAAS), this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
 ## Features
 - [ ] ISO installable by script (Work in progress towards version 1.0)
 - [x] Qtile adapts with the wallpaper colors 
 - [x] Auto detects the network card in use and displays it on widgets
-- [x] Many rofi panels like:
+- [x] Many ![Rofi](https://github.com/davatorium/rofi) panels like:
   - [x] App launcher
-  - [x] Web Serarch bar
-  - [x] Network management
-  - [x] Change Randowm wallpaper with options
+  - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
+  - [] Network management
+  - [x] Screenshot menu
+  - [x] Change randowm wallpaper with options
+  - [x] Session menu
 
-### Planned upgrades
-- [ ] More python based in general
-- [ ] Modular configuration of qtile
-- [ ] more rofi applets informative / interactive 
-  - [ ] Network configuration
-  - [ ] App / Shortcuts - display shortcuts for qtile and some apps
-  - [ ] Semi control panel
-  - [ ] rofi searchbar to accept websites too
-  - [ ] Agregar mercadolibre a surfraw / elvi
-  - [ ] Autoconnect hdmi display on laptop
-  - [ ] assign specific group to external display
-  - [ ] Choose on different palettes
+## Planned upgrades
+- [x] App / Shortcuts - display shortcuts for qtile and some apps
+- [ ] Semi control panel
+- [ ] Autoconnect hdmi display on laptop
+- [ ] Assign specific group to external display
+- [x] Choose on different palettes
+- [ ] Different themes
+- [ ] Theme selector
 
-## Apps integrated so far
+## Apps included
 - [x] Firefox
 - [x] Visual-studio-code
-- [x] Qtile
+- [x] Qtile (wm)
 - [x] Rofi
+- [x] Ncspot (CLI Spotify client)
+- [x] Libre Office
+- [x] Nmtui (CLI Network settings)
+- [x] Bmon (CLI Network monitor)
+- [x] Nmtui (CLI) Network manager)
+
 
 # Screenshots
 
