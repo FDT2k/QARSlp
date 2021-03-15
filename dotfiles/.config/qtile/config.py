@@ -7,33 +7,26 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-import os, re, subprocess, json, socket
+import os
+import re
+import socket
+import subprocess
+import json
+from libqtile import qtile
 from libqtile import hook
 from libqtile.command import lazy
 from libqtile.config import Screen, Key, Group, Match, Drag, Click, Rule
-from libqtile import qtile
-from libqtile import layout, bar, widget
+from libqtile import qtile, layout, bar, widget
 from libqtile.lazy import lazy
-from libqtile.widget import Spacer, Notify
 from subprocess import run
 
 #### Variables ####
-
 mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
-
 #### End variables ####
-
-#### Import Network Interface ####
-
-with open(home + '/.config/qtile/actnet', 'r') as file:
-    netact = file.read().replace('\n', '')
-
-#### End Import Network Interface ####
 
 ##### Import Pywal Palette #####
 with open(home + '/.cache/wal/colors.json') as json_file:
@@ -50,6 +43,16 @@ colors = init_colors()
 
 ##### End Import Pywal Palette #####
 
+
+
+#### Import Network Interface ####
+
+with open(home + '/.config/qtile/actnet', 'r') as file:
+    netact = file.read().replace('\n', '')
+
+#### End Import Network Interface ####
+
+
 #### Hooks ####
 
 @hook.subscribe.startup_once
@@ -62,8 +65,8 @@ def start():
 
 @hook.subscribe.screen_change
 def restart_on_randr():
-    #qtile.cmd_spawn('urxvt -e xrandr --output HDMI1 --auto --right-of eDP1')
-	qtile.cmd_restart()
+    qtile.cmd_spawn('urxvt -e xrandr --output HDMI1 --auto --right-of eDP1')
+    qtile.cmd_restart()
 
 @hook.subscribe.client_new
 def floating(window):
@@ -410,44 +413,10 @@ def in_wid_li_t():
                     background=colors[0],
                     foreground=colors[0]
                     ),   
-                #### Network ####
-                widget.TextBox(
-                    text='◢',
-                    background=colors[0],
-                    foreground=colors[5],
-                    padding=-2,
-                    fontsize=45
-                    ),
-                widget.Net(
-                    font='Font Awesome 5 Free',
-                    fontsize=15,
-                    interface=netact,
-                    format='',
-                    foreground=colors[0],
-                    background=colors[5],
-                    fontshadow=colors[7],
-                    mouse_callbacks={'Button1':netw}
-                    ),
-                widget.Wlan(
-                    interface=netact,
-                    format='{essid} {percent:2.0%}',
-                    disconnected_message='Unplugged',
-                    foreground=colors[0],
-                    background=colors[5],
-                    mouse_callbacks={'Button1':netw}
-                    ),
-                #widget.Net(fontsize=15, interface=netact, format=netact, foreground=colors[0], background=colors[6],mouse_callbacks={'Button1':netw}),
-                #widget.Net(font='Font Awesome 5 Free',fontsize=15,interface=netact, format=' ↓', foreground=colors[0], background=colors[6], fontshadow=colors[7], use_bits=True, mouse_callbacks={'Button1':netw}),
-                #widget.Net(interface=netact, format='{down}', foreground=colors[0], background=colors[6], use_bits=True, mouse_callbacks={'Button1':netw}),
-                #widget.NetGraph(type='linefill', fill_color=colors[7], border_color=colors[0], graph_color=colors[0],foreground=colors[0], background=colors[6]),
-                #widget.Net(font='Font Awesome 5 Free',fontsize=15,interface=netact, format='↑', foreground=colors[0], background=colors[6], fontshadow=colors[7], use_bits=True, mouse_callbacks={'Button1':netw}),
-                #widget.Net(interface=netact, format='{up}', foreground=colors[0], background=colors[6], use_bits=True, mouse_callbacks={'Button1':netw}),
-
-                
                 #### Spotify ####
                 widget.TextBox(
                     text="◢",
-                    background=colors[5],
+                    background=colors[0],
                     foreground=colors[6],
                     padding=-2,
                     fontsize=45
@@ -632,10 +601,46 @@ def in_wid_li_b():
                 widget.Spacer(
                     length=bar.STRETCH
                     ),
+                #### Network ####
+                widget.TextBox(
+                    text='◢',
+                    background=colors[0],
+                    foreground=colors[5],
+                    padding=-2,
+                    fontsize=45
+                    ),
+                widget.Net(
+                    font='Font Awesome 5 Free',
+                    fontsize=15,
+                    interface=netact,
+                    format='',
+                    foreground=colors[0],
+                    background=colors[5],
+                    fontshadow=colors[7],
+                    mouse_callbacks={'Button1':netw}
+                    ),
+                widget.Wlan(
+                    interface=netact,
+                    format='{essid} {percent:2.0%} ',
+                    disconnected_message='Unplugged',
+                    foreground=colors[0],
+                    background=colors[5],
+                    mouse_callbacks={'Button1':netw}
+                    ),
+                widget.Net(
+                    font='Font Awesome 5 Free',
+                    fontsize=15,
+                    interface=netact,
+                    format='{down} ↓↑ {up}',
+                    foreground=colors[0],
+                    background=colors[5],
+                    use_bits=True,
+                    mouse_callbacks={'Button1':netw}
+                    ),
                 #### Bitcoin ####
                 widget.TextBox(
                     text="◢",
-                    background=colors[0],
+                    background=colors[5],
                     foreground=colors[3],
                     padding=-2,
                     fontsize=45
