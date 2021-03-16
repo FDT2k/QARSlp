@@ -115,16 +115,13 @@ def ksearx(qtile):
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
     run('/opt/bin/wsearch')
 
-def netw(qtile):
-    qtile.cmd_spawn('network')
+def wnetw():
+    qtile.cmd_spawn('/opt/bin/network')
 
 def rangercli(qtile):
     qtile.cmd_spawn('nautilus')
 
 def wsess():
-    run('/opt/bin/logout')
-
-def ksess(qtile):
     run('/opt/bin/logout')
 
 #### End Functions ####
@@ -190,7 +187,9 @@ def init_keys():
             Key([mod],"h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
             Key([mod],"p",lazy.spawn('/opt/bin/qback')), # Launcher
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
-            Key([mod],"x",lazy.function(ksess)),
+            Key([mod],"x",lazy.spawn('/opt/bin/logout')),
+            Key([mod],"n",lazy.spawn('/opt/bin/network')),
+            Key([mod, "shift"],"w",lazy.spawn('/opt/bin/qback')),
             #### Theming ####
             Key([mod], "w",lazy.spawn('/opt/bin/genwal')), # Set randwom wallpaper / colors to entire system
 
@@ -207,7 +206,6 @@ def init_keys():
            
 
             ## Group 2 (Social: Whatsapp, Telegram, )
-            Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
             Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),
             Key([mod, "shift"],"d",lazy.function(app_or_group('3', 'discord'))),
 
@@ -595,7 +593,7 @@ def in_wid_li_b():
                     foreground=colors[0],
                     background=colors[5],
                     fontshadow=colors[7],
-                    mouse_callbacks={'Button1':netw}
+                    mouse_callbacks={'Button1': wnetw}
                     ),
                 widget.Wlan(
                     interface=netact,
@@ -603,7 +601,7 @@ def in_wid_li_b():
                     disconnected_message='Unplugged',
                     foreground=colors[0],
                     background=colors[5],
-                    mouse_callbacks={'Button1':netw}
+                    mouse_callbacks={'Button1':wnetw}
                     ),
                 widget.Net(
                     font='Font Awesome 5 Free',
@@ -613,7 +611,7 @@ def in_wid_li_b():
                     foreground=colors[0],
                     background=colors[5],
                     use_bits=True,
-                    mouse_callbacks={'Button1':netw}
+                    mouse_callbacks={'Button1':wnetw}
                     ),
                 #### Bitcoin ####
                 widget.TextBox(

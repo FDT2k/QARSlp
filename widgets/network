@@ -21,13 +21,13 @@ urgent="Urgente"
 if (ping -c 1 gibranlp.dev) &>/dev/null; then
 	if [[ $STATUS == *"enable"* ]]; then
         if [[ $IFACE == e* ]]; then
-            connected=""
+            connected=" Turn Wifi On"
         else
-            connected=""
+            connected=" Turn Wifi Off"
         fi
 	active="-a 0"
 	SSID="﬉ $(iwgetid -r)"
-	PIP="$(wget --timeout=30 http://ipinfo.io/ip -qO -)"
+	PIP="$(wget --timeout=3 http://ipinfo.io/ip -qO -)"
 	fi
 else
     urgent="-u 0"
@@ -39,12 +39,12 @@ fi
 ## Icons
 bmon=" Bandwith Monitor"
 launch_cli=" Network Manager (CLI)"
-launch="Network Manager (GUI)"
+launch=" Network Manager (GUI)"
 
 options="$connected\n$bmon\n$launch_cli\n$launch"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$SSID  ::  $PIP" -dmenu $active $urgent -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$SSID  :: IP $PIP" -dmenu $active $urgent -selected-row 0)"
 case $chosen in
     $connected)
 		if [[ $STATUS == *"enable"* ]]; then

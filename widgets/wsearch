@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-browser="/usr/bin/firefox"
+browser="firefox"
 
 engine=$(echo "${@:1}")
 search=$(echo "${@:2}")
@@ -19,7 +19,7 @@ if [[ -z "$engine" ]]; then
 elif [[ -z "$search" ]]; then
 	surf=$(echo "" | rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "$engine ")
 else
-    surfraw -browser=$browser $engine
+    surfraw -browser=$browser $engine &
     
 fi
 
