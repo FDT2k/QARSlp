@@ -12,3 +12,4 @@ cp -r -v ~/QARSlp/dotfiles/. ~/
 cp -r -v ~/QARSlp/dotfiles/shortc.conf ~/
 sudo cp -r -v ~/QARSlp/scripts/* /opt/bin
 sudo cp -r -v ~/QARSlp/widgets/*  /opt/bin
+sudo cp -r -v ~/.cache/wal /root/.cache/
