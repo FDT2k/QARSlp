@@ -5,6 +5,20 @@ MIT licence
 
 Fork / upgrade from ![QAAS](https://github.com/gibranlp/QAAS), this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
+## Installation
+
+This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
+
+  - First you need to clone this repository
+    - `git clone https://github.com/gibranlp/QARSlp.git`
+    - `cd QARSlp/installer`
+  - This Scrip will install all the programs and dependencies needed for this to work the sudo password is needed a few times, (if you want to avoid this add your user to the sudoers file see ![here](https://gibranlp.dev/post/sudoers/))
+
+  - `chmod +x ./base.sh`
+    - `chmod +x ./cp_files.sh`
+    - 
+
+
 ## Features
 - [x] Packs of wallpapers
 - [ ] ISO installable by script (Work in progress towards version 1.0)

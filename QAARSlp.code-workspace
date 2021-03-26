@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../Cloud/t-ui"
+		},
+		{
+			"path": "../Cloud/gibranlp/site"
 		}
 	],
 	"settings": {}

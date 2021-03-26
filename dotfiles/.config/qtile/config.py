@@ -129,9 +129,9 @@ def wsess():
 #### Layouts ####
 def init_layout_theme():
     return {"font":"Fira Code Medium",
-            "fontsize":15,
-            "margin": 15,
-            "border_width":5,
+            "fontsize":16,
+            "margin": 10,
+            "border_width":3,
             "border_normal":colors[0],
             "border_focus":colors[5],
             "single_margin":0,
@@ -287,8 +287,8 @@ def init_keys():
 def init_widgets_defaults():
     return dict(font="Fira Code Medium",fontsize=16,padding=2,background=colors[0])
 
-def in_wid_li_t():    
-    wid_li_t = [
+def init_wid_list_top():    
+    wid_list_top = [
                 #### Shortcuts ####
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -570,10 +570,10 @@ def in_wid_li_t():
                     fontshadow=colors[3]
                     ),
     ]
-    return wid_li_t
+    return wid_list_top
 
-def in_wid_li_b():
-    wid_li_b = [
+def in_wid_list_bot():
+    wid_list_bot = [
                 #widget.DebugInfo(foreground=colors[7], background=colors[0], fontshadow=colors[2]),
                 widget.Spacer(
                     length=bar.STRETCH
@@ -802,10 +802,10 @@ def in_wid_li_b():
                     foreground=colors[7]
                     ),
                     ]
-    return wid_li_b
+    return wid_list_bot
 
-def in_wid_li_s():
-    wid_li_s = [
+def in_wid_list_sec():
+    wid_list_sec = [
                 widget.TextBox(
                     font='Font Awesome 5 Free',
                     fontsize=15,
@@ -814,7 +814,7 @@ def in_wid_li_s():
                     fontshadow=colors[3]
                     ),
                 ]
-    return wid_li_s
+    return wid_list_sec
 
 #### End Widgets ####
 
@@ -854,13 +854,13 @@ floating_layout = layout.Floating(float_rules=[
 ##### Screens #####
 
 def init_widgets_top():
-    widgets_screen_top = in_wid_li_t()
+    widgets_screen_top = init_wid_list_top()
     return widgets_screen_top
 def init_widgets_bot():
-    widgets_screen_bot = in_wid_li_b()
+    widgets_screen_bot = in_wid_list_bot()  
     return widgets_screen_bot
 def init_widgets_sec():
-    widgets_screen_sec = in_wid_li_s()
+    widgets_screen_sec = in_wid_list_sec()
     return widgets_screen_sec
 def init_screens():
     return [
@@ -875,9 +875,9 @@ colors = init_colors()
 layout_theme = init_layout_theme()
 layouts = init_layouts()
 widget_defaults = init_widgets_defaults()
-wid_li_t = in_wid_li_t()
-wid_li_b = in_wid_li_b()
-wid_li_s = in_wid_li_s()
+wid_list_top = init_wid_list_top()
+wid_list_bot = in_wid_list_bot()
+wid_list_sec = in_wid_list_sec()
 widgets_screen_top = init_widgets_top()
 widgets_screen_bot = init_widgets_bot()
 widgets_screen_sec = init_widgets_sec()
