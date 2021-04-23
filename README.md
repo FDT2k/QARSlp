@@ -5,6 +5,15 @@ MIT licence
 
 Fork / upgrade from ![QAAS](https://github.com/gibranlp/QAAS), this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
+## Installable ISO
+
+Finally the installable ISO is here.
+
+- [x] Arch based
+- [x] Zen Kernel
+
+
+
 ## Installation
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.

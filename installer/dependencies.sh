@@ -10,6 +10,7 @@
 # 
 function i_base () {
   packets=(
+    'base-devel'
     'htop'
     'git'
     'alsa-utils'
@@ -21,10 +22,10 @@ function i_base () {
     'gst-plugins-ugly'
     'alsa-plugins'
     'ttf-fira-code'
-    'telegram-desktop'
+    #'telegram-desktop'
     'playerctl'
     'firefox'
-    'filezilla'
+    #'filezilla'
     'rxvt-unicode'
     'urxvt-perls'
     'cups'
@@ -33,7 +34,7 @@ function i_base () {
     'wireshark-cli'
     'gutenprint'
     'gtk3-print-backends'
-    'nmap'
+    #'nmap'
     'pulseaudio'
     'pulseaudio-alsa'
     'pavucontrol'
@@ -42,12 +43,12 @@ function i_base () {
     'qtile'
     'lshw'
     'ttf-font-awesome'
-    'gnome-keyring'
+    #'gnome-keyring'
     'scrot'
     'rofi'
     'surfraw'
     'python-pip'
-    'pkgfile'
+    #'pkgfile'
     'ranger'
     'zsh'
     'feh'
@@ -55,28 +56,27 @@ function i_base () {
     'neofetch'
     'lxappearance'
     'lxsession'
-    'transmission-gtk'
+    #'transmission-gtk'
     'numlockx'
-    'unzip'
-    'hugo'
-    'khal'
-    'vdirsyncer'
+    #'unzip'
+    #'hugo'
+    #'khal'
+    #'vdirsyncer'
     'bmon'
     'lm_sensors'
-    'vis'
     'obconf'
     'viewnior'
     'ntp'
     'pcmanfm'
     'imagewriter'
-    'mintstick'
+    #'mintstick'
     'nm-connection-editor'
     'nm-applet'
     'arandr'
-    'gparted'
+    #'gparted'
     'system-config-printer'
     'cmatrix'
-    'kdeconnect'
+    #'kdeconnect'
 )
 
 for packet in "${packets[@]}"; do
@@ -96,11 +96,12 @@ done
 
 
 
-function i_yay(){
-  git clone https://aur.archlinux.org/yay.git && cd yay
-  makepkg -si && cd
-  rm -rf yay
-  yay
+function i_paru(){
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si
+  cd
+  rm -rf paru
 }
 
 function i_pip(){
@@ -125,7 +126,9 @@ function i_pip(){
   done
 }
 
-# yay -S anydesk-bin betterlockscreen python-haishoku python-colorthief visual-studio-code-bin dnsutils
+# yay -S  betterlockscreen python-haishoku python-colorthief visual-studio-code-bin cli-visualizer
+
+#anydesk-bin
 
 function i_post(){
   pywalfox install &
@@ -135,5 +138,5 @@ function i_post(){
 }
 
 i_base
-i_yay
+i_paru
 i_pip
