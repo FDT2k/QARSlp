@@ -16,52 +16,61 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 
   - `chmod +x ./base.sh`
     - `chmod +x ./cp_files.sh`
-    - 
-
 
 ## Features
 - [x] Packs of wallpapers
 - [ ] ISO installable by script (Work in progress towards version 1.0)
 - [x] Qtile adapts with the wallpaper colors 
 - [x] Auto detects the network card in use to display it on widgets
-- [x] Many ![Rofi](https://github.com/davatorium/rofi) widgets like:
-  - [x] App launcher
-  - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
-  - [x] Network management
-  - [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
-  - [x] Change randowm wallpaper with options
-  - [x] Backend Selector (Change between the pywal color schemes with the same wallpaper)
+- [x] Wallpaper generated is now saved into a file for further use (backend changes)
+
+### Menu launchers
+- [x] Launcher
+- [x] Web search
+- [x] Terminal
+- [x] Ranger ~/
+- [x] Randomize wallpaper
+- [ ] Vis (CLI-visualizer)
+- [x] Ncspot (CLI Spotify client)
+- [x] Shortcuts widget
+- [x] Sessión menu(top-right)
+
+### Widgets ![Rofi](https://github.com/davatorium/rofi) based
+
+- [x] Launcher
+- [x] Change palette (same wallpaper) 
     - [x] colorz
     - [x] haishoku
     - [x] schemer2
     - [x] wal
     - [x] colorthief
-  - [x] Session menu
+- [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
+- [x] Network / Internet
+  - [ ] Speedtest-cli (CLI Network settings)
+  - [ ] Wireshark-cli (CLI Network settings)
+  - [x] Nmtui (CLI Network settings)
+  - [x] Bmon (CLI Network monitor)
+- [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
+- [x] Shortcut's page / search
+- [x] Session menu
     - [x] Logout
     - [x] Power Off
     - [x] Reboot
 
 ## Planned upgrades
-- [x] App / Shortcuts - display shortcuts for qtile and some apps
 - [ ] Autoconnect hdmi display on laptop
 - [ ] Assign specific group to external display
 - [x] Choose on different palettes
-- [ ] Different themes
 - [ ] Theme selector
-- [x] Wallpaper generated is now saved into a file for further use (backend changes)
-- [ ] Find gtk2 theme and icons
+- [ ] Remove gtk apps, Qt based instead
 
-## Apps included
-- [x] Firefox
+## Other included apps
+
+- [x] Remove Firefox?
 - [x] Visual-studio-code
 - [x] Qtile (wm)
 - [x] Rofi
-- [x] Ncspot (CLI Spotify client)
 - [x] Libre Office
-- [x] Nmtui (CLI Network settings)
-- [x] Bmon (CLI Network monitor)
-- [x] Nmtui (CLI) Network manager)
-- [x] Cli-Visualizer (Changes color automatically)
 
 # Screenshots
 
@@ -77,3 +86,13 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 ![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.%20.png)
 ![11](https://github.com/gibranlp/QARSlp/blob/main/screenshots/11.%20.png)
 ![12](https://github.com/gibranlp/QARSlp/blob/main/screenshots/12.%20.png)
+
+
+
+
+
+### Idea
+
+- Import config.py and auto theme it, possible? 
+  Extract groups, keys, layouts into QARSlp, like a theme import
+  Theme generator?
