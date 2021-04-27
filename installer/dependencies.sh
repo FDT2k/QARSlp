@@ -41,7 +41,6 @@ function i_base () {
     'volumeicon'
     'picom'
     'qtile'
-    'lshw'
     'ttf-font-awesome'
     #'gnome-keyring'
     'scrot'
@@ -69,14 +68,20 @@ function i_base () {
     'ntp'
     'pcmanfm'
     'imagewriter'
-    #'mintstick'
     'nm-connection-editor'
     'nm-applet'
     'arandr'
-    #'gparted'
     'system-config-printer'
     'cmatrix'
-    #'kdeconnect'
+    'pip'
+    'python-pywal'
+    'python-psutil'
+    'python-xdg'
+    'python-iwlib'
+    'python-ipc'
+    'python-dateutil'
+
+    
 )
 
 for packet in "${packets[@]}"; do
@@ -106,14 +111,9 @@ function i_paru(){
 
 function i_pip(){
   pip_packets=(
-    'pywal'
-    'psutil'
     'fontawesome'
-    'xdg'
-    'iwlib'
     'ipc'
     'pywalfox'
-    'python-dateutil'
     'colorz'
     'colorthief'
     'haishoku'
@@ -126,9 +126,8 @@ function i_pip(){
   done
 }
 
-# yay -S  betterlockscreen python-haishoku python-colorthief visual-studio-code-bin cli-visualizer
+# paru -S  betterlockscreen python-haishoku python-colorthief visual-studio-code-bin cli-visualizer --skipreview --noconfirm
 
-#anydesk-bin
 
 function i_post(){
   pywalfox install &
