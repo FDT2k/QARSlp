@@ -96,7 +96,7 @@ for packet in "${packets[@]}"; do
     echo "Instalando --> ${packet}"
     sudo pacman -S "${packet}" --noconfirm --needed
 done
-}
+
 
 
 
