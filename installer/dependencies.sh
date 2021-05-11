@@ -90,17 +90,6 @@ for packet in "${packets[@]}"; do
 done
 }
 
-
-
-for packet in "${packets[@]}"; do
-    echo "Instalando --> ${packet}"
-    sudo pacman -S "${packet}" --noconfirm --needed
-done
-
-
-
-
-
 function i_paru(){
   git clone https://aur.archlinux.org/paru.git
   cd paru
@@ -117,7 +106,6 @@ function i_pip(){
     'colorz'
     'colorthief'
     'haishoku'
-    'schemer2'
   )
 
   for pip_packet in "${pip_packets[@]}"; do
@@ -126,7 +114,24 @@ function i_pip(){
   done
 }
 
-# paru -S  betterlockscreen python-haishoku python-colorthief visual-studio-code-bin cli-visualizer --skipreview --noconfirm
+function i_aur () {
+  packets=(
+    'betterlockscreen'
+    'python-haishoku'
+    'python-colorthief'
+    'visual-studio-code-bin'
+    'cli-visualizer'
+
+    
+)
+
+for packet in "${packets[@]}"; do
+    echo "Instalando --> ${packet}"
+    sudo paru -S "${packet}" --noconfirm
+done
+}
+
+# paru -S   python-haishoku python-colorthief visual-studio-code-bin cli-visualizer --skipreview --noconfirm
 
 
 function i_post(){
