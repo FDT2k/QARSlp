@@ -144,3 +144,4 @@ function i_post(){
 i_base
 i_paru
 i_pip
+i_aur
