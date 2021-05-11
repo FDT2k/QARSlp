@@ -12,8 +12,6 @@ Finally the installable ISO is here.
 - [x] Arch based
 - [x] Zen Kernel
 
-
-
 ## Installation
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
@@ -95,13 +93,3 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 ![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.%20.png)
 ![11](https://github.com/gibranlp/QARSlp/blob/main/screenshots/11.%20.png)
 ![12](https://github.com/gibranlp/QARSlp/blob/main/screenshots/12.%20.png)
-
-
-
-
-
-### Idea
-
-- Import config.py and auto theme it, possible? 
-  Extract groups, keys, layouts into QARSlp, like a theme import
-  Theme generator?
