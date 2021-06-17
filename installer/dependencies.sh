@@ -22,10 +22,10 @@ function i_base () {
     'gst-plugins-ugly'
     'alsa-plugins'
     'ttf-fira-code'
-    #'telegram-desktop'
+    'telegram-desktop'
     'playerctl'
     'firefox'
-    #'filezilla'
+    'filezilla'
     'rxvt-unicode'
     'urxvt-perls'
     'cups'
@@ -34,7 +34,7 @@ function i_base () {
     'wireshark-cli'
     'gutenprint'
     'gtk3-print-backends'
-    #'nmap'
+    'nmap'
     'pulseaudio'
     'pulseaudio-alsa'
     'pavucontrol'
@@ -42,12 +42,12 @@ function i_base () {
     'picom'
     'qtile'
     'ttf-font-awesome'
-    #'gnome-keyring'
+    'gnome-keyring'
     'scrot'
     'rofi'
     'surfraw'
     'python-pip'
-    #'pkgfile'
+    'pkgfile'
     'ranger'
     'zsh'
     'feh'
@@ -55,10 +55,10 @@ function i_base () {
     'neofetch'
     'lxappearance'
     'lxsession'
-    #'transmission-gtk'
+    'transmission-gtk'
     'numlockx'
-    #'unzip'
-    #'hugo'
+    'unzip'
+    'hugo'
     #'khal'
     #'vdirsyncer'
     'bmon'
@@ -127,7 +127,7 @@ function i_aur () {
 
 for packet in "${packets[@]}"; do
     echo "Instalando --> ${packet}"
-    sudo paru -S "${packet}" --noconfirm
+    paru -S "${packet}" --noconfirm
 done
 }
 
@@ -135,13 +135,13 @@ done
 
 
 function i_post(){
-  pywalfox install &
   timedatectl set-timezone America/Cancun &
   timedatectl set-ntp true &
-
+  pywalfox install &
 }
 
 i_base
 i_paru
 i_pip
 i_aur
+i_post
