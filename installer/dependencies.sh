@@ -28,6 +28,7 @@ function i_base () {
     'filezilla'
     'rxvt-unicode'
     'urxvt-perls'
+    'libreoffice-fresh'
     'cups'
     'cups-pdf'
     'speedtest-cli'
@@ -121,7 +122,8 @@ function i_aur () {
     'python-colorthief'
     'visual-studio-code-bin'
     'cli-visualizer'
-
+    'minder'
+    'ncspot'
     
 )
 

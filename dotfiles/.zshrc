@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-export ZSH="~/.oh-my-zsh"
+export ZSH="/home/gibranlp/.oh-my-zsh"
 ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
@@ -102,7 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 export PATH=/opt/bin:$PATH
-. "~/.cache/wal/colors.sh"
 alias pywalfoxu='pywalfox update'
 wal -R -q && clear
 fortune | cowsay
