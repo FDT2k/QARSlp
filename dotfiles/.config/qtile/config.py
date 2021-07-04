@@ -148,7 +148,7 @@ def init_layouts():
             #layout.Tile(shift_windows=True, **layout_theme),
             layout.Matrix(**layout_theme),
             #layout.Zoomy(**layout_theme),
-            layout.MonadTall(max_ratio=0.70, ratio=0.70, **layout_theme),
+            layout.MonadTall(max_ratio=0.80, ratio=0.70, **layout_theme),
             #layout.Max(**layout_theme),
             layout.TreeTab(sections=["Tabs"],section_fontsize=15, bg_color=colors[0], active_bg=colors[7], active_fg=colors[0], inactive_bg=colors[0], inactive_fg=colors[7],padding_y=5,panel_width=250, **layout_theme),
             layout.Floating(**layout_theme)]
@@ -537,6 +537,11 @@ def init_wid_list_top():
                     foreground=colors[0],
                     fontshadow=colors[7]
                     ),
+                #widget.Backlight(
+                #    background=colors[7],
+                #    foreground=colors[0],
+                #    fontshadow=colors[7]
+                #    ),
                 #### Date Clock Session Control ####
                 widget.TextBox(
                     text='◢',
@@ -636,7 +641,7 @@ def in_wid_list_bot():
                 #### Weather ####
                 widget.OpenWeather(
                     app_key='e45a0f07f0c675b273ef8636663941db',
-                    cityid='3521342',
+                    cityid='3532193',
                     background=colors[1],
                     foreground=colors[0],
                     format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
@@ -779,22 +784,22 @@ def in_wid_list_bot():
                     padding=-2,
                     fontsize=45
                     ),
-               # widget.BatteryIcon(
-                #    show_short_text=True,
-                #    notify_below=30,
-                #    discharge_char=' ',
-                #    empty_char='',
-                #    full_char=' ',
-                #    background=colors[0],
-                #    foreground=colors[7]
-                #    ),
-                #widget.Battery(
-                #    format='{percent:2.0%}',
-                #    show_short_text=False,
-                #    update_interval=5,
-                #    background=colors[0],
-                #    foreground=colors[7]
-                #    ),
+                widget.BatteryIcon(
+                    show_short_text=True,
+                    notify_below=30,
+                    discharge_char=' ',
+                    empty_char='',
+                    full_char=' ',
+                    background=colors[0],
+                    foreground=colors[7]
+                    ),
+                widget.Battery(
+                    format='{percent:2.0%}',
+                    show_short_text=False,
+                    update_interval=5,
+                    background=colors[0],
+                    foreground=colors[7]
+                    ),
                 #### Systray ####
                 widget.Systray(
                     icon_size=18,
