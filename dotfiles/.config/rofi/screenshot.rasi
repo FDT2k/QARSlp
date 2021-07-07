@@ -27,7 +27,7 @@ window {
 	border-color:					@active-background;
     border-radius:                  0px;
 	height:							22%;
-	width:							13%;
+	width:							10%;
     location:                       center;
     x-offset:                       0px;
     y-offset:                       0px;

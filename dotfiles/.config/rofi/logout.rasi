@@ -23,7 +23,7 @@ configuration {
 window {
     background-color:               @background;
     text-color:                     @foreground;
-	border:							3px;
+	border:							5px;
 	border-color:					@active-background;
     border-radius:                  0px;
 	height:							22%;
@@ -81,14 +81,14 @@ element {
     text-color:                     @active-background;
     orientation:                    horizontal;
     border-radius:                  0%;
-    padding:                        1% 0.5% 1% 0.5%;
+    padding:                        1% 1% 1% 0%;
 }
 
 element-text {
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
-    margin:                         0% 0.15% 0% 0.15%;
+    margin:                         0% 0% 0% 0%;
     text-color:                     @foreground;
 }
 
