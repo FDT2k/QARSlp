@@ -274,7 +274,7 @@ def init_keys():
             Key([mod], "Right", lazy.layout.right()),
 
             ### Screenshots
-            Key([], "Print", lazy.spawn('screenshot')),]
+            Key([], "Print", lazy.spawn('/opt/bin/screenshot')),]
 
     for i in groups:
             keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
@@ -499,10 +499,10 @@ def init_wid_list_top():
                     foreground=colors[0],
                     fontshadow=colors[7],
                     text=" ",
-                    ), 
+                    ),
                 widget.CheckUpdates(
                     update_interval=1800,
-                    distro='Arch_checkupdates',
+                    distro='Arch',
                     foreground=colors[0],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')},
                     display_format="{updates} updates",
