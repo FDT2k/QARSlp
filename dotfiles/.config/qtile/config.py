@@ -182,7 +182,6 @@ def init_keys():
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
             Key([mod], "Escape", lazy.spawn('xkill')), # Click window to close
-            Key([mod], "r", lazy.spawncmd()),# Close Window 
             
             #### Widgets
             Key([mod],"h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
@@ -196,7 +195,7 @@ def init_keys():
 
             #### Apps ####
 
-            Key([mod],"e",lazy.spawn('nautilus')), # File manager
+            Key([mod],"e",lazy.function(app_or_group("1", "pcmanfm"))), #File manager
             Key([mod, "shift"],"e",lazy.spawn(term + '-e ranger')), # CLI file manager
 
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
@@ -620,20 +619,20 @@ def in_wid_list_bot():
                     mouse_callbacks={'Button1':wnetw}
                     ),
                 #### Bitcoin ####
+                #widget.TextBox(
+                #    text="◢",
+                #    background=colors[5],
+                #    foreground=colors[3],
+                #    padding=-2,
+                #    fontsize=45
+                #    ),
+                #widget.BitcoinTicker(
+                #    background=colors[3],
+                #    foreground=colors[0]
+                #    ),
                 widget.TextBox(
                     text="◢",
                     background=colors[5],
-                    foreground=colors[3],
-                    padding=-2,
-                    fontsize=45
-                    ),
-                widget.BitcoinTicker(
-                    background=colors[3],
-                    foreground=colors[0]
-                    ),
-                widget.TextBox(
-                    text="◢",
-                    background=colors[3],
                     foreground=colors[1],
                     padding=-2,
                     fontsize=45
@@ -641,7 +640,7 @@ def in_wid_list_bot():
                 #### Weather ####
                 widget.OpenWeather(
                     app_key='e45a0f07f0c675b273ef8636663941db',
-                    cityid='3532193',
+                    cityid='3521081',
                     background=colors[1],
                     foreground=colors[0],
                     format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
@@ -784,17 +783,17 @@ def in_wid_list_bot():
                     padding=-2,
                     fontsize=45
                     ),
-                widget.BatteryIcon(
-                    show_short_text=True,
-                    notify_below=30,
-                    discharge_char=' ',
-                    empty_char='',
-                    full_char=' ',
-                    background=colors[0],
-                    foreground=colors[7]
-                    ),
+                #widget.BatteryIcon(
+                #    show_short_text=True,
+                #    notify_below=30,
+                #    discharge_char=' ',
+                #    empty_char='',
+                #    full_char=' ',
+                #    background=colors[0],
+                #    foreground=colors[7]
+                #    ),
                 widget.Battery(
-                    format='{percent:2.0%}',
+                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
                     show_short_text=False,
                     update_interval=5,
                     background=colors[0],

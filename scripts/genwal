@@ -16,6 +16,7 @@ rand_wall (){
   echo "${path}" | tee ~/.config/qtile/current_wallpaper #Write wallpaper path to file
   wal -i "${path}" -q --backend "${backend}" # Wal sets wallpaper and genates new color scheme 
   sudo cp "${path}" /usr/share/sddm/themes/maldives/background.jpg #Copy background image image to be used in sddm
+  wal -R #Refresh wal cahce for visual studio code
   qtile cmd-obj -o cmd -f restart # Restarts Qtile
 }
 rand_wall &

@@ -9,6 +9,7 @@
 # MIT licence 
 # 
 cp -r -v ~/QARSlp/dotfiles/. ~/
+sudo cp -r -v ~/QARSlp/dotfiles/.config/rofi /root/.config/rofi
 cp -r -v ~/QARSlp/dotfiles/shortc.conf ~/
 sudo cp -r -v ~/QARSlp/scripts/* /opt/bin
 sudo cp -r -v ~/QARSlp/widgets/*  /opt/bin
