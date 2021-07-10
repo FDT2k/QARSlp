@@ -23,7 +23,7 @@ case $chosen in
 		sleep 1; qtile cmd-obj -o cmd -f shutdown
 		;;
     $rboot)
-		sleep1; sudo reboot
+		sleep 1; sudo reboot
 		;;
     $poff)
 		sleep 1; sudo poweroff
