@@ -215,6 +215,7 @@ def init_keys():
             
 
             ## Group 4 (Code/Write/Office: visual studio, typora, onlyofice)
+            Key([mod],"v",lazy.function(app_or_group('5', 'code'))),
             Key([mod],"o",lazy.function(app_or_group("6", 'libreoffice'))),
             Key([mod],"c",lazy.function(app_or_group('5', 'code'))),
 
@@ -222,7 +223,7 @@ def init_keys():
             Key([mod],"g",lazy.function(app_or_group('6', 'gimp'))),
 
             ## Group 6 (Virtual Stuff games)
-            Key([mod],"v",lazy.function(app_or_group('8', 'virtualbox'))),
+            Key([mod, "shift"],"v",lazy.function(app_or_group('8', 'virtualbox'))),
             Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
 
             ## Group 7 (Música)
