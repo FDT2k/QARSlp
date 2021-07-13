@@ -62,6 +62,7 @@ def start_once():
 @hook.subscribe.startup
 def start():
     subprocess.call('/opt/bin/alwaystart')
+    subprocess.call('/opt/bin/wvis')
 
 @hook.subscribe.screen_change
 def restart_on_randr():
@@ -228,8 +229,6 @@ def init_keys():
 
             ## Group 7 (Música)
             Key([mod],"s",lazy.function(ncsp)),
-            
-            
             
             #### Layouts ####
             Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down
@@ -426,7 +425,7 @@ def init_wid_list_top():
                 widget.Mpris2(
                     name='ncspot',
                     objname='org.mpris.MediaPlayer2.ncspot',
-                    scroll_chars=25,
+                    scroll_chars=35,
                     background=colors[6],
                     foreground=colors[0],
                     stop_pause_text='',
