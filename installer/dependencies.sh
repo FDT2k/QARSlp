@@ -105,6 +105,15 @@ function i_paru(){
   rm -rf paru
 }
 
+function i_cli(){
+  git clone https://github.com/dpayne/cli-visualizer.git
+  cd cli-visualizer
+  chmod +x installer.sh
+  ./installer.sh
+  cd
+  rm -rf cli-visualizer
+}
+
 function i_pip(){
   pip_packets=(
     'fontawesome'
@@ -127,7 +136,6 @@ function i_aur () {
     'python-haishoku'
     'python-colorthief'
     'visual-studio-code-bin'
-    'cli-visualizer'
     'minder'
     'ncspot'
     

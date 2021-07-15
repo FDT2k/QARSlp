@@ -640,7 +640,7 @@ def in_wid_list_bot():
                 #### Weather ####
                 widget.OpenWeather(
                     app_key='e45a0f07f0c675b273ef8636663941db',
-                    cityid='3521081',
+                    cityid='3520914',
                     background=colors[1],
                     foreground=colors[0],
                     format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
