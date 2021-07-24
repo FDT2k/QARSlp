@@ -23,7 +23,7 @@ from subprocess import run
 #### Variables ####
 mod = "mod4"
 alt = "mod1"                                   
-term = "urxvt"
+term = "alacritty"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 #### End variables ####
@@ -106,7 +106,7 @@ def app_or_group(group, app):
 
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('urxvt -e ncspot')
+    qtile.cmd_spawn('alacritty -e ncspot')
 
 def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
@@ -196,7 +196,7 @@ def init_keys():
 
             #### Apps ####
 
-            Key([mod],"e",lazy.function(app_or_group("1", "pcmanfm"))), #File manager
+            Key([mod],"e",lazy.function(app_or_group("1", "thunar"))), #File manager
             Key([mod, "shift"],"e",lazy.spawn(term + '-e ranger')), # CLI file manager
 
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
@@ -431,7 +431,7 @@ def init_wid_list_top():
                     stop_pause_text='',
                     display_metadata=['xesam:artist','xesam:title'],
                     scroll_interval=0.5,
-                    scroll_wait_intervals=1000
+                    scroll_wait_intervals=200
                     ),
                 #### Layouts ####
                 widget.TextBox(

@@ -32,8 +32,6 @@ function i_base () {
     'gparted'
     'firefox'
     'filezilla'
-    'rxvt-unicode'
-    'urxvt-perls'
     'libreoffice-fresh'
     'cups'
     'cups-pdf'
@@ -56,6 +54,7 @@ function i_base () {
     'python-pip'
     'pkgfile'
     'ranger'
+    'tumbler'
     'zsh'
     'feh'
     'xorg-server-xephyr'
@@ -73,7 +72,11 @@ function i_base () {
     'obconf'
     'viewnior'
     'ntp'
-    'pcmanfm'
+    'thunar'
+    'thunar-archive-plugin'
+    'thunar-media-tags-plugin'
+    'thunar-volman'
+    'xarchiver'
     'imagewriter'
     'nm-connection-editor'
     'nm-applet'
@@ -87,6 +90,7 @@ function i_base () {
     'python-iwlib'
     'python-ipc'
     'python-dateutil'
+    'ueberzug'
 
     
 )
@@ -122,6 +126,7 @@ function i_pip(){
     'colorz'
     'colorthief'
     'haishoku'
+    'dbus-next'
   )
 
   for pip_packet in "${pip_packets[@]}"; do
@@ -138,6 +143,7 @@ function i_aur () {
     'visual-studio-code-bin'
     'minder'
     'ncspot'
+    'alacritty'
     
 )
 
