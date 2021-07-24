@@ -664,7 +664,7 @@ def in_wid_list_bot():
                     text=""
                     ),
                 widget.Memory(
-                    format='{MemUsed}Mb',
+                    format='{MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}',
                     foreground=colors[0],
                     background=colors[2],
                     padding=5

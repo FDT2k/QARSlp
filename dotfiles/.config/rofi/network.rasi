@@ -26,8 +26,8 @@ window {
 	border:							3px;
 	border-color:					@active-background;
     border-radius:                  0px;
-	height:							27%;
-	width:							30%;
+	height:							27sudo%;
+	width:							22%;
     location:                       center;
     x-offset:                       0px;
     y-offset:                       0px;
@@ -35,13 +35,11 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						0.30% 1% 0% -0.5%;
+	padding: 						0.30% 1% 0% -0.8%;
 	background-color: 				@active-foreground;
 	text-color: 					@background;
 	font:							"Fira Code Medium 12";
 }
-
-
 
 inputbar {
 	children: 						[ prompt];
@@ -52,12 +50,12 @@ inputbar {
     border-radius:                  0px;
 	border-color:					@active-foreground;
     margin:                         0% 0% 0% 0%;
-    padding:                        1.5%;
+    padding:                        1%;
 }
 
 listview {
     background-color:               @background;
-    padding:                        0px;
+    padding:                        1%;
     columns:                        1;
     lines:                          5;
     spacing:                        0%;

@@ -26,14 +26,14 @@ if (ping -c 1 gibranlp.dev) &>/dev/null; then
             connected=" Turn Wifi Off"
         fi
 	active="-a 0"
-	SSID="﬉ $(iwgetid -r)"
+	SSID=" $(iwgetid -r)"
 	PIP="$(wget --timeout=3 http://ipinfo.io/ip -qO -)"
 	fi
 else
     urgent="-u 0"
     SSID="Disconnected"
     PIP="Not Available"
-    connected=""
+    connected=" Turn Wifi On"
 fi
 
 ## Icons
@@ -44,7 +44,7 @@ launch=" Network Manager (GUI)"
 options="$connected\n$bmon\n$launch_cli\n$launch"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$SSID  :: IP $PIP" -dmenu $active $urgent -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "$SSID -> IP $PIP" -dmenu $active $urgent -selected-row 2)"
 case $chosen in
     $connected)
 		if [[ $STATUS == *"enable"* ]]; then

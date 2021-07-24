@@ -36,7 +36,7 @@ function directory() {
 # git
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_no_bold[blue]%}git(%{$fg_no_bold[red]%}";
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} ";
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_no_bold[blue]%}) 🔥";
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_no_bold[blue]%}) ";
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_no_bold[blue]%})";
 
 function update_git_status() {
@@ -105,7 +105,7 @@ output_command_execute_after() {
     local color_cost="$fg_no_bold[cyan]";
     cost="${color_cost}${cost}${color_reset}";
 
-    echo -e "${time} ${cost} ${cmd}";
+    echo -e "${cost} ${cmd}";
     echo -e "";
 }
 
@@ -182,4 +182,4 @@ TRAPALRM() {
 
 
 # prompt
-PROMPT='$(directory) $(git_status)$(command_status) ';
+PROMPT='$(directory) $(git_status)$(command_status)';
