@@ -66,7 +66,7 @@ def start():
 
 @hook.subscribe.screen_change
 def restart_on_randr():
-    qtile.cmd_spawn('urxvt -e xrandr --output HDMI1 --auto --right-of eDP1')
+    qtile.cmd_spawn(term + ' -e xrandr --output HDMI1 --auto --right-of eDP1')
     qtile.cmd_restart()
 
 @hook.subscribe.client_new
@@ -106,7 +106,11 @@ def app_or_group(group, app):
 
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('alacritty -e ncspot')
+    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ncspot"')
+
+def ranger(qtile):
+    qtile.groups_map["1"].cmd_toscreen(toggle=False)
+    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
 
 def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
@@ -119,8 +123,6 @@ def ksearx(qtile):
 def wnetw():
     qtile.cmd_spawn('/opt/bin/network')
 
-def rangercli(qtile):
-    qtile.cmd_spawn('nautilus')
 
 def wsess():
     run('/opt/bin/logout')
@@ -197,7 +199,7 @@ def init_keys():
             #### Apps ####
 
             Key([mod],"e",lazy.function(app_or_group("1", "thunar"))), #File manager
-            Key([mod, "shift"],"e",lazy.spawn(term + '-e ranger')), # CLI file manager
+            Key([mod, "shift"],"e",lazy.function(ranger)), # CLI file manager
 
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
             Key([mod, "shift"],"s",lazy.function(app_or_group('1', 'simplenote'))),
@@ -814,7 +816,7 @@ def in_wid_list_sec():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     foreground=colors[7],
-                    text="",mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('urxvt')},
+                    text="",mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('alacritty')},
                     fontshadow=colors[3]
                     ),
                 ]

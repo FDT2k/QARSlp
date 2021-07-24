@@ -105,4 +105,3 @@ export PATH=/opt/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
 alias pywalfoxu='pywalfox update'
 wal -R -q && clear
-fortune | cowsay
