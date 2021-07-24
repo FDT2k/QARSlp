@@ -14,7 +14,8 @@ rand_wall (){
   file=`/bin/ls -1 "$dir" | sort --random-sort | head -1` # Select random file on directory
   path=`readlink --canonicalize "$dir/$file"` # Converts to full path
   echo "${path}" | tee ~/.config/qtile/current_wallpaper #Write wallpaper path to file
-  wal -i "${path}" -q --backend "${backend}" # Wal sets wallpaper and genates new color scheme 
+  wal -i "${path}" -q --backend "${backend}" # Wal sets wallpaper and genates new color scheme
+  sudo rm -rf /usr/share/sddm/themes/maldives/background.jpg
   sudo cp "${path}" /usr/share/sddm/themes/maldives/background.jpg #Copy background image image to be used in sddm
   wal -R #Refresh wal for visual studio code
   qtile cmd-obj -o cmd -f restart # Restarts Qtile
