@@ -72,6 +72,7 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
     - [x] Haishoku
     - [x] Colorz
     - [x] Colorthief
+- [x] All GTK apps are color updated now thanks to ![wpgtk](https://github.com/deviantfero/wpgtk)
 
 ## Other included apps
 
