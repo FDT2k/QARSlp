@@ -1,0 +1,1 @@
+/home/gibranlp/.config/qtile/qtilecolors.py

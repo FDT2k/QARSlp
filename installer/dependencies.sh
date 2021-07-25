@@ -92,6 +92,7 @@ function i_base () {
     'python-ipc'
     'python-dateutil'
     'ueberzug'
+    'xsettingsd'
 
     
 )
@@ -145,6 +146,7 @@ function i_aur () {
     'minder'
     'ncspot'
     'alacritty'
+    'wpgtk-git'
     
 )
 

@@ -11,7 +11,7 @@
 path="`cat "${HOME}"/.config/qtile/current_wallpaper`"
 backend="$1" # Argument for backend to use
 rand_wall (){
-  wal -i "${path}" -q -l --backend "${backend}" # Wal sets wallpaper and genates new color scheme 
+  wpg -s "${path}" -L --backend "${backend}" # Wal sets wallpaper and genates new color scheme 
   qtile cmd-obj -o cmd -f restart # Restarts Qtile
   wal -R
 }

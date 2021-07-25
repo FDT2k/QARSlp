@@ -5,13 +5,6 @@ MIT licence
 
 Fork / upgrade from ![QAAS](https://github.com/gibranlp/QAAS), this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
-## Installable ISO
-
-Finally the installable ISO is here.
-
-- [x] Arch based
-- [x] Zen Kernel
-
 ## Installation
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
@@ -37,7 +30,7 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 - [x] Terminal
 - [x] Ranger ~/
 - [x] Randomize wallpaper
-- [ ] Vis (CLI-visualizer)
+- [x] Vis (CLI-visualizer)
 - [x] Ncspot (CLI Spotify client)
 - [x] Shortcuts widget
 - [x] Sessión menu(top-right)
@@ -53,8 +46,8 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
     - [x] colorthief
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
 - [x] Network / Internet
-  - [ ] Speedtest-cli (CLI Network settings)
-  - [ ] Wireshark-cli (CLI Network settings)
+  - [x] Speedtest-cli (CLI Network settings)
+  - [x] Wireshark-cli (CLI Network settings)
   - [x] Nmtui (CLI Network settings)
   - [x] Bmon (CLI Network monitor)
 - [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
@@ -68,12 +61,21 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 - [ ] Autoconnect hdmi display on laptop
 - [ ] Assign specific group to external display
 - [x] Choose on different palettes
-- [ ] Theme selector
-- [ ] Remove gtk apps, Qt based instead
+- [x] Color theme selector
+  - [x] Dark
+    - [x] Wal
+    - [x] Haishoku
+    - [x] Colorz
+    - [x] Colorthief
+  - [x] Light
+    - [x] Wal
+    - [x] Haishoku
+    - [x] Colorz
+    - [x] Colorthief
 
 ## Other included apps
 
-- [x] Remove Firefox?
+- [x] Firefox
 - [x] Visual-studio-code
 - [x] Qtile (wm)
 - [x] Rofi
