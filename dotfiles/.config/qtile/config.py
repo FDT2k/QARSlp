@@ -112,9 +112,17 @@ def ranger(qtile):
     qtile.groups_map["1"].cmd_toscreen(toggle=False)
     qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
 
+def cranger(qtile):
+    qtile.groups_map["1"].cmd_toscreen(toggle=False)
+    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
+
 def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
     run('/opt/bin/wsearch')
+
+def cthunar():
+    qtile.groups_map["1"].cmd_toscreen(toggle=False)
+    qtile.cmd_spawn('thunar')
 
 def ksearx(qtile):
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
@@ -320,7 +328,7 @@ def init_wid_list_top():
                     fontsize=15,
                     foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('nautilus')},
+                    mouse_callbacks={'Button1': cthunar},
                     fontshadow=colors[3]
                     ),
                 widget.TextBox(
@@ -379,27 +387,13 @@ def init_wid_list_top():
                     fontsize=45,
                     padding=-2
                     ),
-                #### Window Name ####    
-                widget.TextBox(
-                    font='Font Awesome 5 Free',
-                    fontsize=15,
-                    foreground=colors[7],
-                    fontshadow=colors[4],
-                    text=""
-                    ),
-                widget.WindowName(
-                    foreground=colors[7],
-                    background=colors[0],
-                    padding=5,
-                    format='{name}',
-                    empty_group_string='QARSlp',
-                    max_chars=45
-                    ),
+                #### Notifications ####
                 widget.Notify(
                     default_timeout=15,
-                    foreground_urgent=colors[7],
                     foreground=colors[7],
-                    background=colors[0]
+                    background=colors[0],
+                    max_chars=50,
+                    foreground_urgent='ff0000',
                     ),
                 #### Spacer ####
                 widget.Spacer(
@@ -506,7 +500,7 @@ def init_wid_list_top():
                     update_interval=1800,
                     distro='Arch',
                     foreground=colors[0],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo pacman -Syu')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; sudo pacman -Syu"')},
                     display_format="{updates} updates",
                     background=colors[3],
                     colour_have_updates=colors[0],
@@ -581,8 +575,13 @@ def init_wid_list_top():
 def in_wid_list_bot():
     wid_list_bot = [
                 #widget.DebugInfo(foreground=colors[7], background=colors[0], fontshadow=colors[2]),
-                widget.Spacer(
-                    length=bar.STRETCH
+                widget.WindowName(
+                    foreground=colors[7],
+                    background=colors[0],
+                    padding=5,
+                    format='{name}',
+                    empty_group_string='QARSlp',
+                    max_chars=20
                     ),
                 #### Network ####
                 widget.TextBox(
@@ -691,7 +690,7 @@ def in_wid_list_bot():
                     format='{load_percent}%',
                     foreground=colors[0],
                     background=colors[5],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e htop')}
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; htop"')},
                     ),
                 #### Disk Space ####
                 widget.TextBox(
@@ -718,7 +717,7 @@ def in_wid_list_bot():
                     background=colors[3],
                     padding=5,
                     visible_on_warn=False,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e ranger')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')},
                     warn_color="ff0000"
                     ),
                 #### Thermal Sensors ####
@@ -816,7 +815,7 @@ def in_wid_list_sec():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     foreground=colors[7],
-                    text="",mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('alacritty')},
+                    text="",mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term)},
                     fontshadow=colors[3]
                     ),
                 ]

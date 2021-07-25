@@ -54,6 +54,7 @@ function i_base () {
     'python-pip'
     'pkgfile'
     'ranger'
+    'dunst'
     'tumbler'
     'zsh'
     'feh'
