@@ -10,44 +10,44 @@
 # 
 rofi_command="rofi -theme ~/.config/rofi/theme.rasi"
 
-## Icons
+## options
 B1="Wal"
 B3="Colorz"
 B4="Colorthief"
 B2="Haishoku"
-W1="Wal"
-W2="Haishoku"
-W3="Colorz"
-W4="Colorthief"
+B5="Wal light"
+B6="Haishoku light"
+B7="Colorz light"
+B8="Colorthief light"
 
-options="<- Dark ->\n$B1\n$B2\n$B3\n$B4\n<- Ligth ->\n$W1\n$W2\n$W3\n$W4"
+options="<- Dark ->\n$B1\n$B2\n$B3\n$B4\n<- Ligth ->\n$B5\n$B6\n$B7\n$B8"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "Select backend" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "Color Theme" -dmenu -selected-row 1)"
 case $chosen in
     $B1)
-		/opt/bin/rldwal wal
+		  /opt/bin/rldwal wal
         ;;
     $B2)
-		/opt/bin/rldwal haishoku
+		  /opt/bin/rldwal haishoku
         ;;
     $B3)
-		/opt/bin/rldwal colorz
+		  /opt/bin/rldwal colorz
         ;;
     $B4)
-		/opt/bin/rldwal colorthief
+		  /opt/bin/rldwal colorthief
         ;;
-    $W1)
-		/opt/bin/rldwalw wal
+    $B5)
+		  /opt/bin/rldwalw wal
         ;;
-    $W2)
-		/opt/bin/rldwalw haishoku
+    $B6)
+		  /opt/bin/rldwalw haishoku
         ;;
-    $W3)
-		/opt/bin/rldwalw colorz
+    $B7)
+		  /opt/bin/rldwalw colorz
         ;;
-    $W4)
-		/opt/bin/rldwalw colorthief
+    $B8)
+		  /opt/bin/rldwalw colorthief
         ;;
 esac
 
