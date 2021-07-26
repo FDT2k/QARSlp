@@ -1,0 +1,16 @@
+[SddmGreeterTheme]
+Name=QARSlp
+Description=Autoricing login
+Author=gibranlp
+Copyright=
+License=CC-BY-SA
+Type=sddm-theme
+Version=1.0
+Website=http://github.com/gibranlp/QARSlp
+Screenshot=sddmblue.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=thisdoesnotwork@gibranlp.dev
+Theme-Id=QARSlp
+Theme-API=1.0

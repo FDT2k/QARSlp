@@ -82,6 +82,7 @@ function i_base () {
     'nm-connection-editor'
     'nm-applet'
     'arandr'
+    'playerctl'
     'system-config-printer'
     'cmatrix'
     'pip'
@@ -129,6 +130,7 @@ function i_pip(){
     'colorthief'
     'haishoku'
     'dbus-next'
+   
   )
 
   for pip_packet in "${pip_packets[@]}"; do
