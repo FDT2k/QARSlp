@@ -149,6 +149,8 @@ function i_aur () {
     'ncspot'
     'alacritty'
     'wpgtk-git'
+    'spicetify-cli'
+    'nbfc'
     
 )
 

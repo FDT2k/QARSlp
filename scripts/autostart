@@ -9,15 +9,17 @@
 # MIT licence 
 #
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
-setxkbmap -layout us -variant intl &
 picom --config ~/.config/qtile/picom.conf &
 numlockx on &
 nextcloud &
 wvis &
 kdeconnect-indicator &
 blueman-tray &
-xrandr --output DisplayPort-1 --primary --mode 2560x1080 &
-xrandr --output HDMI-0 --mode 1920x1080 --right-of DisplayPort-1 &
+setxkbmap -layout us -variant intl &
+nbfc config --apply "Acer Aspire E5-575G"
+#xrandr --output DisplayPort-1 --primary --mode 2560x1080 &
+#xrandr --output HDMI-0 --mode 1920x1080 --right-of DisplayPort-1 &
 wal -R -q &
+
 
 

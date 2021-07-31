@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# _______  _______  ______  _______  __        
+#|       ||   _   ||   __ \|     __||  |.-----.
+#|   -  _||       ||      <|__     ||  ||  _  |
+#|_______||___|___||___|__||_______||__||   __|
+#                                       |__|   
+# QARSlp Qtile + Arch Ricing Script
+# by: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
+rofi_command="rofi -theme ~/.config/rofi/fan.rasi"
+
+# Options
+full=" 100%"
+auto=" Auto"
+
+
+options="$full\n$auto"
+
+chosen="$(echo -e "$options" | $rofi_command -p 'Fan Control' -dmenu -selected-row 0)"
+case $chosen in
+    $full)
+		sleep 1; nbfc set -f 0 -s 100
+		;;
+    $auto)
+		sleep 1; nbfc set -f 0 -a
+		;;
+esac
+

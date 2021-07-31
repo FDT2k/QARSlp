@@ -234,7 +234,7 @@ def init_keys():
             Key([mod],"g",lazy.function(app_or_group('6', 'gimp'))),
 
             ## Group 6 (Virtual Stuff games)
-            Key([mod, "shift"],"v",lazy.function(app_or_group('8', 'virtualbox'))),
+            Key([mod, "shift"],"v",lazy.spawn(term + ' -e bash -c ". ~/.zshrc; vis"')),
             Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
 
             ## Group 7 (Música)
@@ -389,11 +389,12 @@ def init_wid_list_top():
                     ),
                 #### Notifications ####
                 widget.Notify(
-                    default_timeout=15,
+                    default_timeout=30,
                     foreground=colors[7],
                     background=colors[0],
                     max_chars=50,
                     foreground_urgent='ff0000',
+                    action=True,
                     ),
                 #### Spacer ####
                 widget.Spacer(
@@ -557,7 +558,7 @@ def init_wid_list_top():
                 widget.Clock(
                     foreground=colors[7],
                     background=colors[0],
-                    format="%b %a %d -> %H:%M",
+                    format="%b %a %d %H:%M",
                     update_interval=1
                     ),
                 #### Lock, Logout, Poweroff ####
@@ -735,11 +736,11 @@ def in_wid_list_bot():
                     background=colors[7],
                     foreground=colors[0],
                     fontshadow=colors[6],
-                    metric=True
                     ),
                 widget.ThermalSensor(
                     background = colors[7],
-                    foreground=colors[0]
+                    foreground=colors[0],
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/fans')},
                     ),
                 #### Keyboard Layout ####
                 widget.TextBox(
