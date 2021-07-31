@@ -201,6 +201,7 @@ def init_keys():
             Key([mod],"x",lazy.spawn('/opt/bin/logout')),
             Key([mod],"n",lazy.spawn('/opt/bin/network')),
             Key([mod, "shift"],"w",lazy.spawn('/opt/bin/qback')),
+            Key([mod, "shift"],"c",lazy.spawn('/opt/bin/fans')),
             #### Theming ####
             Key([mod], "w",lazy.spawn('/opt/bin/genwal')), # Set randwom wallpaper / colors to entire system
 
