@@ -397,12 +397,20 @@ def init_wid_list_top():
                     foreground_urgent='ff0000',
                     action=True,
                     ),
-                #### Spacer ####
-                widget.Spacer(
-                    length=bar.STRETCH,
+                widget.WindowName(
+                    foreground=colors[7],
                     background=colors[0],
-                    foreground=colors[0]
-                    ),   
+                    padding=5,
+                    format='{state}{name}',
+                    empty_group_string='QARSlp',
+                    max_chars=35
+                    ),
+                #### Spacer ####
+                #widget.Spacer(
+                #    length=bar.STRETCH,
+                #    background=colors[0],
+                #    foreground=colors[0]
+                #    ),   
                 #### Spotify ####
                 widget.TextBox(
                     text="◢",
@@ -423,13 +431,13 @@ def init_wid_list_top():
                 widget.Mpris2(
                     name='ncspot',
                     objname='org.mpris.MediaPlayer2.ncspot',
-                    scroll_chars=35,
+                    scroll_chars=30,
                     background=colors[6],
                     foreground=colors[0],
                     stop_pause_text='',
                     display_metadata=['xesam:artist','xesam:title'],
                     scroll_interval=0.5,
-                    scroll_wait_intervals=200
+                    scroll_wait_intervals=2000
                     ),
                 #### Layouts ####
                 widget.TextBox(
@@ -577,14 +585,12 @@ def init_wid_list_top():
 def in_wid_list_bot():
     wid_list_bot = [
                 #widget.DebugInfo(foreground=colors[7], background=colors[0], fontshadow=colors[2]),
-                widget.WindowName(
-                    foreground=colors[7],
+                #### Spacer ####
+                widget.Spacer(
+                    length=bar.STRETCH,
                     background=colors[0],
-                    padding=5,
-                    format='{name}',
-                    empty_group_string='QARSlp',
-                    max_chars=20
-                    ),
+                    foreground=colors[0]
+                    ),   
                 #### Network ####
                 widget.TextBox(
                     text='◢',
@@ -795,13 +801,14 @@ def in_wid_list_bot():
                 #    background=colors[0],
                 #    foreground=colors[7]
                 #    ),
-                widget.Battery(
-                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
-                    show_short_text=False,
-                    update_interval=5,
-                    background=colors[0],
-                    foreground=colors[7]
-                    ),
+                #widget.Battery(
+                #    battery=0,
+                #    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
+                #    show_short_text=True,
+                #    update_interval=60,
+                #    background=colors[0],
+                #    foreground=colors[7]
+                #    ),
                 #### Systray ####
                 widget.Systray(
                     icon_size=18,
