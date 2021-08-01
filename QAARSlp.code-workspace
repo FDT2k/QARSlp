@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../Chameleon"
+		},
+		{
+			"path": "../.telegram-palette-gen"
 		}
 	],
 	"settings": {}
