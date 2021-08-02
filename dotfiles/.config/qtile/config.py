@@ -120,9 +120,9 @@ def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
     run('/opt/bin/wsearch')
 
-def cthunar():
+def cfilex():
     qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('thunar')
+    qtile.cmd_spawn('nautilus')
 
 def ksearx(qtile):
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
@@ -169,7 +169,7 @@ def init_layouts():
 ##### Groups #####
 
 groups = [
-    Group("1",position=1,matches=[Match(wm_class=['thunar', 'Thunar', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Simplenote', 'Anydesk'])],layout="monadtall",label=""),
+    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Simplenote', 'Anydesk'])],layout="monadtall",label=""),
     Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Mailspring', 'mailspring', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
     Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
     Group("4",position=4,matches=[Match(wm_class=['firefox'])],layout="monadtall",label=""),
@@ -207,7 +207,7 @@ def init_keys():
 
             #### Apps ####
 
-            Key([mod],"e",lazy.function(app_or_group("1", "thunar"))), #File manager
+            Key([mod],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
             Key([mod, "shift"],"e",lazy.function(ranger)), # CLI file manager
 
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
@@ -329,7 +329,7 @@ def init_wid_list_top():
                     fontsize=15,
                     foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': cthunar},
+                    mouse_callbacks={'Button1': cfilex},
                     fontshadow=colors[3]
                     ),
                 widget.TextBox(
