@@ -1,31 +1,55 @@
-# QARSlp OS Qtile + Arch + AutoRicing + Installable ISO
+# QARSlp OS Qtile + Arch + AutoRicing Script
 
-by: gibranlp thisdoesnotwork@gibranlp.dev 
+by: gibranlp thisdoesnotwork@gibranlp.dev
+
 MIT licence
 
-Fork / upgrade from ![QAAS](https://github.com/gibranlp/QAAS), this OS Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
+Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
 ## Installation
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
 
-  - First you need to clone this repository
-    - `git clone https://github.com/gibranlp/QARSlp.git`
-    - `cd QARSlp/installer`
-  - This Scrip will install all the programs and dependencies needed for this to work the sudo password is needed a few times, (if you want to avoid this add your user to the sudoers file see ![here](https://gibranlp.dev/post/sudoers/))
+## Prerequisites
 
-  - `chmod +x ./base.sh`
-    - `chmod +x ./cp_files.sh`
+- [x] Arch based distro
+- [x] Zsh and Ohmyzsh installed,  you can check [here](https://ohmyz.sh/#install)
+- [x] Also install this 2 plugins for ZSH
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+```
+- [x] Add your user to the sudoers file, if you don't know how to do it check this [guide](https://gibranlp.dev/post/add-user-sudoers-file/) 
+
+## Installation
+
+  First you need to clone this repository
+```bash
+git clone https://github.com/gibranlp/QARSlp.git
+cd QARSlp/installer
+chmod +x dependencies.sh
+chmod +x cp_files.sh
+chmod +x post_install.sh
+./dependencies.sh #This will install all the programs needed
+./cp_files.sh #This will copy all the dotfiles needed
+./post_install #This will run wpgtk for the first time
+```
+## Things to consider after installing
 
 ## Features
-- [x] Packs of wallpapers
-- [ ] ISO installable by script (Work in progress towards version 1.0)
 - [x] Qtile adapts with the wallpaper colors 
 - [x] Auto detects the network card in use to display it on widgets
 - [x] Wallpaper generated is now saved into a file for further use (backend changes)
+- [x] Packs of wallpapers
+  - [x] [Pack 1](https://gibranlp.dev/wallpacks/pack1.tar.gz)
+  - [x] [Pack 2](https://gibranlp.dev/wallpacks/pack2.tar.gz)
+  - [x] [Pack 3](https://gibranlp.dev/wallpacks/pack3.tar.gz)
+  - [x] All the wallpapers should be on **~/Pictures/wallPapers**
 
 ### Menu launchers
 - [x] Launcher
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.%20.png)
 - [x] Web search
 - [x] Terminal
 - [x] Ranger ~/

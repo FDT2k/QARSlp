@@ -267,7 +267,7 @@ def init_keys():
             Key([mod], "Right", lazy.layout.right()),
 
             ### Screenshots ####
-            Key([], "Print", lazy.spawn('/opt/bin/screenshot')),]
+            Key([], "Print", lazy.spawn('scrot /home/gibranlp/Pictures/')),]
 
     for i in groups:
             keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
