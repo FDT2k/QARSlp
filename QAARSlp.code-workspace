@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "../.telegram-palette-gen"
+		},
+		{
+			"path": "../Cloud/gibranlp/Posts"
 		}
 	],
 	"settings": {}

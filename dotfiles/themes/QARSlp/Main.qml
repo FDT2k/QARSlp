@@ -65,7 +65,7 @@ Rectangle {
 
     Rectangle {
         anchors.fill: parent
-        color: "transparent"
+        color: "#FFFFFFFF"
 
 
         Rectangle {
@@ -75,9 +75,29 @@ Rectangle {
             id: promptbox
             color: "transparent"
  //           source: "promptbox.svg"
-            height: 280
+            height: 800
             width: 450
-            
+
+            Text {
+                id: greet
+                anchors.left: parent.left
+                color: "#222222"
+                text: textConstants.welcomeText.arg(sddm.hostName)
+                font.family: titlefontbold.name
+                font.pointSize: 22
+                font.bold: true
+            }
+            Clock2 {
+                id: clock
+                anchors.topMargin: 48
+                anchors.top: parent.top
+                anchors.left: parent.left
+                color: "#222222"
+                timeFont.family: titlefont.name
+                dateFont.family: titlefont.name
+            }    
+
+
             Text {
                 id: errorMessage
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -216,24 +236,7 @@ Rectangle {
             width: 740
             height: 300
             
-            Text {
-                id: greet
-                anchors.left: parent.left
-                color: "#222222"
-                text: textConstants.welcomeText.arg(sddm.hostName)
-                font.family: titlefontbold.name
-                font.pointSize: 22
-                font.bold: true
-            }
-            Clock2 {
-                id: clock
-                anchors.topMargin: 48
-                anchors.top: parent.top
-                anchors.left: parent.left
-                color: "#222222"
-                timeFont.family: titlefont.name
-                dateFont.family: titlefont.name
-            }
+            
         }
             
 
