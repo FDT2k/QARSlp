@@ -73,18 +73,26 @@ chmod +x post_install.sh
 ![Change theme](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
 
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/search.png)
 - [x] Network / Internet
   - [x] Speedtest-cli (CLI Network settings)
   - [x] Wireshark-cli (CLI Network settings)
   - [x] Nmtui (CLI Network settings)
   - [x] Bmon (CLI Network monitor)
+
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/network.png)
 - [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
-- [x] Shortcut's page / search
+
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/screen.png)
+- [x] Shortcuts widget
+
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/shortcuts.png)
 - [x] Session menu
     - [x] Logout
     - [x] Power Off
     - [x] Reboot
+
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
 
 ## Planned upgrades
 - [ ] Autoconnect hdmi display on laptop
