@@ -94,23 +94,6 @@ chmod +x post_install.sh
 
 ![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
 
-## Planned upgrades
-- [ ] Autoconnect hdmi display on laptop
-- [ ] Assign specific group to external display
-- [x] Choose on different palettes
-- [x] Color theme selector
-  - [x] Dark
-    - [x] Wal
-    - [x] Haishoku
-    - [x] Colorz
-    - [x] Colorthief
-  - [x] Light
-    - [x] Wal
-    - [x] Haishoku
-    - [x] Colorz
-    - [x] Colorthief
-- [x] All GTK apps are color updated now thanks to ![wpgtk](https://github.com/deviantfero/wpgtk)
-
 ## Other included apps
 
 - [x] Firefox
@@ -118,6 +101,7 @@ chmod +x post_install.sh
 - [x] Qtile (wm)
 - [x] Rofi
 - [x] Libre Office
+- [x] All GTK apps are color updated now thanks to [wpgtk](https://github.com/deviantfero/wpgtk)
 
 # Screenshots
 
@@ -133,3 +117,5 @@ chmod +x post_install.sh
 ![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.%20.png)
 ![11](https://github.com/gibranlp/QARSlp/blob/main/screenshots/11.%20.png)
 ![12](https://github.com/gibranlp/QARSlp/blob/main/screenshots/12.%20.png)
+
+<a href="https://www.buymeacoffee.com/gibranlp"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&emoji=&slug=gibranlp&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"></a>
