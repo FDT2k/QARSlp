@@ -49,7 +49,6 @@ chmod +x post_install.sh
 
 ### Menu launchers
 - [x] Launcher
-![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.png)
 - [x] Web search
 - [x] Terminal
 - [x] Ranger ~/
@@ -62,13 +61,19 @@ chmod +x post_install.sh
 ### Widgets ![Rofi](https://github.com/davatorium/rofi) based
 
 - [x] Launcher
-- [x] Change palette (same wallpaper) 
+
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.png)
+- [x] Change palette using the same wallpaper dark / light 
     - [x] colorz
     - [x] haishoku
     - [x] schemer2
     - [x] wal
     - [x] colorthief
+
+![Change theme](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
+
+![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
 - [x] Network / Internet
   - [x] Speedtest-cli (CLI Network settings)
   - [x] Wireshark-cli (CLI Network settings)

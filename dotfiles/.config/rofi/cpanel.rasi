@@ -30,7 +30,7 @@ window {
 	height:							40%;
 	width:							12%;
     location:                       west;
-    x-offset:                       -1px;
+    x-offset:                       0px;
     y-offset:                       0px;
 }
 
