@@ -49,7 +49,7 @@ chmod +x post_install.sh
 
 ### Menu launchers
 - [x] Launcher
-![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.%20.png)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.png)
 - [x] Web search
 - [x] Terminal
 - [x] Ranger ~/
