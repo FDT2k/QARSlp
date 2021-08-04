@@ -156,7 +156,7 @@ def init_layouts():
 ##### Groups #####
 groups = [
     Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Simplenote', 'Anydesk'])],layout="monadtall",label=""),
-    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Mailspring', 'mailspring', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
+    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
     Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
     Group("4",position=4,matches=[Match(wm_class=['firefox'])],layout="monadtall",label=""),
     Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla'])],layout="monadtall",label=""),
@@ -199,7 +199,7 @@ def init_keys():
             Key([mod, "shift"],"s",lazy.function(app_or_group('1', 'simplenote'))),
 
             ## Group 2 (Organization: Mail)
-            Key([mod],"m",lazy.function(app_or_group('2', 'mailspring'))),
+            Key([mod],"m",lazy.function(app_or_group('2', 'thunderbird'))),
             
             ## Group 3 (Social: Whatsapp, Telegram, )
             Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),

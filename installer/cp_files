@@ -8,11 +8,11 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-cp -r -v ~/QARSlp/dotfiles/.[^.]* ~/
-cp -r -v ~/QARSlp/dotfiles/shortc.conf ~/
-sudo cp -r -v ~/QARSlp/scripts/* /opt/bin
-sudo cp -r -v ~/QARSlp/widgets/*  /opt/bin
-sudo cp -r -v ~/.cache/wal /root/.cache/
-sudo cp -r -v ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/
-sudo cp -r -v ~/QARSlp/dotfiles/themes/QARSlp /usr/share/sddm/themes/
-sudo cp -v ~/QARSlp/dotfiles/sddm.conf /etc/sddm.conf
+cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
+cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
+sudo cp -r  ~/QARSlp/scripts/* /opt/bin
+sudo cp -r  ~/QARSlp/widgets/*  /opt/bin
+sudo cp -r  ~/.cache/wal /root/.cache/
+sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/
+sudo cp -r  ~/QARSlp/dotfiles/themes/QARSlp /usr/share/sddm/themes/
+sudo cp  ~/QARSlp/dotfiles/sddm.conf /etc/sddm.conf

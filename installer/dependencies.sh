@@ -93,6 +93,7 @@ function i_base () {
     'python-ipc'
     'python-dateutil'
     'ueberzug'
+    'thunderbird'
     'xsettingsd'
 
     
