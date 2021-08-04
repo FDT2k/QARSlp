@@ -10,6 +10,7 @@
 # 
 cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
 cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
+cp -r ~/QARSlp/wallPapers ~/Pictures
 sudo cp -r  ~/QARSlp/scripts/* /opt/bin
 sudo cp -r  ~/QARSlp/widgets/*  /opt/bin
 sudo cp -r  ~/.cache/wal /root/.cache/
