@@ -23,7 +23,7 @@ import "."
 Rectangle {
     id: container
     width: 640
-    height: 480
+    height: 700
 
 
     LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
@@ -34,7 +34,7 @@ Rectangle {
     TextConstants { id: textConstants }
     FontLoader { id: loginfont; source: "FiraCode-Bold.ttf" }
     FontLoader { id: titlefont; source: "FiraCode-Medium.ttf" }
-    FontLoader { id: loginfontbold; source: "FiraCode-Bold" }
+    FontLoader { id: loginfontbold; source: "FiraCode-Bold.ttf" }
     FontLoader { id: titlefontbold; source: "FiraCode-Bold.ttf" }
     Connections {
         target: sddm
