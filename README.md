@@ -122,6 +122,11 @@ chmod +x post_install.sh
 ![3](https://github.com/gibranlp/QARSlp/blob/main/screenshots/3.png)
 ![4](https://github.com/gibranlp/QARSlp/blob/main/screenshots/4.png)
 ![5](https://github.com/gibranlp/QARSlp/blob/main/screenshots/5.png)
+![7](https://github.com/gibranlp/QARSlp/blob/main/screenshots/6.png)
+![7](https://github.com/gibranlp/QARSlp/blob/main/screenshots/7.png)
+![8](https://github.com/gibranlp/QARSlp/blob/main/screenshots/8.png)
+![9](https://github.com/gibranlp/QARSlp/blob/main/screenshots/9.png)
+![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.png)
 
 
 <a href="https://www.buymeacoffee.com/gibranlp"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&emoji=&slug=gibranlp&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"></a>
