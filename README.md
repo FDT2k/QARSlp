@@ -63,6 +63,7 @@ chmod +x post_install.sh
 - [x] Launcher
 
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.png)
+
 - [x] Change palette using the same wallpaper dark / light 
     - [x] colorz
     - [x] haishoku
@@ -71,28 +72,39 @@ chmod +x post_install.sh
     - [x] colorthief
 
 ![Change theme](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
+
+- [x] Automatically change wallpaper every X minutes
+
+![Chwall](https://github.com/gibranlp/QARSlp/blob/main/screenshots/chwall.png)
+
+
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
 
 ![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/search.png)
+
 - [x] Network / Internet
   - [x] Speedtest-cli (CLI Network settings)
   - [x] Wireshark-cli (CLI Network settings)
   - [x] Nmtui (CLI Network settings)
   - [x] Bmon (CLI Network monitor)
 
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/network.png)
+![Network](https://github.com/gibranlp/QARSlp/blob/main/screenshots/network.png)
+
 - [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
 
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/screen.png)
+![Screenshot](https://github.com/gibranlp/QARSlp/blob/main/screenshots/screen.png)
+
 - [x] Shortcuts widget
 
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/shortcuts.png)
+![Shortcuts](https://github.com/gibranlp/QARSlp/blob/main/screenshots/shortcuts.png)
+
 - [x] Session menu
     - [x] Logout
     - [x] Power Off
     - [x] Reboot
 
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
+![Session](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
+
 
 ## Other included apps
 

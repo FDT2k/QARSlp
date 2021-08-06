@@ -186,6 +186,8 @@ def init_keys():
             Key([mod],"n",lazy.spawn('/opt/bin/network')),
             Key([mod, "shift"],"w",lazy.spawn('/opt/bin/qback')),
             Key([mod, "shift"],"c",lazy.spawn('/opt/bin/fans')),
+            Key([alt],"w",lazy.spawn('/opt/bin/chwall')),
+
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --right-of eDP1')),
