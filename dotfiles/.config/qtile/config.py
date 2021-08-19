@@ -159,7 +159,7 @@ groups = [
     Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
     Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
     Group("4",position=4,matches=[Match(wm_class=['firefox'])],layout="monadtall",label=""),
-    Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla'])],layout="monadtall",label=""),
+    Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla','typora'])],layout="monadtall",label=""),
     Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder'])],layout="monadtall",label=""),
     Group("7",position=7,layout="monadtall",label=""),
     Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine'])],layout="monadtall",label=""),
@@ -211,7 +211,7 @@ def init_keys():
             Key([mod, "shift"],"f",lazy.function(app_or_group('4', 'firefox'))),
             
             ## Group 5 (Code/Write/Office: visual studio, typora, onlyofice)
-            Key([mod],"v",lazy.function(app_or_group('5', 'code'))),
+            Key([mod],"t",lazy.function(app_or_group('5', 'typora'))),
             Key([mod],"o",lazy.function(app_or_group("6", 'libreoffice'))),
             Key([mod],"c",lazy.function(app_or_group('5', 'code'))),
 

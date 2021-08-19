@@ -152,6 +152,7 @@ function i_aur () {
     'wpgtk-git'
     'spicetify-cli'
     'nbfc'
+    'typora'
     
 )
 
