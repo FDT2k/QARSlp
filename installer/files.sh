@@ -15,7 +15,7 @@ function zsh(){
   #git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   #git config --global user.name "gibranlp"
-  #git config --global user.email gibranlp@gmail.com
+  #git config --global user.email gibranlp@gmail.com`
 
   cp ~/QAAS/dotfiles/.oh-my-zsh/themes/passion.zsh-theme ~/.oh-my-zsh/themes/passion.zsh-theme
   cp ~/QAAS/dotfiles/.zshrc ~/.zshrc
