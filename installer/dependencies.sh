@@ -144,6 +144,7 @@ function i_aur () {
     'python-colorthief'
     'visual-studio-code-bin'
     'minder'
+    'ocs-url'
     'ncspot'
     'alacritty'
     'wpgtk-git'

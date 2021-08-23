@@ -128,7 +128,7 @@ def wsess():
 #### Layouts ####
 def init_layout_theme():
     return {"font":"Fira Code Medium",
-            "fontsize":16,
+            "fontsize":14,
             "margin": 10,
             "border_width":3,
             "border_normal":colors[0],
@@ -279,7 +279,7 @@ def init_keys():
 
 #### Widgets ####
 def init_widgets_defaults():
-    return dict(font="Fira Code Medium",fontsize=16,padding=2,background=colors[0])
+    return dict(font="Fira Code Medium",fontsize=14,padding=2,background=colors[0])
 
 def init_widgets_top():    
     widgets_top = [
@@ -602,10 +602,9 @@ def init_widgets_bott():
                     mouse_callbacks={'Button1':wnetw}
                     ),
                 widget.Net(
-                    font='Font Awesome 5 Free',
                     fontsize=15,
                     interface=netact,
-                    format='{down} ↓↑ {up}',
+                    format='{down}',
                     foreground=colors[0],
                     background=colors[5],
                     use_bits=True,
@@ -785,14 +784,14 @@ def init_widgets_bott():
                 #    background=colors[0],
                 #    foreground=colors[7]
                 #    ),
-                widget.Battery(
-                    battery="BAT1",
-                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
-                    show_short_text=True,
-                    update_interval=10,
-                    background=colors[0],
-                    foreground=colors[7]
-                    ),
+                #widget.Battery(
+                #   battery="BAT1",
+                #    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
+                #    show_short_text=True,
+                #    update_interval=10,
+                #    background=colors[0],
+                #    foreground=colors[7]
+                #    ),
                 #### Systray ####
                 widget.Systray(
                     icon_size=18,
