@@ -92,6 +92,8 @@ function i_base () {
     'ueberzug'
     'thunderbird'
     'xsettingsd'
+    'bs'
+    
 
     
 )
