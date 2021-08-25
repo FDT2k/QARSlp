@@ -13,6 +13,8 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 ## Prerequisites
 
 - [x] Arch based distro
+- [ ] Zen Kernel
+  - [ ] Best for multimedia, and gaming workloads.
 - [x] Zsh and Ohmyzsh installed,  you can check [here](https://ohmyz.sh/#install)
 - [x] Also install this 2 plugins for ZSH
 ```bash
