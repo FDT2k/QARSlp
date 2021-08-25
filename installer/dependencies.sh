@@ -129,7 +129,6 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'betterlockscreen'
     'visual-studio-code-bin'
     'minder'
     'ocs-url'
