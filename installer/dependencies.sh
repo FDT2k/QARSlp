@@ -104,13 +104,7 @@ for packet in "${packets[@]}"; do
 done
 }
 
-function i_paru(){
-  git clone https://aur.archlinux.org/paru.git
-  cd paru
-  makepkg -si
-  cd
-  rm -rf paru
-}
+
 
 function i_cli(){
   git clone https://github.com/dpayne/cli-visualizer.git
@@ -141,7 +135,6 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'betterlockscreen'
     'python-haishoku'
     'python-colorthief'
     'visual-studio-code-bin'
@@ -150,9 +143,7 @@ function i_aur () {
     'ncspot'
     'alacritty'
     'wpgtk-git'
-    'spicetify-cli'
     'nbfc'
-    'typora'
     
 )
 
@@ -162,21 +153,17 @@ for packet in "${packets[@]}"; do
 done
 }
 
-# paru -S   python-haishoku python-colorthief visual-studio-code-bin cli-visualizer --skipreview --noconfirm
-
-
 function i_post(){
   sudo timedatectl set-timezone America/Cancun &
   sudo timedatectl set-ntp true &
   pywalfox install &
-  #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y &
-  #git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
-  #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y &
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
   
 }
 
 i_base
-i_paru
 i_pip
 i_aur
 i_post
