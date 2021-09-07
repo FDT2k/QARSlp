@@ -81,9 +81,6 @@ function i_base () {
     'ueberzug'
     'thunderbird'
     'xsettingsd'
-    
-
-    
 )
 
 for packet in "${packets[@]}"; do
@@ -91,8 +88,6 @@ for packet in "${packets[@]}"; do
     sudo pacman -S "${packet}" --noconfirm --needed
 done
 }
-
-
 
 function i_cli(){
   git clone https://github.com/dpayne/cli-visualizer.git
@@ -123,24 +118,15 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-<<<<<<< HEAD
     'python-haishoku'
     'python-colorthief'
-=======
->>>>>>> f7a2963f6d70064332dff1041838b929d8b71fd8
     'visual-studio-code-bin'
     'minder'
     'ocs-url'
     'ncspot'
     'alacritty' #Terminal
     'wpgtk-git'
-<<<<<<< HEAD
     'nbfc'
-=======
-    'spicetify-cli'
-    'nbfc' # Fan speed control
-    'typora' # Md files editor
->>>>>>> f7a2963f6d70064332dff1041838b929d8b71fd8
     
 )
 
