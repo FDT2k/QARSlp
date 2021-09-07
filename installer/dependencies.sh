@@ -12,10 +12,8 @@ function i_base () {
   packets=(
     'base-devel'
     'htop'
-    'git'
     'emacs'
     'fd'
-    'ripgrep'
     'alsa-utils'
     'alsa-lib'
     'alsa-firmware'
@@ -45,8 +43,6 @@ function i_base () {
     'pavucontrol'
     'volumeicon'
     'picom'
-    'qtile'
-    'ttf-font-awesome'
     'gnome-keyring'
     'scrot'
     'rofi'
@@ -56,9 +52,7 @@ function i_base () {
     'ranger'
     'dunst'
     'tumbler'
-    'zsh'
     'feh'
-    'xorg-server-xephyr'
     'neofetch'
     'lxappearance'
     'lxsession'
@@ -66,8 +60,7 @@ function i_base () {
     'numlockx'
     'unzip'
     'hugo'
-    #'khal'
-    #'vdirsyncer'
+    'gnome-disk-utility'
     'bmon'
     'lm_sensors'
     'obconf'
@@ -75,24 +68,19 @@ function i_base () {
     'ntp'
     'nautilus'
     'xarchiver'
-    'imagewriter'
     'nm-connection-editor'
-    'nm-applet'
+    'network-manager-applet'
     'arandr'
-    'playerctl'
     'system-config-printer'
     'cmatrix'
-    'pip'
     'python-pywal'
     'python-psutil'
     'python-xdg'
     'python-iwlib'
-    'python-ipc'
     'python-dateutil'
     'ueberzug'
     'thunderbird'
     'xsettingsd'
-    'bs'
     
 
     
@@ -135,15 +123,24 @@ function i_pip(){
 
 function i_aur () {
   packets=(
+<<<<<<< HEAD
     'python-haishoku'
     'python-colorthief'
+=======
+>>>>>>> f7a2963f6d70064332dff1041838b929d8b71fd8
     'visual-studio-code-bin'
     'minder'
     'ocs-url'
     'ncspot'
-    'alacritty'
+    'alacritty' #Terminal
     'wpgtk-git'
+<<<<<<< HEAD
     'nbfc'
+=======
+    'spicetify-cli'
+    'nbfc' # Fan speed control
+    'typora' # Md files editor
+>>>>>>> f7a2963f6d70064332dff1041838b929d8b71fd8
     
 )
 
@@ -154,7 +151,7 @@ done
 }
 
 function i_post(){
-  sudo timedatectl set-timezone America/Cancun &
+  sudo timedatectl set-timezone America/Mexico &
   sudo timedatectl set-ntp true &
   pywalfox install &
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y &
