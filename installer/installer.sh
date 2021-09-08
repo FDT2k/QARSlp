@@ -116,8 +116,6 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'python-haishoku'
-    'python-colorthief'
     #'visual-studio-code-bin'
     #'minder'
     'ocs-url'
@@ -138,23 +136,36 @@ function i_settings(){
   sudo timedatectl set-timezone America/Mexico_City &
   sudo timedatectl set-ntp true &
   pywalfox install &
-  cd &
-  rm -rf .oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y &
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
   git config --global user.name "gibranlp" &
   git config --global user.email gibranlp@gmail.com & 
 }
 
-funtion i_files(){
+function i_files(){
   cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
   cp -r ~/QARSlp/wallPapers ~/Pictures
-  sudo cp -r  ~/QARSlp/scripts/* /opt/bin
-  sudo cp -r  ~/QARSlp/widgets/*  /opt/bin
   sudo cp -r  ~/.cache/wal /root/.cache/
-  sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/
+  if [-d "/opt/bin/"]
+  then
+    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
+  else
+    sudo mkdir /opt/bin &
+    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
+ fi
+  if [ -d "/root/.config/rofi" ] 
+  then
+     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+  else
+    sudo mdir /root/.config/rofi &
+    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+fi
+
+  
+  
 }
 
 function i_post(){
