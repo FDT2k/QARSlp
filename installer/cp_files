@@ -15,5 +15,4 @@ sudo cp -r  ~/QARSlp/scripts/* /opt/bin
 sudo cp -r  ~/QARSlp/widgets/*  /opt/bin
 sudo cp -r  ~/.cache/wal /root/.cache/
 sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/
-sudo cp -r  ~/QARSlp/dotfiles/themes/QARSlp /usr/share/sddm/themes/
-sudo cp  ~/QARSlp/dotfiles/sddm.conf /etc/sddm.conf
+

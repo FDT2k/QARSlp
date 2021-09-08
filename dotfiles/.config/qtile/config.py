@@ -6,124 +6,11 @@
 # QARSlp Qtile + Arch Ricing Script
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
-#
-import os
-import re
-import socket
-import subprocess
-import json
-from libqtile import qtile
-from libqtile import hook
-from libqtile.command import lazy
-from libqtile.config import Screen, Key, Group, Match, Drag, Click, Rule
-from libqtile import qtile, layout, bar, widget
-from libqtile.lazy import lazy
-from subprocess import run
+from libqtile.config import Screen, Key, Group, Match, Drag, Click
+from libqtile import qtile, layout
+from funct import *
+from theme import *
 
-#### Variables ####
-mod = "mod4"
-alt = "mod1"                                   
-term = "alacritty"
-home = os.path.expanduser('~')
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-#### End variables ####
-
-##### Import Pywal Palette #####
-with open(home + '/.cache/wal/colors.json') as json_file:
-    data = json.load(json_file)
-    colorsarray = data['colors']
-    val_list = list(colorsarray.values())
-    def getList(val_list):
-        return [*val_list]
-
-def init_colors():
-    return [*val_list]
-
-colors = init_colors()
-##### End Import Pywal Palette #####
-
-
-
-#### Import Network Interface ####
-with open(home + '/.config/qtile/actnet', 'r') as file:
-    netact = file.read().replace('\n', '')
-#### End Import Network Interface ####
-
-
-#### Hooks ####
-@hook.subscribe.startup_once
-def start_once():
-    subprocess.call('/opt/bin/autostart')
-
-@hook.subscribe.startup
-def start():
-    subprocess.call('/opt/bin/alwaystart')
-    subprocess.call('/opt/bin/wvis')
-
-@hook.subscribe.client_new
-def floating(window):
-    floating_types = ['notification', 'toolbar', 'splash', 'dialog','Nextcloud','Gcr-prompter','lxappearance','Pavucontrol','pavucontrol','_NET_WM_WINDOW_TYPE_NORMAL']
-    transient = window.window.get_wm_transient_for()
-    if window.window.get_wm_type() in floating_types or transient:
-        window.floating = True
-#### End hooks ####
-
-##### Functions #####
-@lazy.function
-def window_to_prev_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
-
-@lazy.function
-def window_to_next_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
-##### Specific Apps/Groups / Apps/Grupos especificos #####
-
-def app_or_group(group, app):
-    def f(qtile):
-        if qtile.groups_map[group].windows:
-            qtile.groups_map[group].cmd_toscreen(toggle=False)
-            qtile.cmd_spawn(app)
-        else:
-            qtile.groups_map[group].cmd_toscreen(toggle=False)
-            qtile.cmd_spawn(app)
-    return f
-
-#### Functions ####
-def ncsp(qtile):
-    qtile.groups_map["7"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ncspot"')
-
-def ranger(qtile):
-    qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
-
-def cranger(qtile):
-    qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
-
-def wsearx():
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    run('/opt/bin/wsearch')
-
-def cfilex():
-    qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('nautilus')
-
-def ksearx(qtile):
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    run('/opt/bin/wsearch')
-
-def wnetw():
-    qtile.cmd_spawn('/opt/bin/network')
-
-
-def wsess():
-    run('/opt/bin/logout')
-#### End Functions ####
 
 #### Layouts ####
 def init_layout_theme():
@@ -138,19 +25,27 @@ def init_layout_theme():
            }
 
 def init_layouts():
-    return [#layout.MonadWide(**layout_theme),
-            #layout.Bsp(**layout_theme),
-            #layout.Stack(stacks=2, **layout_theme),
-            #layout.Columns(**layout_theme),
-            #layout.RatioTile(**layout_theme),
-            #layout.VerticalTile(**layout_theme),
-            #layout.Tile(shift_windows=True, **layout_theme),
-            layout.Matrix(**layout_theme),
-            #layout.Zoomy(**layout_theme),
-            layout.MonadTall(max_ratio=0.80, ratio=0.70, **layout_theme),
-            #layout.Max(**layout_theme),
-            layout.TreeTab(sections=["Tabs"],section_fontsize=15, bg_color=colors[0], active_bg=colors[7], active_fg=colors[0], inactive_bg=colors[0], inactive_fg=colors[7],padding_y=5,panel_width=250, **layout_theme),
-            layout.Floating(**layout_theme)]
+    return [
+        layout.Matrix(
+            **layout_theme),
+        layout.MonadTall(
+            max_ratio=0.80,
+            ratio=0.70,
+            **layout_theme),
+        layout.TreeTab(
+            sections=["Tabs"],
+            section_fontsize=15,
+            bg_color=colors[0],
+            active_bg=colors[7],
+            active_fg=colors[0],
+            inactive_bg=colors[0],
+            inactive_fg=colors[7],
+            padding_y=5,
+            panel_width=250,
+            **layout_theme),
+        layout.Floating(
+            **layout_theme)
+            ]
 #### End layouts ####
 
 ##### Groups #####
@@ -192,7 +87,7 @@ def init_keys():
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --right-of eDP1')),
             #### Theming ####
-            Key([mod], "w",lazy.spawn('/opt/bin/genwal')), # Set randwom wallpaper / colors to entire system
+            Key([mod], "w",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
 
             #### Apps ####
             Key([mod],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
@@ -593,14 +488,14 @@ def init_widgets_bott():
                     fontshadow=colors[7],
                     mouse_callbacks={'Button1': wnetw}
                     ),
-                widget.Wlan(
-                    interface=netact,
-                    format='{essid} {percent:2.0%} ',
-                    disconnected_message='Unplugged',
-                    foreground=colors[0],
-                    background=colors[5],
-                    mouse_callbacks={'Button1':wnetw}
-                    ),
+                #widget.Wlan(
+                #    interface=netact,
+                #    format='{essid} {percent:2.0%} ',
+                #    disconnected_message='Unplugged',
+                #    foreground=colors[0],
+                #    background=colors[5],
+                #    mouse_callbacks={'Button1':wnetw}
+                #    ),
                 widget.Net(
                     fontsize=15,
                     interface=netact,

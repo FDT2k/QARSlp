@@ -8,6 +8,8 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
+
+xrandr --output HDMI-0 --mode 2560x1080 --primary --output VGA-0 --mode 1366x768 --right-of HDMI-0 &
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 picom --config ~/.config/qtile/picom.conf &
 numlockx on &
@@ -16,9 +18,7 @@ wvis &
 kdeconnect-indicator &
 blueman-tray &
 setxkbmap -layout us -variant intl &
-nbfc config --apply "Acer Aspire E5-575G"
-#xrandr --output DisplayPort-1 --primary --mode 2560x1080 &
-#xrandr --output HDMI-0 --mode 1920x1080 --right-of DisplayPort-1 &
+#nbfc config --apply "Acer Aspire E5-575G"
 wal -R -q &
 
 
