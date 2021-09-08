@@ -9,12 +9,12 @@
 
 import os, random
 import socket
-from libqtile import hook
-from libqtile.command import lazy
 import subprocess
 import json
 from subprocess import run
 from os.path import expanduser
+from libqtile import hook
+from libqtile.command import lazy
 
 #### Variables ####
 
