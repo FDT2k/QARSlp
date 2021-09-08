@@ -23,28 +23,9 @@ alt = "mod1"
 term = "alacritty"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
-#### End variables ####
-
-##### Import Pywal Palette #####
-
-with open(home + '/.cache/wal/colors.json') as json_file:
-    data = json.load(json_file)
-    colorsarray = data['colors']
-    val_list = list(colorsarray.values())
-    def getList(val_list):
-        return [*val_list]
-
-def init_colors():
-    return [*val_list]
-##### End Import Pywal Palette #####
-
-#### Import Network Interface ####
-with open(home + '/.config/qtile/actnet', 'r') as file:
-    netact = file.read().replace('\n', '')
-#### End Import Network Interface ####
-
+backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
 #### Hooks ####
+
 @hook.subscribe.startup_once
 def start_once():
     subprocess.call('/opt/bin/autostart')
@@ -60,9 +41,28 @@ def floating(window):
     transient = window.window.get_wm_transient_for()
     if window.window.get_wm_type() in floating_types or transient:
         window.floating = True
-#### End hooks ####
 
-##### Functions #####
+#### Functions ####
+
+##### Import Pywal Palette #####
+
+with open(home + '/.cache/wal/colors.json') as json_file:
+    data = json.load(json_file)
+    colorsarray = data['colors']
+    val_list = list(colorsarray.values())
+    def getList(val_list):
+        return [*val_list]
+
+def init_colors():
+    return [*val_list]
+
+#### Import Network Interface ####
+
+with open(home + '/.config/qtile/actnet', 'a+') as file:
+    netact = file.read().replace('\n', '')
+
+#### Send app to group ####
+
 @lazy.function
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:
@@ -88,6 +88,7 @@ def app_or_group(group, app):
     return f
 
 #### Set Random Wallpaper ####
+
 def set_wallpaper(qtile):
     dir = home + '/Pictures/wallPapers'
     wallpaper = random.choice(os.listdir(dir))
@@ -98,6 +99,13 @@ def set_wallpaper(qtile):
     subprocess.run(["sudo", "cp", "%s" % random_wallpaper,  "/usr/share/backgrounds/background.png"])
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
+
+#### Change Color Scheme with same wallpaper ####
+
+def change_scheme(qtile):
+    with open (home + "/.config/qtile/current_wallpaper", "r") as currentWal:
+        currentWal.read()
+
 
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)

@@ -158,14 +158,11 @@ function i_files(){
  fi
   if [ -d "/root/.config/rofi" ] 
   then
-     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
   else
     sudo mdir /root/.config/rofi &
     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
 fi
-
-  
-  
 }
 
 function i_post(){
