@@ -60,6 +60,7 @@ function i_base () {
     #'hugo'
     #'gnome-disk-utility'
     'bmon'
+    'lightdm-gtk-greeter-settings'
     'lm_sensors'
     'obconf'
     'viewnior'
@@ -123,6 +124,7 @@ function i_aur () {
     'alacritty' #Terminal
     'wpgtk-git'
     'nbfc'
+    'gtk-theme-flat-color-git'
     
 )
 
@@ -140,6 +142,7 @@ function i_settings(){
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
   git config --global user.name "gibranlp" &
   git config --global user.email gibranlp@gmail.com & 
+  wpg-install.sh -g -d -i &
 }
 
 function i_files(){
@@ -147,8 +150,7 @@ function i_files(){
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
   cp -r ~/QARSlp/wallPapers ~/Pictures
   sudo cp -r  ~/.cache/wal /root/.cache/
-  if [-d "/opt/bin/"]
-  then
+  if [ -d "/opt/bin" ];  then
     sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
     sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
   else
@@ -156,11 +158,10 @@ function i_files(){
     sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
     sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
  fi
-  if [ -d "/root/.config/rofi" ] 
-  then
+  if [ -d "/root/.config/rofi" ]; then
     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
   else
-    sudo mdir /root/.config/rofi &
+    sudo mkdir -p /root/.config/rofi &
     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
 fi
 }
@@ -169,6 +170,7 @@ function i_post(){
   /opt/bin/genwal &
   /opt/bin/autostart &
   /opt/bin/alwaystart &
+  
 }
 
 i_base

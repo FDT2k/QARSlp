@@ -15,7 +15,7 @@ configuration {
     disable-history:                false;
     fullscreen:                     false;
 	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+	sidebar-mode: 					true;
 }
 
 @import "~/.cache/wal/colors-rofi-dark.rasi"
@@ -35,25 +35,14 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						0.30% 1% 0% -0.5%;
+	padding: 						1% 0% 0% 0%;
 	background-color: 				@active-foreground;
 	text-color: 					@background;
-	font:							"Fira Code Medium 12";
+	font:							"Fira Code Medium 13";
 }
 
-entry {
-    background-color:               @active-foreground;
-    text-color:                     @background;
-    placeholder-color:              @background;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search for apps";
-    padding:                        0.10% 0% 0% 0%;
-    blink:                          true;
-}
-
-inputbar {
-	children: 						[ prompt];
+inputbar {/
+	children: 						[prompt];
     background-color:               @active-foreground;
     text-color:                     @background;
     expand:                         false;

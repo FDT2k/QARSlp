@@ -105,6 +105,8 @@ def set_wallpaper(qtile):
 def change_scheme(qtile):
     with open (home + "/.config/qtile/current_wallpaper", "r") as currentWal:
         currentWal.read()
+    subprocess.run(["wpg", "-s" + currentWal])
+    qtile.cmd_restart()
 
 
 def ncsp(qtile):
