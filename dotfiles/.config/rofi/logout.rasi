@@ -41,7 +41,7 @@ prompt {
 	font:							"Fira Code Medium 13";
 }
 
-inputbar {/
+inputbar {
 	children: 						[prompt];
     background-color:               @active-foreground;
     text-color:                     @background;
