@@ -8,4 +8,5 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-"$(cat ~/shortc.conf | rofi -theme '~/.config/rofi/shortc.rasi' -i -dmenu -p ' Search Shortcuts: ')"
+
+"$(cat ~/shortc.conf | rofi -theme '~/.config/rofi/shortc.rasi' -i -dmenu -p ' Search Shortcuts:')"

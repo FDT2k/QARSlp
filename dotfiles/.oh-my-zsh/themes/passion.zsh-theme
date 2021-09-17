@@ -105,7 +105,6 @@ output_command_execute_after() {
     local color_cost="$fg_no_bold[cyan]";
     cost="${color_cost}${cost}${color_reset}";
 
-    echo -e "${cost} ${cmd}";
     echo -e "";
 }
 

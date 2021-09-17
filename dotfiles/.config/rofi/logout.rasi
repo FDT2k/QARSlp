@@ -23,7 +23,7 @@ configuration {
 window {
     background-color:               @background;
     text-color:                     @background;
-	border:							1px;
+	border:							0px;
 	border-color:					@active-background;
     border-radius:                  0px;
 	height:							220px;
