@@ -11,9 +11,10 @@
 rofi_command="rofi -theme ~/.config/rofi/screenshot.rasi"
 
 # Options
-screen="Screen "
-area="Area "
-window="Window "
+screen="Screen "
+window="Window "
+area="Area "
+
 
 options="$screen\n$window\n$area"
 

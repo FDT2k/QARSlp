@@ -19,7 +19,7 @@ def init_layout_theme():
             "margin": 10,
             "border_width":3,
             "border_normal":colors[0],
-            "border_focus":colors[5],
+            "border_focus":colors[6],
             "single_margin":0,
             "single_border_width":0,
            }
@@ -30,18 +30,18 @@ def init_layouts():
             **layout_theme),
         layout.MonadTall(
             max_ratio=0.80,
-            ratio=0.70,
+            ratio=0.80,
             **layout_theme),
         layout.TreeTab(
             sections=["Tabs"],
             section_fontsize=15,
             bg_color=colors[0],
-            active_bg=colors[7],
+            active_bg=colors[8],
             active_fg=colors[0],
             inactive_bg=colors[0],
             inactive_fg=colors[7],
             padding_y=5,
-            panel_width=250,
+            panel_width=350,
             **layout_theme),
         layout.Floating(
             **layout_theme)
@@ -67,7 +67,7 @@ def init_keys():
             #### Basics ####          
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
-            Key([mod, "mod1"], "Return", lazy.spawn('sudo rofi -theme "~/.config/rofi/launcher.rasi" -show drun')), 
+            Key([mod, "mod1"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')), 
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
@@ -743,7 +743,8 @@ def init_widgets_screen_bot():
 def init_screens():
     return [
         Screen(top=bar.Bar(widgets=init_widgets_screen_top(),  size=20, background=colors[0]),
-        bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=20, background=colors[0]))
+        bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=20, background=colors[0])),
+        Screen()
         ]
 
 #### End Screens ####

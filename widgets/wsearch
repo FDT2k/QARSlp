@@ -15,9 +15,9 @@ search=$(echo "${@:2}")
 
 if [[ -z "$engine" ]]; then
 	surf=$(surfraw -elvi | awk -F'-' '{print $1}' | sed '/:/d' | awk '{$1=$1};1' |
-	        rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "Engine")
+	        rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p " Where to search?")
 elif [[ -z "$search" ]]; then
-	surf=$(echo "" | rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "$engine ")
+	surf=$(echo "" | rofi -theme '~/.config/rofi/websearch.rasi' -dmenu -p "$engine: ")
 else
     surfraw -browser=$browser $engine &
     

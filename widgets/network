@@ -15,8 +15,8 @@ rofi_command="rofi -theme ~/.config/rofi/network.rasi"
 IFACE="$(nmcli | grep -i interface | awk '/interface/ {print $2}')"
 STATUS="$(nmcli radio wifi)"
 
-active="Activo"
-urgent="Urgente"
+active=""
+urgent=""
 
 if (ping -c 1 gibranlp.dev) &>/dev/null; then
 	if [[ $STATUS == *"enable"* ]]; then
@@ -38,8 +38,8 @@ fi
 
 ## Icons
 bmon=" Bandwith Monitor"
-launch_cli=" Network Manager (CLI)"
-launch=" Network Manager (GUI)"
+launch_cli=" Network Manager (CLI)"
+launch=" Network Manager (GUI)"
 
 options="$connected\n$bmon\n$launch_cli\n$launch"
 
@@ -54,10 +54,10 @@ case $chosen in
 		fi 
         ;;
     $bmon)
-        urxvt -e bmon
+        alacritty -e bash -c ". ~/.zshrc; bmon"
         ;;
     $launch_cli)
-        urxvt -e nmtui
+        alacritty -e bash -c ". ~/.zshrc; nmtui"
         ;;
     $launch)
         nm-connection-editor
