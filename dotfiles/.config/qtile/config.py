@@ -6,6 +6,7 @@
 # QARSlp Qtile + Arch Ricing Script
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
+
 from libqtile.config import Screen, Key, Group, Match, Drag, Click
 from libqtile import qtile, layout
 from funct import *
