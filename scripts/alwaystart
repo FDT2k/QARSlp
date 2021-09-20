@@ -14,3 +14,6 @@ ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 setxkbmap -layout us -variant intl &
 pywalfox update &
 /opt/bin/telwal --wal &
+killall dunst &
+rm -rf ~/.config/dunst/dunstrc
+cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &

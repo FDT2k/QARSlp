@@ -58,7 +58,7 @@ groups = [
     Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla','typora'])],layout="monadtall",label=""),
     Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder'])],layout="monadtall",label=""),
     Group("7",position=7,layout="monadtall",label=""),
-    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine'])],layout="monadtall",label=""),
+    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],layout="monadtall",label=""),
     Group("9",position=9,layout="monadtall",label="")]
 #### End Groups ####
 
@@ -68,7 +68,8 @@ def init_keys():
             #### Basics ####          
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
-            Key([mod, "mod1"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')), 
+            Key([mod, "mod1"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
+            Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
@@ -193,7 +194,7 @@ def init_widgets_top():
                     fontsize=15,
                     foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': wsearx},
+                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')},
                     fontshadow=colors[3]
                     ),        
                 widget.TextBox(
@@ -209,7 +210,7 @@ def init_widgets_top():
                     fontsize=15,
                     foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': cfilex},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')},
                     fontshadow=colors[3]
                     ),
                 widget.TextBox(
@@ -268,22 +269,12 @@ def init_widgets_top():
                     fontsize=45,
                     padding=-2
                     ),
-                #### Notifications ####
-                widget.Notify(
-                    default_timeout=30,
-                    foreground=colors[7],
-                    background=colors[0],
-                    max_chars=50,
-                    foreground_urgent='ff0000',
-                    action=True,
-                    ),
                 widget.WindowName(
                     foreground=colors[7],
                     background=colors[0],
                     padding=5,
-                    format='{state}{name}',
+                    format='->> {name}',
                     empty_group_string='QARSlp',
-                    max_chars=70
                     ),
                 #### Spacer ####
                 #widget.Spacer(
@@ -483,20 +474,20 @@ def init_widgets_bott():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     interface=netact,
-                    format='',
+                    format='',
                     foreground=colors[0],
                     background=colors[5],
                     fontshadow=colors[7],
                     mouse_callbacks={'Button1': wnetw}
                     ),
-                #widget.Wlan(
-                #    interface=netact,
-                #    format='{essid} {percent:2.0%} ',
-                #    disconnected_message='Unplugged',
-                #    foreground=colors[0],
-                #    background=colors[5],
-                #    mouse_callbacks={'Button1':wnetw}
-                #    ),
+                widget.Wlan(
+                    interface=netact,
+                    format='{essid} {percent:2.0%} ',
+                    disconnected_message='Unplugged',
+                    foreground=colors[0],
+                    background=colors[5],
+                    mouse_callbacks={'Button1':wnetw}
+                    ),
                 widget.Net(
                     fontsize=15,
                     interface=netact,
@@ -627,6 +618,18 @@ def init_widgets_bott():
                     background = colors[7],
                     foreground=colors[0],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/fans')},
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free',
+                    fontsize=15,
+                    text=" ",
+                    background=colors[7],
+                    foreground=colors[0],
+                    fontshadow=colors[6],
+                    ),
+                widget.NvidiaSensors(
+                    foreground=colors[0],
+                    background=colors[7],
                     ),
                 #### Keyboard Layout ####
                 widget.TextBox(

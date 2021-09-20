@@ -119,6 +119,7 @@ function i_aur () {
   packets=(
     #'visual-studio-code-bin'
     #'minder'
+    'rofi-file-browser-extended-git'
     'ocs-url'
     #'ncspot'
     'alacritty' #Terminal
