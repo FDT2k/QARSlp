@@ -273,7 +273,7 @@ def init_widgets_top():
                     foreground=colors[7],
                     background=colors[0],
                     padding=5,
-                    format='->> {name}',
+                    format=' {name}',
                     empty_group_string='QARSlp',
                     ),
                 #### Spacer ####
@@ -310,6 +310,7 @@ def init_widgets_top():
                     scroll_interval=0.5,
                     scroll_wait_intervals=2000
                     ),
+                    
                 #### Layouts ####
                 widget.TextBox(
                     text="◢",
@@ -324,12 +325,13 @@ def init_widgets_top():
                     background=colors[2],
                     foreground=colors[0],
                     fontshadow=colors[7],
-                    text=""
+                    text="  "
                     ),
                 widget.CurrentLayout(
                     background=colors[2],
                     foreground=colors[0]
                     ),
+
                 #### Pomodoro ####
                 widget.TextBox(
                     text='◢',
@@ -375,7 +377,7 @@ def init_widgets_top():
                     background=colors[3],
                     foreground=colors[0],
                     fontshadow=colors[7],
-                    text=" ",
+                    text="  ",
                     ),
                 widget.CheckUpdates(
                     update_interval=1800,

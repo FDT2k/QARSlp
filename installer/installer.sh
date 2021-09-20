@@ -48,7 +48,6 @@ function i_base () {
     'python-pip'
     'pkgfile'
     'ranger'
-    'dunst'
     'tumbler'
     'feh'
     'neofetch'
@@ -126,6 +125,7 @@ function i_aur () {
     'wpgtk-git'
     'nbfc'
     'gtk-theme-flat-color-git'
+    'dunst-git'
     
 )
 
