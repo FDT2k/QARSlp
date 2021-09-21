@@ -51,14 +51,14 @@ def init_layouts():
 
 ##### Groups #####
 groups = [
-    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Simplenote', 'Anydesk'])],layout="monadtall",label=""),
-    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk'])],layout="monadtall",label=""),
+    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Anydesk'])],layout="monadtall",label=""),
+    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk', 'Simplenote',])],layout="monadtall",label=""),
     Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
-    Group("4",position=4,matches=[Match(wm_class=['firefox'])],layout="monadtall",label=""),
+    Group("4",position=4,matches=[Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],layout="monadtall",label=""),
     Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla','typora'])],layout="monadtall",label=""),
-    Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder'])],layout="monadtall",label=""),
-    Group("7",position=7,layout="monadtall",label=""),
-    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],layout="monadtall",label=""),
+    Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],layout="monadtall",label=""),
+    Group("7",position=7,matches=[Match(wm_class=['Spotify', 'spotify'])],layout="matrix",label=""),
+    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],layout="matrix",label=""),
     Group("9",position=9,layout="monadtall",label="")]
 #### End Groups ####
 
@@ -81,7 +81,7 @@ def init_keys():
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
             Key([mod],"x",lazy.spawn('/opt/bin/logout')),
             Key([mod],"n",lazy.spawn('/opt/bin/network')),
-            Key([mod, "shift"],"w",lazy.spawn('/opt/bin/qback')),
+            Key([alt],"r",lazy.spawn('/opt/bin/qback')),
             Key([mod, "shift"],"c",lazy.spawn('/opt/bin/fans')),
             Key([alt],"w",lazy.spawn('/opt/bin/chwall')),
 
@@ -89,23 +89,25 @@ def init_keys():
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --right-of eDP1')),
             #### Theming ####
-            Key([mod], "w",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
+            Key([mod], "r",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
 
             #### Apps ####
             Key([mod],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
             Key([mod, "shift"],"e",lazy.function(ranger)), # CLI file manager
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
-            Key([mod, "shift"],"s",lazy.function(app_or_group('1', 'simplenote'))),
+            Key([mod, "shift"],"s",lazy.function(app_or_group('2', 'simplenote'))),
 
             ## Group 2 (Organization: Mail)
             Key([mod],"m",lazy.function(app_or_group('2', 'thunderbird'))),
             
             ## Group 3 (Social: Whatsapp, Telegram, )
+            Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
             Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),
             Key([mod, "shift"],"d",lazy.function(app_or_group('3', 'discord'))),
 
             ## Group 4 (WEB: Firefox)(Admin: Mail, notes, social)
             Key([mod, "shift"],"f",lazy.function(app_or_group('4', 'firefox'))),
+            Key([mod, "shift"],"g",lazy.function(app_or_group('4', 'google-chrome-stable'))),
             
             ## Group 5 (Code/Write/Office: visual studio, typora, onlyofice)
             Key([mod],"t",lazy.function(app_or_group('5', 'typora'))),
