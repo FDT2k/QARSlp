@@ -127,7 +127,7 @@ function i_aur () {
     'wpgtk-git'
     'nbfc'
     'gtk-theme-flat-color-git'
-    'google-chrome'
+    #'google-chrome'
 )
 
 for packet in "${packets[@]}"; do
