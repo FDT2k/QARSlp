@@ -7,18 +7,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-import os
-from os.path import expanduser
-from funct import *
-from libqtile import bar, widget
-from libqtile.config import Screen
-
-home = os.path.expanduser('~')
-
-#### Import Network Interface ####
-
-with open(home + '/.config/qtile/actnet', 'r') as file:
-    netact = file.read().replace('\n', '')
+from key import *
 
 #### Widgets ####
 def init_widgets_defaults():
@@ -71,7 +60,7 @@ def init_widgets_top():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     foreground=color[7],
-                    text="",
+                    text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/shortc')},
                     fontshadow=color[3]
                     ),
@@ -239,11 +228,11 @@ def init_widgets_top():
                     distro='Arch_paru',
                     foreground=color[0],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e paru -Syyu')},
-                    display_format="{updates} updates",
+                    display_format="{updates} up",
                     background=color[3],
-                    colour_have_updates=color[7],
+                    colour_have_updates=color[0],
                     colour_no_updates=color[0],
-                    no_update_string="up to date",
+                    no_update_string="",
                     restart_indicator=""
                     ),
                 #### Khal Calendar ####

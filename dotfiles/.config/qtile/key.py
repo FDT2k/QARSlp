@@ -7,9 +7,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 
-from libqtile.config import Key, Drag, Click, Group, Match
-from libqtile import qtile
-from libqtile import layout
+
 from funct import *
 
 #### Layouts ####
@@ -71,7 +69,7 @@ floating_layout = layout.Floating(float_rules=[
 
 ##### Groups #####
 groups = [
-    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Anydesk'])],layout="monadtall",label=""),
+    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Anydesk'])],layout="monadtall",label=""),
     Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk', 'Simplenote',])],layout="monadtall",label=""),
     Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
     Group("4",position=4,matches=[Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],layout="monadtall",label=""),

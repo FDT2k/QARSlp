@@ -7,12 +7,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 
-from funct import *
 from theme import *
-from key import *
-
-
-##### End Mouse/Keyboard #####
 
 colors = init_colors()
 widget_defaults = init_widgets_defaults()
@@ -22,5 +17,4 @@ widgets_screen_top = init_widgets_screen_top()
 widgets_screen_bot = init_widgets_screen_bot()
 screens = init_screens()
 
-#wmname = "LG3D"
-wmname = "qtile"
+wmname = "QARSlp"

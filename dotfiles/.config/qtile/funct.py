@@ -7,13 +7,13 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 
-import os, random
-import socket
-import subprocess
-import json
-from subprocess import run
+import os
+import socket, random
+import subprocess, json
 from os.path import expanduser
-from libqtile import hook
+from subprocess import run
+from libqtile import qtile, hook, layout, bar, widget
+from libqtile.config import Screen, Key, Drag, Click, Group, Match
 from libqtile.command import lazy
 
 #### Variables ####
@@ -43,6 +43,11 @@ def floating(window):
         window.floating = True
 
 #### Functions ####
+
+#### Import Network Interface ####
+
+with open(home + '/.config/qtile/actnet', 'r') as file:
+    netact = file.read().replace('\n', '')
 
 ##### Import Pywal Palette #####
 
