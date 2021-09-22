@@ -56,11 +56,6 @@ with open(home + '/.cache/wal/colors.json') as json_file:
 def init_colors():
     return [*val_list]
 
-#### Import Network Interface ####
-
-with open(home + '/.config/qtile/actnet', 'a+') as file:
-    netact = file.read().replace('\n', '')
-
 #### Send app to group ####
 
 @lazy.function
