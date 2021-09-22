@@ -68,7 +68,7 @@ def init_keys():
             #### Basics ####          
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
-            Key([mod, "mod1"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
+            Key([mod, "mod1"], "Return", lazy.spawn('sudo rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
             Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
@@ -82,23 +82,23 @@ def init_keys():
             Key([mod],"x",lazy.spawn('/opt/bin/logout')),
             Key([mod],"n",lazy.spawn('/opt/bin/network')),
             Key([alt],"r",lazy.spawn('/opt/bin/qback')),
-            Key([mod, "shift"],"c",lazy.spawn('/opt/bin/fans')),
+            Key([mod],"c",lazy.spawn('/opt/bin/fans')),
             Key([alt],"w",lazy.spawn('/opt/bin/chwall')),
 
 
             #### Add Screen ####
-            Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --right-of eDP1')),
+            Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),
             #### Theming ####
             Key([mod], "r",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
 
             #### Apps ####
-            Key([mod],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
-            Key([mod, "shift"],"e",lazy.function(ranger)), # CLI file manager
+            Key([mod, "shift"],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
+            Key([alt, "shift"],"e",lazy.function(ranger)), # CLI file manager
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
             Key([mod, "shift"],"s",lazy.function(app_or_group('2', 'simplenote'))),
 
             ## Group 2 (Organization: Mail)
-            Key([mod],"m",lazy.function(app_or_group('2', 'thunderbird'))),
+            Key([mod, "shift"],"m",lazy.function(app_or_group('2', 'thunderbird'))),
             
             ## Group 3 (Social: Whatsapp, Telegram, )
             Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
@@ -110,22 +110,22 @@ def init_keys():
             Key([mod, "shift"],"g",lazy.function(app_or_group('4', 'google-chrome-stable'))),
             
             ## Group 5 (Code/Write/Office: visual studio, typora, onlyofice)
-            Key([mod],"t",lazy.function(app_or_group('5', 'typora'))),
-            Key([mod],"o",lazy.function(app_or_group("6", 'libreoffice'))),
-            Key([mod],"c",lazy.function(app_or_group('5', 'code'))),
+            Key([mod, "shift"],"h",lazy.function(app_or_group('5', 'typora'))),
+            Key([mod, "shift"],"o",lazy.function(app_or_group("6", 'libreoffice'))),
+            Key([mod, "shift"],"c",lazy.function(app_or_group('5', 'code'))),
 
             ## Group 6 (Design: Gimp, Inkscape, feh)
             Key([mod],"g",lazy.function(app_or_group('6', 'gimp'))),
 
             ## Group 7 (Music: Ncsp, Spotify)
-            Key([mod],"s",lazy.function(ncsp)),
+            Key([alt, "shift"],"s",lazy.function(ncsp)),
 
             ## Group 8 (Virtual Stuff games)
-            Key([mod, "shift"],"v",lazy.spawn(term + ' -e bash -c ". ~/.zshrc; vis"')),
+            Key([mod, "shift"],"v",lazy.spawn(term + ' -e vis')),
             Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
             
             #### Layouts ####
-            Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down
+            Key([mod], "Tab",lazy.layout.next()), # Change focus of windows down
             Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
             Key([alt], "Tab", lazy.layout.swap_left()),
             Key([alt, "shift"], "Tab", lazy.layout.swap_right()),
@@ -187,7 +187,7 @@ def init_widgets_top():
                     font='Font Awesome 5 Free',
                     fontsize=15,
                     foreground=colors[7],
-                    text="",
+                    text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')},
                     fontshadow=colors[3]
                     ),
@@ -212,7 +212,7 @@ def init_widgets_top():
                     fontsize=15,
                     foreground=colors[7],
                     text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nautilus")},
                     fontshadow=colors[3]
                     ),
                 widget.TextBox(
@@ -232,9 +232,18 @@ def init_widgets_top():
                     fontshadow=colors[3]
                     ),
                 widget.TextBox(
+                    font='Font Awesome 5 Free',
+                    fontsize=15,
+                    foreground=colors[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.current_window.kill()},
+                    fontshadow=colors[3],
+                    desc="Close Window"
+                    ),
+                widget.TextBox(
                     foreground=colors[1],
                     text="◢",
-                    fontsize=45,
+                    fontsize=65,
                     padding=-2
                     ),
                 #### Groups ####
@@ -268,14 +277,14 @@ def init_widgets_top():
                     background=colors[0],
                     foreground=colors[1],
                     text="◤",
-                    fontsize=45,
+                    fontsize=65,
                     padding=-2
                     ),
                 widget.WindowName(
                     foreground=colors[7],
                     background=colors[0],
                     padding=5,
-                    format=' {name}',
+                    format=' {name}',
                     empty_group_string='QARSlp',
                     ),
                 #### Spacer ####
@@ -290,7 +299,7 @@ def init_widgets_top():
                     background=colors[0],
                     foreground=colors[6],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -319,7 +328,7 @@ def init_widgets_top():
                     background=colors[6],
                     foreground=colors[2],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -340,7 +349,7 @@ def init_widgets_top():
                     background=colors[2],
                     foreground=colors[5],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -371,7 +380,7 @@ def init_widgets_top():
                     background=colors[5],
                     foreground=colors[3],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -382,14 +391,16 @@ def init_widgets_top():
                     text="  ",
                     ),
                 widget.CheckUpdates(
-                    update_interval=1800,
-                    distro='Arch',
+                    update_interval=60,
+                    distro='Arch_paru',
                     foreground=colors[0],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; sudo pacman -Syu"')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e paru -Syyu')},
                     display_format="{updates} updates",
                     background=colors[3],
-                    colour_have_updates=colors[0],
-                    colour_no_updates=colors[0]
+                    colour_have_updates=colors[7],
+                    colour_no_updates=colors[0],
+                    no_update_string="up to date",
+                    restart_indicator=""
                     ),
                 #### Khal Calendar ####
                 #widget.KhalCalendar(lookahead=15, remindertime=60, foreground=colors[0], background=colors[7]),
@@ -399,7 +410,7 @@ def init_widgets_top():
                     background=colors[3],
                     foreground=colors[7],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -428,16 +439,7 @@ def init_widgets_top():
                     background=colors[7],
                     foreground=colors[0],
                     padding=-2,
-                    fontsize=45
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free',
-                    padding=1,
-                    text="",
-                    fontsize=15,
-                    foreground=colors[7],
-                    background=colors[0],
-                    fontshadow=colors[3]
+                    fontsize=65
                     ),
                 widget.Clock(
                     foreground=colors[7],
@@ -472,7 +474,7 @@ def init_widgets_bott():
                     background=colors[0],
                     foreground=colors[5],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.Net(
                     font='Font Awesome 5 Free',
@@ -507,7 +509,7 @@ def init_widgets_bott():
                 #    background=colors[5],
                 #    foreground=colors[3],
                 #    padding=-2,
-                #    fontsize=45
+                #    fontsize=65
                 #    ),
                 #widget.BitcoinTicker(
                 #    background=colors[3],
@@ -518,7 +520,7 @@ def init_widgets_bott():
                     background=colors[5],
                     foreground=colors[1],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 #### Weather ####
                 widget.OpenWeather(
@@ -536,7 +538,7 @@ def init_widgets_bott():
                     background=colors[1],
                     foreground=colors[2],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -558,7 +560,7 @@ def init_widgets_bott():
                     background=colors[2],
                     foreground=colors[5],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -572,7 +574,7 @@ def init_widgets_bott():
                     format='{load_percent}%',
                     foreground=colors[0],
                     background=colors[5],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; htop"')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e htop')},
                     ),
                 #### Disk Space ####
                 widget.TextBox(
@@ -580,7 +582,7 @@ def init_widgets_bott():
                     background=colors[5],
                     foreground=colors[3],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -599,7 +601,7 @@ def init_widgets_bott():
                     background=colors[3],
                     padding=5,
                     visible_on_warn=False,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e ranger"')},
                     warn_color="ff0000"
                     ),
                 #### Thermal Sensors ####
@@ -608,7 +610,7 @@ def init_widgets_bott():
                     background=colors[3],
                     foreground=colors[7],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -641,7 +643,7 @@ def init_widgets_bott():
                     background=colors[7],
                     foreground=colors[0],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free',
@@ -663,7 +665,7 @@ def init_widgets_bott():
                     background=colors[0],
                     foreground=colors[1],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 widget.CapsNumLockIndicator(
                     foreground=colors[0],
@@ -676,7 +678,7 @@ def init_widgets_bott():
                     background=colors[1],
                     foreground=colors[0],
                     padding=-2,
-                    fontsize=45
+                    fontsize=65
                     ),
                 #widget.BatteryIcon(
                 #    show_short_text=True,
@@ -750,8 +752,8 @@ def init_widgets_screen_bot():
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen_top(),  size=20, background=colors[0]),
-        bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=20, background=colors[0])),
+        Screen(top=bar.Bar(widgets=init_widgets_screen_top(),  size=25, background=colors[0]),
+        bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=colors[0])),
         Screen()
         ]
 

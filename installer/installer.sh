@@ -123,7 +123,7 @@ function i_aur () {
     'rofi-file-browser-extended-git'
     'ocs-url'
     #'ncspot'
-    'alacritty' #Terminal
+    'rxvt-unicode-patched-with-scrolling' #Terminal
     'wpgtk-git'
     'nbfc'
     'gtk-theme-flat-color-git'
@@ -145,6 +145,9 @@ function i_settings(){
   git config --global user.name "gibranlp" &
   git config --global user.email gibranlp@gmail.com & 
   wpg-install.sh -g -d -i &
+  /opt/bin/autostart &
+  /opt/bin/alwaystart &
+  /opt/bin/genwal &
 }
 
 function i_files(){
@@ -168,16 +171,8 @@ function i_files(){
 fi
 }
 
-function i_post(){
-  /opt/bin/genwal &
-  /opt/bin/autostart &
-  /opt/bin/alwaystart &
-  
-}
-
 i_base
 i_pip
 i_aur
-i_settings
 i_files
-i_post
+i_settings

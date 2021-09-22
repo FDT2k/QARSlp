@@ -20,7 +20,7 @@ from libqtile.command import lazy
 
 mod = "mod4"
 alt = "mod1"                                   
-term = "alacritty"
+term = "urxvt"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
@@ -111,15 +111,11 @@ def change_scheme(qtile):
 
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ncspot"')
+    qtile.cmd_spawn(term + ' -e ncspot')
 
 def ranger(qtile):
     qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
-
-def cranger(qtile):
-    qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn(term + ' -e bash -c ". ~/.zshrc; ranger"')
+    qtile.cmd_spawn(term + ' -e ranger')
 
 def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
