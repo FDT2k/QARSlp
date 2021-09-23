@@ -17,7 +17,7 @@ def init_widgets_top():
     widgets_top = [
                 #### Shortcuts ####
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -25,7 +25,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -33,7 +33,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),        
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -41,7 +41,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -49,7 +49,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -57,7 +57,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -65,7 +65,7 @@ def init_widgets_top():
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -81,7 +81,7 @@ def init_widgets_top():
                     ),
                 #### Groups ####
                 widget.GroupBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     disable_drag=True,
                     hide_unused=False,
@@ -118,7 +118,7 @@ def init_widgets_top():
                     background=color[0],
                     padding=5,
                     format=' {name}',
-                    empty_group_string='QARSlp',
+                    empty_group_string=' QARSlp',
                     ),
                 #### Spacer ####
                 #widget.Spacer(
@@ -135,7 +135,7 @@ def init_widgets_top():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,text="",
                     padding=5,
                     foreground=color[0],
@@ -164,7 +164,7 @@ def init_widgets_top():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[2],
                     foreground=color[0],
@@ -185,11 +185,11 @@ def init_widgets_top():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[5],
                     foreground=color[0],
-                    text="",
+                    text=" ",
                     fontshadow=color[7]
                     ),
                 widget.Pomodoro(
@@ -216,7 +216,7 @@ def init_widgets_top():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[3],
                     foreground=color[0],
@@ -246,7 +246,7 @@ def init_widgets_top():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     text=" ",
                     foreground=color[0],
                     background=color[7],
@@ -282,7 +282,7 @@ def init_widgets_top():
                     ),
                 #### Lock, Logout, Poweroff ####
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     foreground=color[7],
                     text="",
@@ -310,7 +310,7 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.Net(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     interface=netact,
                     format='',
@@ -374,7 +374,7 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[2],
                     foreground=color[0],
@@ -396,7 +396,7 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[5],
                     foreground=color[0],
@@ -418,7 +418,7 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[3],
                     foreground=color[0],
@@ -446,7 +446,7 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     text=" ",
                     background=color[7],
@@ -459,7 +459,7 @@ def init_widgets_bott():
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/fans')},
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     text=" ",
                     background=color[7],
@@ -479,9 +479,9 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 widget.TextBox(
-                    font='Font Awesome 5 Free',
+                    font='Font Awesome 5 Free Solid',
                     fontsize=17,
-                    text="",
+                    text="",
                     foreground=color[7],
                     background=color[0]
                     ),

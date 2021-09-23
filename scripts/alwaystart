@@ -11,10 +11,13 @@
 
 
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
+/opt/bin/wvis &
 setxkbmap -layout us -variant intl &
 pywalfox update &
 /opt/bin/telwal --wal &
 killall dunst &
+spicetify update &
+cp ~/.cache/wal/colors.Xresources ~/.Xresources &
 if [ -d "~/.config/dunst/" ];  then
     cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
   else

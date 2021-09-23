@@ -25,15 +25,16 @@ home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
 #### Hooks ####
+@hook.subscribe.startup
+def start():
+    subprocess.call('/opt/bin/alwaystart')
+    
 
 @hook.subscribe.startup_once
 def start_once():
     subprocess.call('/opt/bin/autostart')
 
-@hook.subscribe.startup
-def start():
-    subprocess.call('/opt/bin/alwaystart')
-    subprocess.call('/opt/bin/wvis')
+
 
 @hook.subscribe.client_new
 def floating(window):
