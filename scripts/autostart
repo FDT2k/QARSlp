@@ -12,12 +12,17 @@
 xrandr --output HDMI-0 --mode 2560x1080 --primary --output VGA-0 --mode 1366x768 --left-of HDMI-0 &
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 picom --config ~/.config/qtile/picom.conf &
+/opt/bin/wvis &
+setxkbmap -layout us -variant intl &
+pywalfox update &
+/opt/bin/telwal --wal &
+killall dunst &
+spicetify update &
 numlockx on &
 nextcloud &
 wvis &
 kdeconnect-indicator &
 blueman-tray &
-setxkbmap -layout us -variant intl &
 #nbfc config --apply "Acer Aspire E5-575G"
 wal -R -q &
 

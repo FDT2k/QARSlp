@@ -7,7 +7,7 @@ dmenu = /usr/bin/dmenu -p dunst
 follow = mouse
 font = Fira Code 12
 format = "%s\n%b"
-geometry = "450x10-0+25"
+geometry = "350x10-0+25"
 horizontal_padding = 8
 icon_folders = /usr/share/icons/Notifications
 icon_position = left
@@ -40,8 +40,8 @@ context = ctrl+shift+period
 history = ctrl+grave
 
 [urgency_critical]
-background = "{background}"
-foreground = "{foreground}"
+background = "{foreground}"
+foreground = "{background}"
 timeout = 10
 
 [urgency_low]
@@ -53,11 +53,6 @@ timeout = 5
 background = "{background}"
 foreground = "{foreground}"
 timeout = 5
-
-[AN2Linux]
-appname = AN2Linux
-format = "%s\n%b"
-timeout = 10
 
 [Discord]
 appname = Discord Canary
@@ -81,15 +76,9 @@ format = "Mozilla Firefox\n%s\n%b"
 new_icon = Mozilla Firefox
 timeout = 10
 
-[NCMPCPP]
-appname = NCMPCPP
+[ncspot]
+appname = ncspot
 format = "Now Playing\n%s\n%b"
-timeout = 10
-
-[Redshift]
-appname = Redshift
-format = "System Notification\n%s\n%b"
-new_icon = Redshift
 timeout = 10
 
 [Spotify]
@@ -101,16 +90,4 @@ timeout = 10
 appname = Transmission
 format = "Transmission\n%s\n%b"
 new_icon = Transmission
-timeout = 10
-
-[UpdateChecker]
-appname = UpdateChecker
-format = "System Notification\n%s\n%b"
-new_icon = UpdateChecker
-timeout = 10
-
-[Volume]
-appname = Volume
-format = "System Notification\n%s\n%b"
-new_icon = Volume
 timeout = 10
