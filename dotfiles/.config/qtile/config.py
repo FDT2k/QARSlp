@@ -7,14 +7,6 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 
-from theme import *
-
-colors = init_colors()
-widget_defaults = init_widgets_defaults()
-widgets_top = init_widgets_top()
-widgets_bott = init_widgets_bott()
-widgets_screen_top = init_widgets_screen_top()
-widgets_screen_bot = init_widgets_screen_bot()
-screens = init_screens()
+from key import *
 
 wmname = "QARSlp"

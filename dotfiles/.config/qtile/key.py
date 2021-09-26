@@ -6,9 +6,8 @@
 # QARSlp Qtile + Arch Ricing Script
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
-
-
-from funct import *
+#
+from theme import *
 
 #### Layouts ####
 def init_layout_theme():
@@ -31,15 +30,21 @@ def init_layouts():
             ratio=0.70,
             **layout_theme),
         layout.TreeTab(
-            sections=["Tabs"],
+            sections = ["Tabs"],
             section_fontsize=15,
             bg_color=color[0],
             active_bg=color[8],
             active_fg=color[0],
             inactive_bg=color[0],
             inactive_fg=color[7],
-            padding_y=5,
-            panel_width=350,
+            padding_left = 0,
+            padding_x = 0,
+            padding_y = 5,
+            section_top = 10,
+            section_bottom = 20,
+            level_shift = 8,
+            vspace = 3,
+            panel_width = 200,
             **layout_theme),
         layout.Floating(
             **layout_theme)
@@ -65,20 +70,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='Obconf')
 ])
 #### End layouts ####
-
-
-##### Groups #####
-groups = [
-    Group("1",position=1,matches=[Match(wm_class=['nautilus', 'gnome-disks', 'Gnome-disks', 'anydesk', 'Anydesk'])],layout="monadtall",label=""),
-    Group("2",position=2,matches=[Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird', 'transmission-gtk','Transmission-gtk', 'Simplenote',])],layout="matrix",label=""),
-    Group("3",position=3,matches=[Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],layout="matrix",label=""),
-    Group("4",position=4,matches=[Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],layout="monadtall",label=""),
-    Group("5",position=5,matches=[Match(wm_class=['Code', 'code','Filezilla','typora'])],layout="monadtall",label=""),
-    Group("6",position=6,matches=[Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],layout="monadtall",label=""),
-    Group("7",position=7,matches=[Match(wm_class=['Spotify', 'spotify'])],layout="matrix",label=""),
-    Group("8",position=8,matches=[Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],layout="matrix",label=""),
-    Group("9",position=9,layout="monadtall",label="")]
-#### End Groups ####
 
 #### Keys ####
 def init_keys():
@@ -187,6 +178,7 @@ def init_keys():
 
             ### Screenshots ####
             Key([], "Print", lazy.spawn('/opt/bin/screenshot')),]
+
 
     for i in groups:
             keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))

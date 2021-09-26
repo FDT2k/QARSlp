@@ -24,6 +24,7 @@ term = "urxvt"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
+groups = ["1","2","3","4","5","6","7","8","9",]
 #### Hooks ####
 @hook.subscribe.startup
 def start():
@@ -62,6 +63,7 @@ with open(home + '/.cache/wal/colors.json') as json_file:
 def init_colors():
     return [*val_list]
 
+colors = init_colors()
 #### Send app to group ####
 
 @lazy.function
