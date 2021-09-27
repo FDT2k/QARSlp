@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# _______  _______  ______  _______  __        
+#|       ||   _   ||   __ \|     __||  |.-----.
+#|   -  _||       ||      <|__     ||  ||  _  |
+#|_______||___|___||___|__||_______||__||   __|
+#                                       |__|   
+# QARSlp Qtile + Arch Ricing Script
+# by: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
+rofi_command="rofi -theme ~/.config/rofi/theme.rasi"
+
+## options
+theme1="QARSlp"
+theme2="DTś Top Bar"
+theme3="Minimal"
+theme4="Theme 4"
+
+
+options="$theme1\n$theme2\n$theme3\n$theme4"
+
+## Main
+chosen="$(echo -e "$options" | $rofi_command -p "Select Theme" -dmenu -selected-row 0)"
+case $chosen in
+    $theme1)
+        rm -rf ~/.config/qtile/theme.py
+        ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
+        qtile cmd-obj -o cmd -f restart
+        ;;
+    $theme2)
+        rm -rf ~/.config/qtile/theme.py
+        ln -s ~/.config/qtile/themes/dt.py  ~/.config/qtile/theme.py
+        qtile cmd-obj -o cmd -f restart
+        ;;
+    $theme3)
+        rm -rf ~/.config/qtile/theme.py
+        ln -s ~/.config/qtile/themes/minimal.py  ~/.config/qtile/theme.py
+        qtile cmd-obj -o cmd -f restart
+        ;;
+esac

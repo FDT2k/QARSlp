@@ -6,56 +6,34 @@
 # QARSlp Qtile + Arch Ricing Script
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
-
-
 from funct import *
 
 ##### Groups #####
-groups = [
-    Group("1",
-    exclusive = True,
-    matches=[Match(wm_class=[
-        'nautilus','gnome-disks','Gnome-disks','anydesk','Anydesk'])],
-    layout="monadtall",
-    label=""),
-    Group("2",
-    matches=[Match(wm_class=[
-        'Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote',])],
-    layout="matrix",
-    label=""),
-    Group("3",
-    matches=[Match(wm_class=[
-        'whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],
-    layout="matrix",
-    label=""),
-    Group("4",
-    matches=[Match(wm_class=[
-        'firefox', 'google-chrome', 'Google-chrome'])],
-    layout="monadtall",
-    label=""),
-    Group("5",
-    matches=[Match(wm_class=[
-        'Code', 'code','Filezilla','typora'])],
-    layout="monadtall",
-    label=""),
-    Group("6",
-    matches=[Match(wm_class=[
-        'Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],
-    layout="monadtall",
-    label=""),
-    Group("7",
-    matches=[Match(wm_class=[
-        'Spotify', 'spotify'])],
-    layout="monadtall",
-    label=""),
-    Group("8",
-    matches=[Match(wm_class=[
-        'VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],
-    layout="matrix",
-    label=""),
-    Group("9",
-    layout="monadtall",
-    label="")]
+group_names = ["1","2","3","4","5","6","7","8","9"]
+group_labels = ["","","","","","","","",""]
+group_layouts = ["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "matrix", "monadtall"]
+group_matches = [
+    [Match(wm_class=['nautilus','gnome-disks','Gnome-disks','anydesk','Anydesk'])],
+    [Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote',])],
+    [Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],
+    [Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],
+    [Match(wm_class=['Code', 'code','Filezilla','typora'])],
+    [Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],
+    [Match(wm_class=['Spotify', 'spotify'])],
+    [Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],
+    None
+]
+
+groups = []
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            matches=group_matches[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
 
 #### End Groups ####
 
@@ -69,11 +47,11 @@ def init_widgets_top():
                 #### Shortcuts ####
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
+                    fontsize=16,
+                    foreground=color[3],
                     text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')},
-                    fontshadow=color[3]
+                    fontshadow=color[7]
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
@@ -137,12 +115,13 @@ def init_widgets_top():
                     disable_drag=True,
                     hide_unused=False,
                     fontshadow=color[0],
-                    margin_y=1,
                     padding_x=5,
+                    padding_y=5,
                     borderwidth=0,
-                    active=color[7],
+                    active=color[6],
                     inactive=color[1],
                     rounded=False,
+                    highlight_color=color[7],
                     highlight_method="text",
                     this_current_screen_border=color[0],
                     this_screen_border=color[3],
@@ -150,12 +129,6 @@ def init_widgets_top():
                     other_screen_border=color[0],
                     foreground=color[2],
                     background=color[1]
-                    ),
-                #### Notification ####
-                widget.Prompt(
-                    prompt = prompt,
-                    foreground=color[0],
-                    background = color[1]
                     ),
                 widget.TextBox(
                     background=color[0],
@@ -603,8 +576,13 @@ def init_widgets_screen_bot():
 
 def init_screens():
     return [
-        Screen(top=bar.Bar(widgets=init_widgets_screen_top(),  size=25, background=color[0]),
-        bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen_top(),  
+                size=25,
+                background=color[0],
+                ),
+            bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])),
         Screen()
         ]
 
@@ -612,4 +590,8 @@ def init_screens():
 
 widget_defaults = init_widgets_defaults()
 widgets_top = init_widgets_top()
+widgets_screen_top = init_widgets_screen_top()
+screens = init_screens()
 widgets_bott = init_widgets_bott()
+widgets_screen_top = init_widgets_screen_top()
+init_widgets_screen_bot = init_widgets_screen_bot()

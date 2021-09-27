@@ -88,12 +88,11 @@ def init_keys():
             Key([mod],"h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
             Key([mod],"p",lazy.spawn('/opt/bin/qback')), # Launcher
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
-            Key([mod],"x",lazy.spawn('/opt/bin/logout')),
-            Key([mod],"n",lazy.spawn('/opt/bin/network')),
-            Key([alt],"r",lazy.spawn('/opt/bin/qback')),
-            Key([mod],"c",lazy.spawn('/opt/bin/fans')),
-            Key([alt],"w",lazy.spawn('/opt/bin/chwall')),
-
+            Key([mod],"x",lazy.spawn('/opt/bin/logout')), # Log out
+            Key([mod],"n",lazy.spawn('/opt/bin/network')), # Network Settings
+            Key([alt],"r",lazy.spawn('/opt/bin/qback')), # Change Color Scheme
+            Key([mod],"c",lazy.spawn('/opt/bin/fans')), # Fans
+            Key([alt],"w",lazy.spawn('/opt/bin/chgth')), # Change Theme 
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),

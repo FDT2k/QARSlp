@@ -130,6 +130,7 @@ function i_aur () {
     'google-chrome'
     'spicetify-cli'
     'hollywood'
+    'otf-symbola'
 )
 
 for packet in "${packets[@]}"; do

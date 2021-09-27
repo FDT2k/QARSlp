@@ -54,10 +54,10 @@ case $chosen in
 		fi 
         ;;
     $bmon)
-        alacritty -e bash -c ". ~/.zshrc; bmon"
+        urxvt -e bmon"
         ;;
     $launch_cli)
-        alacritty -e bash -c ". ~/.zshrc; nmtui"
+        urxvt -e  nmtui"
         ;;
     $launch)
         nm-connection-editor
