@@ -9,68 +9,6 @@
 #
 from theme import *
 
-#### Layouts ####
-def init_layout_theme():
-    return {"font":"Fira Code Medium",
-            "fontsize":14,
-            "margin": 10,
-            "border_width":3,
-            "border_normal":color[0],
-            "border_focus":color[6],
-            "single_margin":0,
-            "single_border_width":0,
-           }
-
-def init_layouts():
-    return [
-        layout.Matrix(
-            **layout_theme),
-        layout.MonadTall(
-            max_ratio=0.90,
-            ratio=0.70,
-            **layout_theme),
-        layout.TreeTab(
-            sections = ["Tabs"],
-            section_fontsize=15,
-            bg_color=color[0],
-            active_bg=color[8],
-            active_fg=color[0],
-            inactive_bg=color[0],
-            inactive_fg=color[7],
-            padding_left = 0,
-            padding_x = 0,
-            padding_y = 5,
-            section_top = 10,
-            section_bottom = 20,
-            level_shift = 8,
-            vspace = 3,
-            panel_width = 200,
-            **layout_theme),
-        layout.Floating(
-            **layout_theme)
-            ]
-
-
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    # default_float_rules include: utility, notification, toolbar, splash, dialog,
-    # file_progress, confirm, download and error.
-    *layout.Floating.default_float_rules,
-    Match(title='Confirmation'),  # tastyworks exit box
-    Match(title='Qalculate!'),  # qalculate-gtk
-    Match(wm_class='pavucontrol'),  # volume control
-    Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
-    Match(wm_class='lxappearance'),
-    Match(wm_class='confirmreset'),
-    Match(wm_class='makebranch'),
-    Match(wm_class='maketag'),
-    Match(wm_class='branchdialog'),
-    Match(wm_class='pinentry'),
-    Match(wm_class='ssh-askpass'),
-    Match(wm_class='Obconf')
-])
-#### End layouts ####
-
 #### Keys ####
 def init_keys():
     keys = [ 
@@ -79,6 +17,7 @@ def init_keys():
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
             Key([mod, "mod1"], "Return", lazy.spawn('sudo rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
             Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
+            Key([mod], "r", lazy.spawncmd()),
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
             Key([mod, "shift"], "q",lazy.shutdown()), # Logout 
@@ -90,17 +29,17 @@ def init_keys():
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
             Key([mod],"x",lazy.spawn('/opt/bin/logout')), # Log out
             Key([mod],"n",lazy.spawn('/opt/bin/network')), # Network Settings
-            Key([alt],"r",lazy.spawn('/opt/bin/qback')), # Change Color Scheme
+            Key([alt, "shift"],"r",lazy.spawn('/opt/bin/qback')), # Change Color Scheme
             Key([mod],"c",lazy.spawn('/opt/bin/fans')), # Fans
             Key([alt],"w",lazy.spawn('/opt/bin/chgth')), # Change Theme 
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),
             #### Theming ####
-            Key([mod], "r",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
+            Key([alt], "r",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
 
             #### Apps ####
-            Key([mod, "shift"],"e",lazy.function(app_or_group("1", "nautilus"))), #File manager
+            Key([mod, "shift"],"e",lazy.function(app_or_group("1", "thunar"))), #File manager
             Key([alt, "shift"],"e",lazy.function(ranger)), # CLI file manager
             Key([mod, "shift"],"a",lazy.function(app_or_group("1", "anydesk"))),
             Key([mod, "shift"],"s",lazy.function(app_or_group('2', 'simplenote'))),
@@ -154,11 +93,12 @@ def init_keys():
             #### Media Control ####
             #Key([mod], "v", lazy.spawn('/home/gibranlp/MEGA/computerStuff/keyboard/keyboard_activate.sh')),
             #Key([mod], "b", lazy.spawn('/home/gibranlp/MEGA/computerStuff/keyboard/keyboard_deactivate.sh')),
-            Key([], "XF86AudioPlay", lazy.spawn("playerctl -p ncspot play-pause")),
-            Key([], "XF86AudioNext", lazy.spawn("playerctl -p ncspot next")),
-            Key([], "XF86AudioPrev", lazy.spawn("playerctl -p ncspot previous")),
-            Key([], "XF86AudioStop", lazy.spawn("playerctl -p ncspot stop")),
+            Key([], "XF86AudioPlay", lazy.function(play_pause)),
+            Key([], "XF86AudioNext", lazy.function(nexts)),
+            Key([], "XF86AudioPrev", lazy.function(prev)),
+            Key([], "XF86AudioStop", lazy.function(stop)),
 
+    
             #### Window hotkeys ####
             Key([alt], "f", lazy.window.toggle_fullscreen()),
             Key([alt, "shift"], "f", lazy.window.toggle_floating()),
@@ -196,5 +136,4 @@ def init_mouse():
 
 keys = init_keys()
 mouse = init_mouse()
-layout_theme = init_layout_theme()
-layouts = init_layouts()
+

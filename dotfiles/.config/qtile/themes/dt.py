@@ -12,17 +12,17 @@ from funct import *
 
 ##### Groups #####
 group_names=["1","2","3","4","5","6","7","8","9"]
-group_labels=["","","","","","","","",""]
-group_layouts=["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "matrix", "monadtall"]
-group_matches=[
-    [Match(wm_class=['nautilus','gnome-disks','Gnome-disks','anydesk','Anydesk'])],
-    [Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote',])],
-    [Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],
-    [Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],
-    [Match(wm_class=['Code', 'code','Filezilla','typora'])],
-    [Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],
-    [Match(wm_class=['Spotify', 'spotify'])],
-    [Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],
+group_labels = ["WWW","DEV","SYS","DOC","VBOX","CHAT","MUS","MUS","VID"]
+group_layouts = ["monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall","monadtall", "monadtall", "floating"]
+group_matches = [
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
+    [Match(wm_class=[])],
     None
 ]
 
@@ -39,6 +39,51 @@ for i in range(len(group_names)):
 
 #### End Groups ####
 
+#### Layouts ####
+def init_layout_theme():
+    return {"font":"Fira Code Medium",
+            "fontsize":14,
+            "margin": 10,
+            "border_width":3,
+            "border_normal":color[0],
+            "border_focus":color[6],
+            "single_margin":0,
+            "single_border_width":0,
+           }
+
+layout_theme = init_layout_theme()
+
+def init_layouts():
+    return [
+        layout.MonadTall(**layout_theme),
+        layout.Max(**layout_theme),
+        layout.Stack(num_stacks=2),
+        layout.RatioTile(**layout_theme),
+        layout.TreeTab(
+             font = "Ubuntu",
+             fontsize = 10,
+             sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
+          section_fontsize = 10,
+             border_width = 2,
+             bg_color = "1c1f24",
+             active_bg = "c678dd",
+             active_fg = "000000",
+             inactive_bg = "a9a1e1",
+             inactive_fg = "1c1f24",
+             padding_left = 0,
+             padding_x = 0,
+             padding_y = 5,
+             section_top = 10,
+             section_bottom = 20,
+             level_shift = 8,
+             vspace = 3,
+             panel_width = 200
+             ),
+        layout.Floating(**layout_theme)
+]
+
+layouts = init_layouts()
+#### End layouts ####
 
 #### Widgets ####
 def init_widgets_defaults():

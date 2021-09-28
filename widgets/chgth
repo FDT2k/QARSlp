@@ -25,16 +25,16 @@ case $chosen in
     $theme1)
         rm -rf ~/.config/qtile/theme.py
         ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f restart
+        qtile cmd-obj -o cmd -f shutdown
         ;;
     $theme2)
         rm -rf ~/.config/qtile/theme.py
         ln -s ~/.config/qtile/themes/dt.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f restart
+        qtile cmd-obj -o cmd -f shutdown
         ;;
     $theme3)
         rm -rf ~/.config/qtile/theme.py
         ln -s ~/.config/qtile/themes/minimal.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f restart
+        qtile cmd-obj -o cmd -f shutdown
         ;;
 esac

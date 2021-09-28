@@ -7,7 +7,7 @@ dmenu = /usr/bin/dmenu -p dunst
 follow = mouse
 font = Fira Code 12
 format = "%s\n%b"
-geometry = "350x10-0+25"
+geometry = "350x10-10+35"
 horizontal_padding = 8
 icon_folders = /usr/share/icons/Notifications
 icon_position = left
@@ -26,12 +26,12 @@ show_indicators = no
 sort = yes
 startup_notification = false
 sticky_history = no
-transparency = 40
+transparency = 5
 word_wrap = yes
 
 [frame]
 color = "{color6}"
-width = 3
+width = 2
 
 [shortcuts]
 close = ctrl+space

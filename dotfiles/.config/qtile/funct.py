@@ -110,6 +110,22 @@ def change_scheme(qtile):
     subprocess.run(["wpg", "-s" + currentWal])
     qtile.cmd_restart()
 
+def play_pause(qtile):
+    qtile.cmd_spawn("playerctl -p spotify play-pause")
+    qtile.cmd_spawn("playerctl -p ncspot play-pause")
+
+def nexts(qtile):
+    qtile.cmd_spawn("playerctl -p spotify next")
+    qtile.cmd_spawn("playerctl -p ncspot next")
+
+def prev(qtile):
+    qtile.cmd_spawn("playerctl -p spotify previous")
+    qtile.cmd_spawn("playerctl -p ncspot previous")
+
+def stop(qtile):
+    qtile.cmd_spawn("playerctl -p spotify stop")
+    qtile.cmd_spawn("playerctl -p ncspot stop")
+
 
 def ncsp(qtile):
     qtile.groups_map["7"].cmd_toscreen(toggle=False)

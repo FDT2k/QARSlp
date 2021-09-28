@@ -10,9 +10,9 @@ from funct import *
 
 ##### Groups #####
 group_names = ["1","2","3","4","5","6","7","8","9"]
-group_labels = ["","","","","","","","",""]
-group_layouts = ["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "matrix", "monadtall"]
-group_matches = [
+group_labels=["","","","","","","","",""]
+group_layouts=["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "matrix", "monadtall"]
+group_matches=[
     [Match(wm_class=['nautilus','gnome-disks','Gnome-disks','anydesk','Anydesk'])],
     [Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote',])],
     [Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],
@@ -23,6 +23,7 @@ group_matches = [
     [Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],
     None
 ]
+
 
 groups = []
 
@@ -36,6 +37,72 @@ for i in range(len(group_names)):
         ))
 
 #### End Groups ####
+
+
+#### Layouts ####
+def init_layout_theme():
+    return {"font":"Fira Code Medium",
+            "fontsize":14,
+            "margin": 10,
+            "border_width":3,
+            "border_normal":color[0],
+            "border_focus":color[6],
+            "single_margin":0,
+            "single_border_width":0,
+           }
+
+layout_theme = init_layout_theme()
+
+def init_layouts():
+    return [
+        layout.Matrix(
+            **layout_theme),
+        layout.MonadTall(
+            max_ratio=0.90,
+            ratio=0.70,
+            **layout_theme),
+        layout.TreeTab(
+            sections = ["Tabs"],
+            section_fontsize=15,
+            bg_color=color[0],
+            active_bg=color[8],
+            active_fg=color[0],
+            inactive_bg=color[0],
+            inactive_fg=color[7],
+            padding_left = 0,
+            padding_x = 0,
+            padding_y = 5,
+            section_top = 10,
+            section_bottom = 20,
+            level_shift = 8,
+            vspace = 3,
+            panel_width = 200,
+            **layout_theme),
+        layout.Floating(
+            **layout_theme)
+            ]
+
+
+floating_layout = layout.Floating(float_rules=[
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    # default_float_rules include: utility, notification, toolbar, splash, dialog,
+    # file_progress, confirm, download and error.
+    *layout.Floating.default_float_rules,
+    Match(title='Confirmation'),  # tastyworks exit box
+    Match(title='Qalculate!'),  # qalculate-gtk
+    Match(wm_class='pavucontrol'),  # volume control
+    Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
+    Match(wm_class='lxappearance'),
+    Match(wm_class='confirmreset'),
+    Match(wm_class='makebranch'),
+    Match(wm_class='maketag'),
+    Match(wm_class='branchdialog'),
+    Match(wm_class='pinentry'),
+    Match(wm_class='ssh-askpass'),
+    Match(wm_class='Obconf')
+])
+layouts = init_layouts()
+#### End layouts ####
 
 
 #### Widgets ####
@@ -130,6 +197,12 @@ def init_widgets_top():
                     foreground=color[2],
                     background=color[1]
                     ),
+                widget.Prompt(
+                       prompt=prompt,
+                       padding=10,
+                       foreground=color[0],
+                       background=color[1]
+                       ),
                 widget.TextBox(
                     background=color[0],
                     foreground=color[1],
@@ -170,6 +243,17 @@ def init_widgets_top():
                 widget.Mpris2(
                     name='ncspot',
                     objname='org.mpris.MediaPlayer2.ncspot',
+                    scroll_chars=30,
+                    background=color[6],
+                    foreground=color[0],
+                    stop_pause_text='',
+                    display_metadata=['xesam:artist','xesam:title'],
+                    scroll_interval=0.5,
+                    scroll_wait_intervals=2000
+                    ),
+                widget.Mpris2(
+                    name='Spotify',
+                    objname='org.mpris.MediaPlayer2.spotify',
                     scroll_chars=30,
                     background=color[6],
                     foreground=color[0],
