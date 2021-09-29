@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-export ZSH="~/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
