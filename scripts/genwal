@@ -8,8 +8,6 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-# Color Scheme to use
-dir="${HOME}"'/Pictures/wallPapers' # Wallpapers Directory
 file=`/bin/ls -1 "$dir" | sort --random-sort | head -1` # Select random file on directory
 path=`readlink --canonicalize "$dir/$file"` # Converts to full path
 #### Set Wallpaper Selected / Random
