@@ -98,7 +98,7 @@ def set_wallpaper(qtile):
     with open (home + "/.config/qtile/current_wallpaper", "w") as currentWal:
         currentWal.write(random_wallpaper)
     subprocess.run(["wpg", "-s" + random_wallpaper])
-    subprocess.run(["sudo", "cp", "%s" % random_wallpaper,  "/usr/share/backgrounds/background.png"])
+    subprocess.run(["sudo", "cp", "%s" % random_wallpaper,  "/usr/share/background.png"])
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
 
