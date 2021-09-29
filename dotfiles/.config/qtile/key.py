@@ -69,17 +69,13 @@ def init_keys():
 
             ## Group 8 (Virtual Stuff games)
             Key([mod, "shift"],"v",lazy.spawn(term + ' -e vis')),
-            Key([mod],"b",lazy.function(app_or_group('8', '/home/gibranlp/albiononline/./Albion-Online'))),
+            Key([mod],"b",lazy.function(app_or_group('8', '/media/gibranlp/Games/albion/./Albion-Online'))),
             
             #### Layouts ####
             Key([mod], "Tab",lazy.layout.next()), # Change focus of windows down
             Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
             Key([alt], "Tab", lazy.layout.swap_left()),
             Key([alt, "shift"], "Tab", lazy.layout.swap_right()),
-            #Key([mod], "h", lazy.layout.left()),
-            #Key([mod], "l", lazy.layout.right()),
-            #Key([mod], "Up", lazy.layout.down()),
-            #Key([mod], "Down", lazy.layout.up()),
 
             #### Brightness ####
             Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),

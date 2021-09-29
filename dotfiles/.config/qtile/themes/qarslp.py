@@ -170,6 +170,15 @@ def init_widgets_top():
                     desc="Close Window"
                     ),
                 widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + " -e ssh gibranlp@192.168.1.180")},
+                    fontshadow=color[3],
+                    desc="Close Window"
+                    ),
+                widget.TextBox(
                     foreground=color[1],
                     text="◢",
                     fontsize=65,
@@ -247,9 +256,7 @@ def init_widgets_top():
                     background=color[6],
                     foreground=color[0],
                     stop_pause_text='',
-                    display_metadata=['xesam:artist','xesam:title'],
-                    scroll_interval=0.5,
-                    scroll_wait_intervals=2000
+                    display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
                     ),
                 widget.Mpris2(
                     name='Spotify',
@@ -258,9 +265,7 @@ def init_widgets_top():
                     background=color[6],
                     foreground=color[0],
                     stop_pause_text='',
-                    display_metadata=['xesam:artist','xesam:title'],
-                    scroll_interval=0.5,
-                    scroll_wait_intervals=2000
+                    display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
                     ),
                     
                 #### Layouts ####

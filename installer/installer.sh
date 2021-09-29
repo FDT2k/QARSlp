@@ -81,6 +81,7 @@ function i_base () {
     'ueberzug'
     'thunderbird'
     'xsettingsd'
+    'otf-ipafont'
 )
 
 for packet in "${packets[@]}"; do
@@ -131,6 +132,7 @@ function i_aur () {
     'spicetify-cli'
     'hollywood'
     'otf-symbola'
+    'pamac-classic'
 )
 
 for packet in "${packets[@]}"; do
