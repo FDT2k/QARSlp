@@ -11,7 +11,7 @@
 function i_files(){
   cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
-  cp -r ~/QARSlp/wallPapers ~/Pictures
+  cp -r ~/QARSlp/wallPapers ~/Pictures/
   sudo cp -r  ~/.cache/wal /root/.cache/
   sudo cp ~/QARSlp/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
   ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
