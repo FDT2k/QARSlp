@@ -5,7 +5,7 @@ bounce_freq = 0
 browser = /usr/bin/firefox -new-tab
 dmenu = /usr/bin/dmenu -p dunst
 follow = mouse
-font = Fira Code 12
+font = Fira Code 15
 format = "%s\n%b"
 geometry = "350x10-10+35"
 horizontal_padding = 8
@@ -42,17 +42,17 @@ history = ctrl+grave
 [urgency_critical]
 background = "{foreground}"
 foreground = "{background}"
-timeout = 10
+timeout = 15
 
 [urgency_low]
 background = "{background}"
 foreground = "{foreground}"
-timeout = 5
+timeout = 10
 
 [urgency_normal]
 background = "{background}"
 foreground = "{foreground}"
-timeout = 5
+timeout = 10
 
 [Discord]
 appname = Discord Canary
