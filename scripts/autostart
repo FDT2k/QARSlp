@@ -13,8 +13,8 @@ xrandr --output HDMI-0 --mode 2560x1080 --primary --output VGA-0 --mode 1366x768
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 picom --config ~/.config/qtile/picom.conf &
 /opt/bin/wvis &
-#setxkbmap -layout us -variant intl &
-setxkbmap -layout latam &
+setxkbmap -layout us -variant intl &
+#setxkbmap -layout latam &
 pywalfox update &
 /opt/bin/telwal --wal &
 killall dunst &

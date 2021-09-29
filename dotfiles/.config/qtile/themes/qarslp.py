@@ -174,7 +174,7 @@ def init_widgets_top():
                     fontsize=15,
                     foreground=color[7],
                     text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + " -e ssh gibranlp@192.168.1.180")},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + " -e ssh adrianalp@192.168.1.97")},
                     fontshadow=color[3],
                     desc="Close Window"
                     ),

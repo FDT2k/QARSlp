@@ -12,8 +12,8 @@
 
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 /opt/bin/wvis &
-#setxkbmap -layout us -variant intl &
-setxkbmap -layout latam &
+setxkbmap -layout us -variant intl &
+#setxkbmap -layout latam &
 pywalfox update &
 /opt/bin/telwal --wal &
 killall dunst &
