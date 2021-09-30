@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/theme.rasi"
+rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 ## options
 theme1="QARSlp"

@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/backend.rasi"
+rofi_command="rofi -theme ~/.config/rofi/widleft.rasi"
 
 ## options
 B1="wal"
@@ -23,7 +23,7 @@ B8="colorthief light"
 options="<- Dark ->\n$B1\n$B2\n$B3\n$B4\n<- Ligth ->\n$B5\n$B6\n$B7\n$B8"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "Color Theme" -dmenu -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "  Color Theme" -dmenu -selected-row 1)"
 case $chosen in
     $B1)
 		  genwal -t $B1 -r

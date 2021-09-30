@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/screenshot.rasi"
+rofi_command="rofi -theme ~/.config/rofi/right_toolbar.rasi"
 
 # Options
 screen="Screen "

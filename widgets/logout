@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/logout.rasi"
+rofi_command="rofi -theme ~/.config/rofi/right_toolbar.rasi"
 
 # Options
 lout=" Log Out"

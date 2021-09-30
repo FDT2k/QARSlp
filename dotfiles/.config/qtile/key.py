@@ -16,7 +16,7 @@ def init_keys():
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
             Key([mod, "mod1"], "Return", lazy.spawn('sudo rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
-            Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
+            Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
             Key([mod], "r", lazy.spawncmd()),
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile

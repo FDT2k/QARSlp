@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/fan.rasi"
+rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 # Options
 full=" 100%"

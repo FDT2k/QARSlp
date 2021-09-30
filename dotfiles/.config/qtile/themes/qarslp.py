@@ -23,8 +23,6 @@ group_matches=[
     [Match(wm_class=['VirtualBox Manager', 'VirtualBox Machine', 'Steam', 'steam'])],
     None
 ]
-
-
 groups = []
 
 for i in range(len(group_names)):
@@ -125,7 +123,7 @@ def init_widgets_top():
                     fontsize=15,
                     foreground=color[7],
                     text="",
-                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi  -theme "~/.config/rofi/finder.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')},
+                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show find -modi "find:~/.config/rofi/finder.sh"')},
                     fontshadow=color[3]
                     ),        
                 widget.TextBox(
@@ -672,7 +670,14 @@ def init_screens():
                 background=color[0],
                 ),
             bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])),
-        Screen()
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen_top(),  
+                size=25,
+                background=color[0],
+                ),
+            bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])
+        )
         ]
 
 #### End Screens ####

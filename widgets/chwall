@@ -8,7 +8,7 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-rofi_command="rofi -theme ~/.config/rofi/chwall.rasi"
+rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 # Options
 ten="10 minutes"
