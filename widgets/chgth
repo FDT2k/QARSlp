@@ -12,29 +12,29 @@ rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 ## options
 theme1="QARSlp"
-theme2="DTś Top Bar"
-theme3="Minimal"
-theme4="Theme 4"
+theme2="QARSlp Top Bar"
+theme3="QARSlp Bottom Bar"
+theme4=""
 
 
 options="$theme1\n$theme2\n$theme3\n$theme4"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "Select Theme" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "  Select Theme" -dmenu -selected-row 0)"
 case $chosen in
     $theme1)
         rm -rf ~/.config/qtile/theme.py
         ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f shutdown
+        qtile cmd-obj -o cmd -f restart
         ;;
     $theme2)
         rm -rf ~/.config/qtile/theme.py
-        ln -s ~/.config/qtile/themes/dt.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f shutdown
+        ln -s ~/.config/qtile/themes/qarslp_top_bar.py  ~/.config/qtile/theme.py
+        qtile cmd-obj -o cmd -f restart
         ;;
     $theme3)
         rm -rf ~/.config/qtile/theme.py
         ln -s ~/.config/qtile/themes/minimal.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f shutdown
+        qtile cmd-obj -o cmd -f restart
         ;;
 esac

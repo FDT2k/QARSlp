@@ -109,6 +109,73 @@ def init_widgets_defaults():
 
 def init_widgets_top():    
     widgets_top = [
+                #### Shortcuts ####
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=16,
+                    foreground=color[3],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')},
+                    fontshadow=color[7]
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show find -modi "find:~/.config/rofi/finder.sh"')},
+                    fontshadow=color[3]
+                    ),        
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term)},
+                    fontshadow=color[3]
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nautilus")},
+                    fontshadow=color[3]
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/genwal')},
+                    fontshadow=color[3]
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/shortc')},
+                    fontshadow=color[3]
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.current_window.kill()},
+                    fontshadow=color[3],
+                    desc="Close Window"
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    foreground=color[7],
+                    text="",
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + " -e ssh adrianalp@192.168.1.97")},
+                    fontshadow=color[3],
+                    desc="ChatBox"
+                    ),
                 widget.TextBox(
                     foreground=color[1],
                     text="◢",
@@ -341,73 +408,7 @@ def init_widgets_top():
 
 def init_widgets_bott():
     widgets_bott = [
-                #### Shortcuts ####
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=16,
-                    foreground=color[3],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')},
-                    fontshadow=color[7]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show find -modi "find:~/.config/rofi/finder.sh"')},
-                    fontshadow=color[3]
-                    ),        
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term)},
-                    fontshadow=color[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nautilus")},
-                    fontshadow=color[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/genwal')},
-                    fontshadow=color[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/shortc')},
-                    fontshadow=color[3]
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.current_window.kill()},
-                    fontshadow=color[3],
-                    desc="Close Window"
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + " -e ssh adrianalp@192.168.1.97")},
-                    fontshadow=color[3],
-                    desc="ChatBox"
-                    ),
+                #widget.DebugInfo(foreground=color[7], background=color[0], fontshadow=color[2]),
                 #### Spacer ####
                 widget.Spacer(
                     length=bar.STRETCH,
@@ -670,16 +671,8 @@ def init_screens():
                 widgets=init_widgets_screen_top(),  
                 size=25,
                 background=color[0],
-                ),
-            bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])),
-        Screen(
-            top=bar.Bar(
-                widgets=init_widgets_screen_top(),  
-                size=25,
-                background=color[0],
-                ),
-            bottom=bar.Bar(widgets=init_widgets_screen_bot(), size=25, background=color[0])
-        )
+                )),
+        Screen()
         ]
 
 #### End Screens ####

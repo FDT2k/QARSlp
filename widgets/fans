@@ -11,13 +11,13 @@
 rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 # Options
-full=" 100%"
-auto=" Auto"
+full="100%"
+auto="Auto"
 
 
 options="$full\n$auto"
 
-chosen="$(echo -e "$options" | $rofi_command -p 'Fan Control' -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p '  Fan Control' -dmenu -selected-row 0)"
 case $chosen in
     $full)
 		sleep 1; nbfc set -f 0 -s 100

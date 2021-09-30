@@ -111,6 +111,7 @@ chmod +x post_install.sh
 ## Other included apps
 
 - [x] Firefox
+  - You must install the addon pywalfox
 - [x] Visual-studio-code
 - [x] Qtile (wm)
 - [x] Rofi

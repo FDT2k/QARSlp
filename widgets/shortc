@@ -9,4 +9,4 @@
 # MIT licence 
 #
 
-"$(cat ~/shortc.conf | rofi -theme '~/.config/rofi/left_toolbar.rasi' -i -dmenu -p ' Search Shortcuts:')"
+"$(cat ~/shortc.conf | rofi -theme '~/.config/rofi/left_toolbar.rasi' -i -dmenu -p ' Shortcuts:')"

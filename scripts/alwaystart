@@ -8,8 +8,6 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-
-
 ip addr show | awk '/inet.*brd/{print $NF; exit}' | tee ~/.config/qtile/actnet &
 /opt/bin/wvis &
 setxkbmap -layout us -variant intl &

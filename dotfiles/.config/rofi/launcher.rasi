@@ -13,7 +13,7 @@ configuration {
 	font:							"Fira Code Medium 12";
     show-icons:                     true;
 	icon-theme: 					"Buuf";
-    display-drun: 					" Search Apps: ";
+    display-drun: 					" Apps: ";
     drun-display-format:            "{name}";
     disable-history:                false;
 	hide-scrollbar: 				true;
@@ -23,6 +23,7 @@ configuration {
 @import "~/.cache/wal/colors-rofi-dark.rasi"
 
 window {
+    margin:                         25px 0% 25px 0%;
     background-color:               @background;
     text-color:                     @background;
 	height:							100%;

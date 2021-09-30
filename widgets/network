@@ -21,9 +21,9 @@ urgent=""
 if (ping -c 1 gibranlp.dev) &>/dev/null; then
 	if [[ $STATUS == *"enable"* ]]; then
         if [[ $IFACE == e* ]]; then
-            connected=" Turn Wifi On"
+            connected=" Turn Wifi On"
         else
-            connected=" Turn Wifi Off"
+            connected=" Turn Wifi Off"
         fi
 	active="-a 0"
 	SSID=" $(iwgetid -r)"

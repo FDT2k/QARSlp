@@ -11,13 +11,13 @@
 rofi_command="rofi -theme ~/.config/rofi/right_toolbar.rasi"
 
 # Options
-lout=" Log Out"
+lout=" Log Out"
 rboot=" Reboot"
 poff=" Poweroff"
 
 options="$lout\n$rboot\n$poff"
 
-chosen="$(echo -e "$options" | $rofi_command -p '  Session' -dmenu -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p '   Session' -dmenu -selected-row 1)"
 case $chosen in
     $lout)
 		sleep 1; qtile cmd-obj -o cmd -f shutdown

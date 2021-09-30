@@ -7,47 +7,45 @@
 # QARSlp Qtile + Arch Ricing Script
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
-# 
-rofi_command="rofi -theme ~/.config/rofi/widleft.rasi"
+#
+rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
-## options
-B1="wal"
-B2="haishoku"
-B3="colorz"
-B4="colorthief"
-B5="wal light"
-B6="waishoku light"
-B7="colorz light"
-B8="colorthief light"
+# Options
+wal="wal"
+hai="haishoku"
+col="colorz"
+cth="colorthief"
+wal_l="wal light"
+hai_l="haishoku light"
+col_l="colorz light"
+cth_l="colorthief light"
 
-options="<- Dark ->\n$B1\n$B2\n$B3\n$B4\n<- Ligth ->\n$B5\n$B6\n$B7\n$B8"
+options="<<-<< Dark >>->>\n$wal\n$hai\n$col\n$cth\n<<-<< Ligth >>->>\n$wal_l\n$hai_l\n$col_l\n$cth_l"
 
-## Main
-chosen="$(echo -e "$options" | $rofi_command -p "  Color Theme" -dmenu -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p '   Color Scheme' -dmenu -selected-row 1)"
 case $chosen in
-    $B1)
-		  genwal -t $B1 -r
+    $wal)
+		/opt/bin/genwal -r -t $wal 
         ;;
-    $B2)
-		  genwal -t $B2 -r
+    $hai)
+		/opt/bin/genwal -r -t $hai
         ;;
-    $B3)
-		  genwal -t $B3 -r
+    $col)
+		/opt/bin/genwal -r -t $col
         ;;
-    $B4)
-		  genwal -t $B4 -r
+    $cth)
+		/opt/bin/genwal -r -t $cht
         ;;
-    $B5)
-		  genwal -t $B1 -r -l
+    $wal_l)
+		/opt/bin/genwal -r -t $wal -l
         ;;
-    $B6)
-		  genwal -t $B2 -r -l
+    $hai_l)
+		/opt/bin/genwal -r -t $hai -l
         ;;
-    $B7)
-		  genwal -t $B3 -r -l
+    $col_l)
+		/opt/bin/genwal -r -t $col -l
         ;;
-    $B8)
-		  genwal -t $B4 -r -l
+    $cth_l)sh
+		/opt/bin/genwal -r -t $cht -l
         ;;
 esac
-
