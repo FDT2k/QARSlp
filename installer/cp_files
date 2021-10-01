@@ -9,20 +9,19 @@
 # MIT licence 
 # 
 function i_files(){
-  cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
+  \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
   cp -r ~/QARSlp/wallPapers ~/Pictures/
   sudo cp -r  ~/.cache/wal /root/.cache/
   sudo cp ~/QARSlp/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
-  ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
   
-  if [ -d "/opt/bin" ];  then
-    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
+  if [ -d "/usr/local/bin" ];  then
+    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
   else
-    sudo mkdir /opt/bin &
-    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
+    sudo mkdir /usr/local/bin &
+    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
  fi
   if [ -d "/root/.config/rofi" ]; then
     sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &

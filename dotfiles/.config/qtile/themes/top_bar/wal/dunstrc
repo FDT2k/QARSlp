@@ -1,0 +1,93 @@
+[global]
+alignment = left
+allow_markup = yes
+bounce_freq = 0
+browser = /usr/bin/firefox -new-tab
+dmenu = /usr/bin/dmenu -p dunst
+follow = mouse
+font = Fira Code 13
+format = "%s\n%b"
+geometry = "300x10-10-10"
+horizontal_padding = 8
+icon_folders = /usr/share/icons/Notifications
+icon_position = left
+min_icon_size = 0
+max_icon_size = 100
+idle_threshold = 120
+ignore_newline = no
+indicate_hidden = yes
+line_height = 5
+monitor = 0
+padding = 10
+separator_color = auto
+separator_height = 0
+show_age_threshold = -1
+show_indicators = yes
+sort = yes
+startup_notification = false
+sticky_history = no
+transparency = 0
+word_wrap = yes
+
+[frame]
+color = "{color6}"
+width = 2
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+context = ctrl+shift+period
+history = ctrl+grave
+
+[urgency_critical]
+background = "{foreground}"
+foreground = "{background}"
+timeout = 15
+
+[urgency_low]
+background = "{background}"
+foreground = "{foreground}"
+timeout = 10
+
+[urgency_normal]
+background = "{background}"
+foreground = "{foreground}"
+timeout = 10
+
+[Discord]
+appname = Discord Canary
+format = "Discord\n%s\n%b"
+new_icon = Discord
+
+[Dropbox]
+appname = Dropbox
+format = "Dropbox\n%s\n%b"
+new_icon = Dropbox
+timeout = 10
+
+[ImageMagick]
+appname = ImageMagick
+format = "System Notification\n%s\n%b"
+timeout = 10
+
+[Mozilla Firefox]
+appname = Firefox
+format = "Mozilla Firefox\n%s\n%b"
+new_icon = Mozilla Firefox
+timeout = 10
+
+[ncspot]
+appname = ncspot
+format = "Now Playing\n%s\n%b"
+timeout = 10
+
+[Spotify]
+appname = Spotify
+format = "Now Playing\n%s\n%b"
+timeout = 10
+
+[Transmission]
+appname = Transmission
+format = "Transmission\n%s\n%b"
+new_icon = Transmission
+timeout = 10

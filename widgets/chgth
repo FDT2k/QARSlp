@@ -8,29 +8,34 @@
 # by: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
+current_theme=''
+copy_files(){
+    \cp ~/.config/qtile/themes/$current_theme/theme.py ~/.config/qtile/
+    cp ~/.config/qtile/themes/$current_theme/rofi/* ~/.config/rofi/
+    cp ~/.config/qtile/themes/$current_theme/wal/* ~/.config/wal/templates/
+    /usr/local/bin/genwal
+}
+
 rofi_command="rofi -theme ~/.config/rofi/left_toolbar.rasi"
 
 ## options
-theme1="QARSlp"
-theme2="QARSlp Top Bar"
-theme3="QARSlp Bottom Bar"
-theme4=""
+theme1="Default"
+theme2="Top Bar"
+theme3="Bottom Bar"
 
 
-options="$theme1\n$theme2\n$theme3\n$theme4"
+options="<<-<< QARSLP >>->>\n$theme1\n$theme2\n$theme3"
 
 ## Main
 chosen="$(echo -e "$options" | $rofi_command -p "  Select Theme" -dmenu -selected-row 0)"
 case $chosen in
     $theme1)
-        rm -rf ~/.config/qtile/theme.py
-        ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f restart
+        current_theme='default'
+        copy_files
         ;;
     $theme2)
-        rm -rf ~/.config/qtile/theme.py
-        ln -s ~/.config/qtile/themes/qarslp_top_bar.py  ~/.config/qtile/theme.py
-        qtile cmd-obj -o cmd -f restart
+        current_theme='top_bar'
+        copy_files
         ;;
     $theme3)
         rm -rf ~/.config/qtile/theme.py

@@ -27,12 +27,12 @@ backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
 #### Hooks ####
 @hook.subscribe.startup
 def start():
-    subprocess.call('/opt/bin/alwaystart')
+    subprocess.call('/usr/local/bin/alwaystart')
     
 
 @hook.subscribe.startup_once
 def start_once():
-    subprocess.call('/opt/bin/autostart')
+    subprocess.call('/usr/local/bin/autostart')
 
 
 
@@ -137,22 +137,22 @@ def ranger(qtile):
 
 def wsearx():
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    run('/opt/bin/wsearch')
+    run('/usr/local/bin/wsearch')
 
 def cfilex():
     qtile.groups_map["1"].cmd_toscreen(toggle=False)
-    qtile.cmd_spawn('nautilus')
+    qtile.cmd_spawn('thunar')
 
 def ksearx(qtile):
     qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    run('/opt/bin/wsearch')
+    run('/usr/local/bin/wsearch')
 
 def wnetw():
-    qtile.cmd_spawn('/opt/bin/network')
+    qtile.cmd_spawn('/usr/local/bin/network')
 
 
 def wsess():
-    run('/opt/bin/logout')
+    run('/usr/local/bin/logout')
 #### End Functions ####
 
 color = init_colors()

@@ -24,14 +24,14 @@ def init_keys():
             Key([mod], "Escape", lazy.spawn('xkill')), # Click window to close
             
             #### Widgets ####
-            Key([mod],"h",lazy.spawn('/opt/bin/shortc')), # Sortcurts widget
-            Key([mod],"p",lazy.spawn('/opt/bin/qback')), # Launcher
+            Key([mod],"h",lazy.spawn('/usr/local/bin/shortc')), # Sortcurts widget
+            Key([mod],"p",lazy.spawn('/usr/local/bin/qback')), # Launcher
             Key([mod],"f",lazy.function(ksearx)), # WEB Search
-            Key([mod],"x",lazy.spawn('/opt/bin/logout')), # Log out
-            Key([mod],"n",lazy.spawn('/opt/bin/network')), # Network Settings
-            Key([alt, "shift"],"r",lazy.spawn('/opt/bin/qback')), # Change Color Scheme
-            Key([mod],"c",lazy.spawn('/opt/bin/fans')), # Fans
-            Key([alt],"w",lazy.spawn('/opt/bin/chgth')), # Change Theme 
+            Key([mod],"x",lazy.spawn('/usr/local/bin/logout')), # Log out
+            Key([mod],"n",lazy.spawn('/usr/local/bin/network')), # Network Settings
+            Key([alt, "shift"],"r",lazy.spawn('/usr/local/bin/qback')), # Change Color Scheme
+            Key([mod],"c",lazy.spawn('/usr/local/bin/fans')), # Fans
+            Key([alt],"w",lazy.spawn('/usr/local/bin/chgth')), # Change Theme 
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),
@@ -112,7 +112,7 @@ def init_keys():
             Key([mod], "Right", lazy.layout.right()),
 
             ### Screenshots ####
-            Key([], "Print", lazy.spawn('/opt/bin/screenshot')),]
+            Key([], "Print", lazy.spawn('/usr/local/bin/screenshot')),]
 
 
     for i in groups:

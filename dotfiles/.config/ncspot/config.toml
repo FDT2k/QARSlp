@@ -1,7 +1,7 @@
 # vim: ft=cfg
 # Basic options
 default_keybindings = false
-use_nerdfont = true
+use_nerdfont = false
 notify = true
 gapless = true
 flip_status_indicators=true

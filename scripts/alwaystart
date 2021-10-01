@@ -16,6 +16,7 @@ pywalfox update &
 /opt/bin/telwal --wal &
 killall dunst &
 spicetify update &
+picom --config ~/.config/picom/picom.conf &
 ps -C spotify >/dev/null && spicetify -l watch  || echo ""  &
 cp ~/.cache/wal/colors.Xresources ~/.Xresources &
 if [ -d "~/.config/dunst/" ];  then

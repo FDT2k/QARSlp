@@ -8,9 +8,11 @@
 # MIT licence 
 from funct import *
 
+current_theme='qarslp'
+
 ##### Groups #####
 group_names = ["1","2","3","4","5","6","7","8","9"]
-group_labels=["","","","","","","","",""]
+group_labels=["","","","","","","","",""]
 group_layouts=["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall"]
 group_matches=[
     [Match(wm_class=['gnome-disks','Gnome-disks','anydesk','Anydesk'])],
@@ -122,18 +124,19 @@ def init_widgets_top():
                     disable_drag=True,
                     hide_unused=False,
                     fontshadow=color[0],
-                    padding_x=5,
+                    padding_x=6,
                     padding_y=5,
                     borderwidth=0,
                     active=color[6],
                     inactive=color[1],
                     rounded=False,
                     highlight_color=color[7],
-                    highlight_method="text",
+                    highlight_method="block",
                     this_current_screen_border=color[0],
-                    this_screen_border=color[3],
+                    this_screen_border=color[0],
                     other_current_screen_border=color[0],
                     other_screen_border=color[0],
+                    block_highlight_text_color= color[4],
                     foreground=color[2],
                     background=color[1]
                     ),
@@ -156,13 +159,7 @@ def init_widgets_top():
                     padding=5,
                     format=' {name}',
                     empty_group_string=' QARSlp',
-                    ),
-                #### Spacer ####
-                #widget.Spacer(
-                #    length=bar.STRETCH,
-                #    background=color[0],
-                #    foreground=color[0]
-                #    ),   
+                    ), 
                 #### Spotify ####
                 widget.TextBox(
                     text="◢",
@@ -279,9 +276,6 @@ def init_widgets_top():
                     no_update_string="",
                     restart_indicator=""
                     ),
-                #### Khal Calendar ####
-                #widget.KhalCalendar(lookahead=15, remindertime=60, foreground=color[0], background=color[7]),
-                #### Sound Control ####
                 widget.TextBox(
                     text='◢',
                     background=color[3],
@@ -379,7 +373,7 @@ def init_widgets_bott():
                     fontsize=15,
                     foreground=color[7],
                     text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/genwal')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/usr/local/bin/genwal')},
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
@@ -387,7 +381,7 @@ def init_widgets_bott():
                     fontsize=15,
                     foreground=color[7],
                     text="",
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/shortc')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/usr/local/bin/shortc')},
                     fontshadow=color[3]
                     ),
                 widget.TextBox(
@@ -569,7 +563,7 @@ def init_widgets_bott():
                 widget.ThermalSensor(
                     background = color[7],
                     foreground=color[0],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/opt/bin/fans')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/usr/local/bin/fans')},
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
