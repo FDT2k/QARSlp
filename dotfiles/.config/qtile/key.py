@@ -16,7 +16,7 @@ def init_keys():
             Key([mod], "Return", lazy.spawn(term)), # Open Terminal
             Key([mod, "shift"], "Return", lazy.spawn('rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
             Key([mod, "mod1"], "Return", lazy.spawn('sudo rofi -theme "~/.config/rofi/launcher.rasi" -show drun')),
-            Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show "find -modi find:~/.config/rofi/finder.sh"')),
+            Key([alt], "Return", lazy.spawn('rofi  -theme "~/.config/rofi/left_toolbar.rasi" -show find -modi find:/usr/local/bin/finder')),
             Key([mod], "r", lazy.spawncmd()),
             Key([mod], "q",lazy.window.kill()), # Close Window 
             Key([mod, "shift"], "r",lazy.restart()), # Restart Qtile
@@ -24,19 +24,19 @@ def init_keys():
             Key([mod], "Escape", lazy.spawn('xkill')), # Click window to close
             
             #### Widgets ####
-            Key([mod],"h",lazy.spawn('/usr/local/bin/shortc')), # Sortcurts widget
+            Key([mod],"h",lazy.function(shortcuts)), # Sortcurts widget
             Key([mod],"p",lazy.spawn('/usr/local/bin/qback')), # Launcher
-            Key([mod],"f",lazy.function(ksearx)), # WEB Search
-            Key([mod],"x",lazy.spawn('/usr/local/bin/logout')), # Log out
-            Key([mod],"n",lazy.spawn('/usr/local/bin/network')), # Network Settings
-            Key([alt, "shift"],"r",lazy.spawn('/usr/local/bin/qback')), # Change Color Scheme
+            Key([mod],"f",lazy.spawn('/usr/local/bin/wsearch')), # WEB Search
+            Key([mod],"x",lazy.function(session_widget)), # Log out
+            Key([mod],"n",lazy.function(network_widget)), # Network Settings
+            Key([alt, "shift"],"r",lazy.function(change_color_scheme)), # Change Color Scheme
             Key([mod],"c",lazy.spawn('/usr/local/bin/fans')), # Fans
-            Key([alt],"w",lazy.spawn('/usr/local/bin/chgth')), # Change Theme 
+            Key([alt],"w",lazy.spawn('/usr/local/bin/change_theme')), # Change Theme 
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),
             #### Theming ####
-            Key([alt], "r",lazy.function(set_wallpaper)), # Set randwom wallpaper / colors to entire system
+            Key([alt], "r",lazy.function(set_rand_wallpaper)), # Set randwom wallpaper / colors to entire system
 
             #### Apps ####
             Key([mod, "shift"],"e",lazy.function(app_or_group("1", "thunar"))), #File manager
@@ -112,7 +112,7 @@ def init_keys():
             Key([mod], "Right", lazy.layout.right()),
 
             ### Screenshots ####
-            Key([], "Print", lazy.spawn('/usr/local/bin/screenshot')),]
+            Key([], "Print", lazy.function(screenshot)),]
 
 
     for i in groups:

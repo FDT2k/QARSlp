@@ -12,6 +12,13 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 
 ## Prerequisites
 
+- Qtile
+- Pywal
+- Wpgtk
+- rofi
+
+
+
 - [x] Arch based distro
 - [ ] Zen Kernel
   - [ ] Best for multimedia, and gaming workloads.

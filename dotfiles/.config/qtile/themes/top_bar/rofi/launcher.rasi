@@ -23,7 +23,7 @@ configuration {
 @import "~/.cache/wal/colors-rofi-dark.rasi"
 
 window {
-    margin:                         35px 0% 10px 10px;
+    margin:                         25px 0% 0px 0px;
     background-color:               @background;
     text-color:                     @background;
 	height:							100%;

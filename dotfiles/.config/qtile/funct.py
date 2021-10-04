@@ -8,13 +8,14 @@
 # MIT licence 
 
 import os
-import socket, random
+import socket, random, requests
 import subprocess, json
 from os.path import expanduser
 from subprocess import run
 from libqtile import qtile, hook, layout, bar, widget
 from libqtile.config import Screen, Key, Drag, Click, Group, Match
 from libqtile.command import lazy
+from rofi import Rofi
 
 #### Variables ####
 
@@ -24,17 +25,17 @@ term = "urxvt"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
+ip = requests.get("http://ipecho.net/plain?").text
+rofi_l = Rofi(rofi_args=['-theme', '~/.config/rofi/left_toolbar.rasi'])
+rofi_r = Rofi(rofi_args=['-theme', '~/.config/rofi/right_toolbar.rasi'])
 #### Hooks ####
 @hook.subscribe.startup
 def start():
     subprocess.call('/usr/local/bin/alwaystart')
     
-
 @hook.subscribe.startup_once
 def start_once():
     subprocess.call('/usr/local/bin/autostart')
-
-
 
 @hook.subscribe.client_new
 def floating(window):
@@ -45,24 +46,43 @@ def floating(window):
 
 #### Functions ####
 
-#### Import Network Interface ####
+#### Import Used Network Interface ####
 
-with open(home + '/.config/qtile/actnet', 'r') as file:
-    netact = file.read().replace('\n', '')
+def get_net_dev():
+    get_dev = "ip addr show | awk '/inet.*brd/{print $NF; exit}'"
+    ps = subprocess.Popen(get_dev,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    output = ps.communicate()[0].decode('ascii').strip()
+    return(output)
+
+wifi = get_net_dev()
+
+if wifi.startswith('w'):
+    wifi_icon=' '
+else:
+    wifi_icon=' '
 
 ##### Import Pywal Palette #####
-
-with open(home + '/.cache/wal/colors.json') as json_file:
-    data = json.load(json_file)
-    colorsarray = data['colors']
-    val_list = list(colorsarray.values())
-    def getList(val_list):
-        return [*val_list]
-
+with open(home + '/.cache/wal/colors.json') as wal_import:
+    data = json.load(wal_import)
+    wallpaper = data['wallpaper']
+    alpha = data['alpha']
+    colors = data['colors']
+    specials = data['special']
+    val_colors = list(colors.values())
+    def getList(val_colors):
+        return [*val_colors]
+    val_specials = list(specials.values())
+    def getList(val_specials):
+        return [*val_specials]
+    
 def init_colors():
-    return [*val_list]
+    return [*val_colors]
 
-colors = init_colors()
+def init_specials():
+    return [*val_specials]
+
+color = init_colors()
+special = init_specials()
 #### Send app to group ####
 
 @lazy.function
@@ -91,24 +111,92 @@ def app_or_group(group, app):
 
 #### Set Random Wallpaper ####
 
-def set_wallpaper(qtile):
+def set_rand_wallpaper(qtile):
     dir = home + '/Pictures/wallPapers'
-    wallpaper = random.choice(os.listdir(dir))
-    random_wallpaper = os.path.join(dir, wallpaper)
-    with open (home + "/.config/qtile/current_wallpaper", "w") as currentWal:
-        currentWal.write(random_wallpaper)
-    subprocess.run(["wpg", "-s" + random_wallpaper])
-    subprocess.run(["sudo", "cp", "%s" % random_wallpaper,  "/usr/share/background.png"])
+    selection = random.choice(os.listdir(dir))
+    rand_wallpaper = os.path.join(dir, selection)
+    subprocess.run(["wpg", "-s" + rand_wallpaper])
+    subprocess.run(["sudo", "cp", "%s" % rand_wallpaper,  "/usr/share/background.png"])
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
 
-#### Change Color Scheme with same wallpaper ####
+#### Widgets ####
+#### Display Shortcuts widget
+def shortcuts(qtile):
+    subprocess.run("cat ~/shortc.conf | rofi -theme '~/.config/rofi/left_toolbar.rasi' -i -dmenu -p ' Shortcuts:'",shell=True)
 
-def change_scheme(qtile):
-    with open (home + "/.config/qtile/current_wallpaper", "r") as currentWal:
-        currentWal.read()
-    subprocess.run(["wpg", "-s" + currentWal])
-    qtile.cmd_restart()
+#### Logout widget
+def session_widget(qtile):
+    options = [' Log Out', ' Reboot', ' Poweroff']
+    index, key = rofi_r.select('  Session', options)
+    if key == -1:
+        rofi_r.close()
+    else:
+        if index == 0:
+            qtile.cmd_shutdown()
+        elif index == 1:
+            os.system('systemctl reboot') 
+        else:
+            os.system('systemctl poweroff') 
+
+#### Screenshot widget
+def screenshot(qtile):
+    options = [' Screen', ' Window', ' Area', ' 5s Screen']
+    index, key = rofi_r.select('  Screenshot mode', options)
+    if key == -1:
+        rofi.close()
+    else:
+        if index ==0:
+            subprocess.run("scrot 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
+        elif index==1:
+            subprocess.run("scrot -u 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
+        elif index==2:
+            subprocess.run("scrot -s 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES)  #; viewnior $$(xdg-user-dir PICTURES)/$f'&& dunstify ' Screenshot Taken!'",shell=True)
+        else:
+            subprocess.run("scrot -d 5 -c 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
+
+#### Network Widget
+def network_widget(qtile):
+    get_ssid = "iwgetid -r"
+    pos = subprocess.Popen(get_ssid,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    ssid = pos.communicate()[0].decode('ascii').strip()
+    get_status = "nmcli radio wifi"
+    ps = subprocess.Popen(get_status,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    status = ps.communicate()[0].decode('ascii').strip()
+    if status == 'enabled':
+        connected = ' Turn Wifi Off'
+        active = "off"
+    else:
+        connected = ' Turn Wifi On'
+        active= "on"
+    options = [connected,' Bandwith Monitor (CLI)', ' Network Manager (CLI)', ' Network Manager (GUI)']
+    index, key = rofi_r.select(wifi_icon +' '+ ssid +' IP '+ ip, options)
+    if key == -1:
+        rofi_r.close()
+    else:
+        if index ==0:
+            subprocess.run("nmcli radio wifi " + active, shell=True)
+        elif index==1:
+            subprocess.run("urxvt -e bmon", shell=True)
+        elif index==2:
+            subprocess.run("urxvt -e nmtui", shell=True)
+        else:
+            subprocess.run("nm-connection-editor")        
+
+#### Change Color scheme widget
+def change_color_scheme(qtile):
+    options = [backend[0],backend[1],backend[2],backend[3], '<<-<< Light Themes >>-->>', backend[0],backend[1],backend[2],backend[3]]
+    index, key = rofi_l.select('  Color Scheme', options)
+    if key == -1 or index == 4:
+        rofi_r.close()
+    elif key == 0 and index < 4:
+        subprocess.run('wpg -s ' + wallpaper + ' --backend ' + backend[index].lower(), shell=True)
+        qtile.cmd_restart()
+    elif key == 0 and index > 4:
+        subprocess.run('wpg -s ' + wallpaper + ' -L --backend ' + backend[index-5].lower(), shell=True)
+        qtile.cmd_restart()
+   
+#### Multimedia 
 
 def play_pause(qtile):
     qtile.cmd_spawn("playerctl -p spotify play-pause")
@@ -143,16 +231,4 @@ def cfilex():
     qtile.groups_map["1"].cmd_toscreen(toggle=False)
     qtile.cmd_spawn('thunar')
 
-def ksearx(qtile):
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
-    run('/usr/local/bin/wsearch')
-
-def wnetw():
-    qtile.cmd_spawn('/usr/local/bin/network')
-
-
-def wsess():
-    run('/usr/local/bin/logout')
 #### End Functions ####
-
-color = init_colors()

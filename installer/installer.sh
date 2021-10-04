@@ -108,6 +108,7 @@ function i_pip(){
     'colorthief'
     'haishoku'
     'dbus-next'
+    'git+http://github.com/bcbnz/python-rofi.git'
    
   )
 
