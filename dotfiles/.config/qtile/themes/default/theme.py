@@ -610,20 +610,17 @@ def init_widgets_bott():
                     padding=-2,
                     fontsize=65
                     ),
-                widget.BatteryIcon(
-                    battery=batt,
-                    show_short_text=True,
-                    notify_below=30,
-                    discharge_char=' ',
-                    empty_char='',
-                    full_char=' ',
-                    background=color[0],
-                    foreground=color[7]
-                    ),
                 widget.Battery(
-                   battery=batt,
+                    battery=batt,
                     format='{char} {percent:2.0%} {hour:d}:{min:02d}',
                     show_short_text=True,
+                    charge_char=' ',
+                    discharge_char=' ',
+                    empty_char=' ',
+                    full_char=' ',
+                    low_foreground='FF0000',
+                    low_percentage=0.2,
+                    notify_below=20,
                     update_interval=10,
                     background=color[0],
                     foreground=color[7]

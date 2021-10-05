@@ -8,9 +8,8 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 #
-
 typeset XRANDR_TXT 
-typeset -A OUTPUT_CONFIGURED 
+typeset -A OUTPUT_CONFIGURED
 
 function main() {
   local -i iteration
@@ -31,8 +30,8 @@ function main() {
       select_position "${output}" | read position
       [[ "${position}" != '--off' ]] && select_mode "${output}" | read mode
       OUTPUT_CONFIGURED[${output}]='true'
-    else
-      select_output '  Main Screen' 'all' | read output
+    else ##Primary Screen
+      select_output '  Main Screen:' 'all' | read output
       select_mode "${output}" | read mode
       OUTPUT_CONFIGURED[${output}]='true'
       position='--primary'
@@ -84,12 +83,12 @@ function select_position() {
   select_output "Set $1 relative to:" 'configured' | read anchor
   [[ $? -eq 257 ]] && return "${err_no_anchor}"
 
-echo "left of ${anchor}
-right of ${anchor}
-above ${anchor}
-below ${anchor}
-mirror ${anchor}
-off" | rofi -theme ~/.config/rofi/right_toolbar.rasi -dmenu -l 10 -p " Position  $1" | read selection
+  echo "Left of    
+Right of    
+Above  
+Below  
+mirror   
+ Off" | rofi -theme ~/.config/rofi/right_toolbar.rasi -dmenu -l 10 -p " Position  $1" | read selection
 
   case "${selection[(w)1]}" in
     left) echo "--left-of ${anchor}" ;;
@@ -109,7 +108,6 @@ function select_mode() {
   local -ir err_bad_selection=258
 
   if [[ -z $1 ]] && return "${err_bad_args}"
-
   menu="$(echo \"${XRANDR_TXT}\" \
     | sed -n '/^'$1' /,/^[^ ]/ s/ * //p' \
     | cut -d ' ' -f 1 \
@@ -133,25 +131,6 @@ function all_outputs_configured() {
   done
 
   return 0
-}
-
-function environment_check() {
-  if ! command -v cat &>/dev/null; then
-    echo 'You seem to be missing coreutils. You'\''re gonna have a bad time.' >&2
-    exit 255
-  elif ! command -v grep &>/dev/null; then
-    echo 'grep seems to be missing. You'\''re gonna have a bad time.' >&2
-    exit 255
-  elif ! command -v xrandr &>/dev/null; then
-    echo "Try xrandr-dmenu without xrandr, and you're gonna have a bad time." >&2
-    exit 255
-elif ! command -v rofi &>/dev/null; then
-    echo "Try xrandr-dmenu without dmenu, and you're gonna have a bad time." >&2
-    exit 255
-  elif ! xset q &>/dev/null; then
-    echo 'Woah there, cowboy! You need to run this from inside X!' >&2
-    exit 1
-  fi
 }
 
 function initialize_globals() {
