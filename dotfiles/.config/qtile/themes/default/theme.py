@@ -84,15 +84,10 @@ def init_layouts():
 
 
 floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    # default_float_rules include: utility, notification, toolbar, splash, dialog,
-    # file_progress, confirm, download and error.
     *layout.Floating.default_float_rules,
     Match(title='Confirmation'),  # tastyworks exit box
     Match(title='Qalculate!'),  # qalculate-gtk
-    Match(wm_class='pavucontrol'),  # volume control
     Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
-    Match(wm_class='lxappearance'),
     Match(wm_class='confirmreset'),
     Match(wm_class='makebranch'),
     Match(wm_class='maketag'),
@@ -283,7 +278,7 @@ def init_widgets_top():
                     fontsize=15,
                     background=color[3],
                     foreground=color[0],
-                    text="  ",
+                    text="  ",
                     ),
                 widget.CheckUpdates(
                     update_interval=1800,
@@ -615,23 +610,24 @@ def init_widgets_bott():
                     padding=-2,
                     fontsize=65
                     ),
-                #widget.BatteryIcon(
-                #    show_short_text=True,
-                #    notify_below=30,
-                #    discharge_char=' ',
-                #    empty_char='',
-                #    full_char=' ',
-                #    background=color[0],
-                #    foreground=color[7]
-                #    ),
-                #widget.Battery(
-                #   battery="BAT1",
-                #    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
-                #    show_short_text=True,
-                #    update_interval=10,
-                #    background=color[0],
-                #    foreground=color[7]
-                #    ),
+                widget.BatteryIcon(
+                    battery=batt,
+                    show_short_text=True,
+                    notify_below=30,
+                    discharge_char=' ',
+                    empty_char='',
+                    full_char=' ',
+                    background=color[0],
+                    foreground=color[7]
+                    ),
+                widget.Battery(
+                   battery=batt,
+                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
+                    show_short_text=True,
+                    update_interval=10,
+                    background=color[0],
+                    foreground=color[7]
+                    ),
                 #### Systray ####
                 widget.Systray(
                     icon_size=18,

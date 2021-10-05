@@ -31,7 +31,8 @@ def init_keys():
             Key([mod],"n",lazy.function(network_widget)), # Network Settings
             Key([alt, "shift"],"r",lazy.function(change_color_scheme)), # Change Color Scheme
             Key([mod],"c",lazy.spawn('/usr/local/bin/fans')), # Fans
-            Key([alt],"w",lazy.spawn('/usr/local/bin/change_theme')), # Change Theme 
+            Key([alt],"w",lazy.spawn('/usr/local/bin/change_theme')), # Change Theme
+            Key([mod, "shift"],"x",lazy.spawn('/usr/local/bin/change_display')),
 
             #### Add Screen ####
             Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),

@@ -61,6 +61,14 @@ if wifi.startswith('w'):
 else:
     wifi_icon=' '
 
+###### Import Battery for Laptops
+def get_bat():
+    get_bat = "ls /sys/class/power_supply | grep BAT"
+    ps = subprocess.Popen(get_bat,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    output = ps.communicate()[0].decode('ascii').strip()
+    return(output)
+
+batt = get_bat()
 ##### Import Pywal Palette #####
 with open(home + '/.cache/wal/colors.json') as wal_import:
     data = json.load(wal_import)
