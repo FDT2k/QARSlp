@@ -44,9 +44,9 @@ def init_layout_theme():
     return {"font":"Fira Code Medium",
             "fontsize":14,
             "margin": 10,
-            "border_width":3,
-            "border_normal":color[8],
-            "border_focus":color[3],
+            "border_width":5,
+            "border_normal":color[0],
+            "border_focus":color[1],
             "single_margin":0,
             "single_border_width":0,
            }
@@ -82,9 +82,7 @@ def init_layouts():
             **layout_theme)
             ]
 
-
-floating_layout = layout.Floating(float_rules=[
-    *layout.Floating.default_float_rules,
+floating_layout = layout.Floating(auto_float_rules=[
     Match(title='Confirmation'),  # tastyworks exit box
     Match(title='Qalculate!'),  # qalculate-gtk
     Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
@@ -99,12 +97,11 @@ floating_layout = layout.Floating(float_rules=[
 layouts = init_layouts()
 #### End layouts ####
 
-
 #### Widgets ####
 def init_widgets_defaults():
     return dict(font="Fira Code Medium",fontsize=15,padding=2,background=color[0])
 
-def init_widgets_top():    
+def init_widgets_top():
     widgets_top = [
                 widget.TextBox(
                     foreground=color[1],
@@ -130,7 +127,7 @@ def init_widgets_top():
                     this_screen_border=color[0],
                     other_current_screen_border=color[0],
                     other_screen_border=color[0],
-                    block_highlight_text_color=color[4],
+                    block_highlight_text_color=color[1],
                     foreground=color[2],
                     background=color[1],
                     urgent_border=color[4]
@@ -153,13 +150,13 @@ def init_widgets_top():
                     background=color[0],
                     padding=5,
                     format=' {name}',
-                    empty_group_string=' QARSlp',
+                    empty_group_string=ver,
                     ),
                 #### Spotify ####
                 widget.TextBox(
                     text="◢",
                     background=color[0],
-                    foreground=color[4],
+                    foreground=color[1],
                     padding=-2,
                     fontsize=65
                     ),
@@ -168,13 +165,14 @@ def init_widgets_top():
                     fontsize=15,text="",
                     padding=5,
                     foreground=color[0],
-                    background=color[4],
+                    background=color[1],
+                    mouse_callbacks={'Button1':lambda: qtile.cmd_spawn(term + ' -e vis')},
                     ),
                 widget.Mpris2(
                     name='ncspot',
                     objname='org.mpris.MediaPlayer2.ncspot',
                     scroll_chars=30,
-                    background=color[4],
+                    background=color[1],
                     foreground=color[0],
                     stop_pause_text='',
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
@@ -183,63 +181,61 @@ def init_widgets_top():
                     name='Spotify',
                     objname='org.mpris.MediaPlayer2.spotify',
                     scroll_chars=30,
-                    background=color[4],
+                    background=color[1],
                     foreground=color[0],
                     stop_pause_text='',
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
                     ),
+                widget.Mpris2(
+                    name='vlc',
+                    objname='org.mpris.MediaPlayer2.vlc',
+                    scroll_chars=30,
+                    background=color[1],
+                    foreground=color[0],
+                    stop_pause_text='',
+                    display_metadata=['xesam:title'],
+                    scroll_interval=1,
+                    scroll_wait_interval=200
+                    ),
                 widget.TextBox(
-                    background=color[4],
+                    background=color[1],
                     foreground=color[0],
                     text="",
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(prev)},
                     ),
                 widget.TextBox(
-                    background=color[4],
+                    background=color[1],
                     foreground=color[0],
                     text="",
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(play_pause)},
                     ),
                 widget.TextBox(
-                    background=color[4],
+                    background=color[1],
                     foreground=color[0],
                     text="",
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(nexts)},
-                    ),
-                widget.TextBox(
-                    background=color[4],
-                    foreground=color[0],
-                    text="◢",
-                    fontsize=65,
-                    padding=-2
-                    ),
-                widget.Spacer(
-                    length=bar.STRETCH,
-                    background=color[0],
-                    foreground=color[0]
-                    ),              
+                    ),           
                 #### Layouts ####
                 widget.TextBox(
                     text="◢",
-                    background=color[0],
-                    foreground=color[8],
+                    background=color[1],
+                    foreground=color[2],
                     padding=-2,
                     fontsize=65
                     ),
-                widget.WidgetBox(
-                    text_closed=' ',
-                    text_open='  ',
-                    background=color[8],
+                widget.TextBox(
+                    text='  ',
+                    background=color[2],
                     foreground=color[0],
-                    widgets=[widget.CurrentLayout(
-                        background=color[2],
-                        foreground=color[0]
-                        ),]
                 ),
+                widget.CurrentLayout(
+                    background=color[2],
+                    foreground=color[0]
+                    ),
                 #### Pomodoro ####
                 widget.TextBox(
                     text='◢',
-                    background=color[8],
+                    background=color[2],
                     foreground=color[5],
                     padding=-2,
                     fontsize=65
@@ -342,6 +338,7 @@ def init_widgets_top():
     return widgets_top
 
 def init_widgets_bott():
+    
     widgets_bott = [
                 #### Shortcuts ####
                 widget.TextBox(
@@ -425,23 +422,32 @@ def init_widgets_bott():
                     padding=-2,
                     fontsize=65
                     ),
-                widget.Net(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    interface=wifi,
-                    format=wifi_icon,
-                    foreground=color[0],
+                widget.WidgetBox(
+                    text_closed=wifi_icon,
+                    text_open='  ',
                     background=color[5],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_function(network_widget)}
-                    ),
-                widget.Wlan(
-                    interface=wifi,
-                    format=' {essid} {percent:2.0%} ',
-                    disconnected_message='Unplugged',
                     foreground=color[0],
-                    background=color[5],
-                    mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
-                    ),
+                    widgets=[widget.TextBox(
+                        text=' '+private_ip,
+                        background=color[5],
+                        foreground=color[0],
+                        mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
+                        ),
+                        widget.TextBox(
+                        text='  '+public_ip,
+                        background=color[5],
+                        foreground=color[0],
+                        mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
+                        ),]
+                ),
+                #widget.Wlan(
+                #    interface=wifi,
+                #    format=' {essid} {percent:2.0%} ',
+                #    disconnected_message='Unplugged',
+                #    foreground=color[0],
+                #    background=color[5],
+                #    mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
+                #    ),
                 widget.Net(
                     interface=wifi,
                     format=' {down}',
@@ -609,21 +615,6 @@ def init_widgets_bott():
                     foreground=color[0],
                     padding=-2,
                     fontsize=65
-                    ),
-                widget.Battery(
-                    battery=batt,
-                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
-                    show_short_text=True,
-                    charge_char=' ',
-                    discharge_char=' ',
-                    empty_char=' ',
-                    full_char=' ',
-                    low_foreground='FF0000',
-                    low_percentage=0.2,
-                    notify_below=20,
-                    update_interval=10,
-                    background=color[0],
-                    foreground=color[7]
                     ),
                 #### Systray ####
                 widget.Systray(

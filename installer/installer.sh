@@ -61,7 +61,7 @@ function i_base () {
     #'gnome-disk-utility'
     'bmon'
     'dunst'
-    'lightdm-gtk-greeter-settings'
+    'lightdm-webkit'
     'lm_sensors'
     'obconf'
     'viewnior'
@@ -82,6 +82,7 @@ function i_base () {
     #'thunderbird'
     'xsettingsd'
     'otf-ipafont'
+    'acpi'
 )
 
 for packet in "${packets[@]}"; do

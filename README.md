@@ -1,6 +1,50 @@
-# QARSlp OS Qtile + Arch + AutoRicing Script
+# QARSlp OS Qtile + Arch + AutoRicing System v1.0
+>Qtile & Arch Nerdbulous Awerd
 
-by: gibranlp thisdoesnotwork@gibranlp.dev
+- Rofi Widgets
+- Awesome Wallpapers
+- Colors!
+- Tiling Windows
+- Themes!
+- Many shortcuts!
+- Combine wallpapers and color schemes
+
+by: gibranlp ![thisdoesnotwork@gibranlp.dev](mailto:thisdoesnotwork@gibranlp.dev)
+
+# Known Bugs
+
+Pff where to start..
+- 
+
+
+# Planned Upgrades
+
+- [ ] Improve code a lot
+  - [ ] Make more dynamic the theme changes
+- [ ] Make it a Distro eventually, "Archlp"
+- [ ] Widget to Select Shortcuts template?
+- [ ] Theme all Widgets and make a sort of widget selector (Later)
+- [ ] widget for energy options
+  - [ ] sleep on x time
+  - [ ] Screensaver?
+  - [ ] dynamic widgets
+    - [ ] Battery
+    - [ ] Rofi group switcher/cycle
+
+# Qtile?
+
+
+
+A WM for everyone, 
+
+
+
+- Dinamic
+- Useful
+- Powered by Qtile + Arch
+
+
+
 
 MIT licence
 
@@ -22,6 +66,7 @@ This is based on ![Arch](https://archlinux.org/) so any Arch based distro works,
 - [x] Arch based distro
 - [ ] Zen Kernel
   - [ ] Best for multimedia, and gaming workloads.
+- [ ] Low Resource Consumption! 
 - [x] Zsh and Ohmyzsh installed,  you can check [here](https://ohmyz.sh/#install)
 - [x] Also install this 2 plugins for ZSH
 ```bash

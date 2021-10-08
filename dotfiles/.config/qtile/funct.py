@@ -7,7 +7,7 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 
-import os
+import os, re
 import socket, random, requests
 import subprocess, json
 from os.path import expanduser
@@ -16,18 +16,23 @@ from libqtile import qtile, hook, layout, bar, widget
 from libqtile.config import Screen, Key, Drag, Click, Group, Match
 from libqtile.command import lazy
 from rofi import Rofi
+from urllib.request import urlopen
+import urllib
 
 #### Variables ####
-
+ver = ' QARSlp v0.9a'
 mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
+hostname = "gibranlp.dev"
+no_internet = 'Internet is working, Everything is fine!'
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
-ip = requests.get("http://ipecho.net/plain?").text
 rofi_l = Rofi(rofi_args=['-theme', '~/.config/rofi/left_toolbar.rasi'])
 rofi_r = Rofi(rofi_args=['-theme', '~/.config/rofi/right_toolbar.rasi'])
+widgets = ('widget.TextBox', 'widget.Battery')
+widgets_index = 0
 #### Hooks ####
 @hook.subscribe.startup
 def start():
@@ -61,6 +66,25 @@ if wifi.startswith('w'):
 else:
     wifi_icon=' '
 
+#### Gety IP addreses
+
+def get_private_ip():
+    ip = socket.gethostbyname(socket.gethostname())
+    return ip
+
+private_ip = get_private_ip()
+
+def get_public_ip():
+    ping = os.system("ping -c 1 " + hostname)
+    if ping == 0:
+        data = str(urlopen('http://checkip.dyndns.com/').read())
+        return re.compile(r'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
+    else:
+        internet = print('no Internet')
+        return(internet)
+       
+public_ip = get_public_ip()
+
 ###### Import Battery for Laptops
 def get_bat():
     get_bat = "ls /sys/class/power_supply | grep BAT"
@@ -69,6 +93,8 @@ def get_bat():
     return(output)
 
 batt = get_bat()
+
+
 ##### Import Pywal Palette #####
 with open(home + '/.cache/wal/colors.json') as wal_import:
     data = json.load(wal_import)
@@ -128,6 +154,8 @@ def set_rand_wallpaper(qtile):
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
 
+#### Set randowm wallpaper every X minutes
+
 #### Widgets ####
 #### Display Shortcuts widget
 def shortcuts(qtile):
@@ -135,14 +163,16 @@ def shortcuts(qtile):
 
 #### Logout widget
 def session_widget(qtile):
-    options = [' Log Out', ' Reboot', ' Poweroff']
+    options = [' Lock',' Log Out', ' Reboot', ' Poweroff']
     index, key = rofi_r.select('  Session', options)
     if key == -1:
         rofi_r.close()
     else:
         if index == 0:
-            qtile.cmd_shutdown()
+            os.system('dm-tool switch-to-greeter')
         elif index == 1:
+            qtile.cmd_shutdown()
+        elif index == 2:
             os.system('systemctl reboot') 
         else:
             os.system('systemctl poweroff') 
@@ -165,9 +195,9 @@ def screenshot(qtile):
 
 #### Network Widget
 def network_widget(qtile):
-    get_ssid = "iwgetid -r"
-    pos = subprocess.Popen(get_ssid,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-    ssid = pos.communicate()[0].decode('ascii').strip()
+    #get_ssid = "iwgetid -r"
+    #pos = subprocess.Popen(get_ssid,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    #ssid = pos.communicate()[0].decode('ascii').strip()
     get_status = "nmcli radio wifi"
     ps = subprocess.Popen(get_status,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     status = ps.communicate()[0].decode('ascii').strip()
@@ -178,7 +208,7 @@ def network_widget(qtile):
         connected = ' Turn Wifi On'
         active= "on"
     options = [connected,' Bandwith Monitor (CLI)', ' Network Manager (CLI)', ' Network Manager (GUI)']
-    index, key = rofi_r.select(wifi_icon +' '+ ssid +' IP '+ ip, options)
+    index, key = rofi_r.select(wifi_icon, options)
     if key == -1:
         rofi_r.close()
     else:
@@ -204,23 +234,29 @@ def change_color_scheme(qtile):
         subprocess.run('wpg -s ' + wallpaper + ' -L --backend ' + backend[index-5].lower(), shell=True)
         qtile.cmd_restart()
    
+
+
 #### Multimedia 
 
 def play_pause(qtile):
     qtile.cmd_spawn("playerctl -p spotify play-pause")
     qtile.cmd_spawn("playerctl -p ncspot play-pause")
+    qtile.cmd_spawn("playerctl -p vlc play-pause")
 
 def nexts(qtile):
     qtile.cmd_spawn("playerctl -p spotify next")
     qtile.cmd_spawn("playerctl -p ncspot next")
+    qtile.cmd_spawn("playerctl -p vlc next")
 
 def prev(qtile):
     qtile.cmd_spawn("playerctl -p spotify previous")
     qtile.cmd_spawn("playerctl -p ncspot previous")
+    qtile.cmd_spawn("playerctl -p vlc previous")
 
 def stop(qtile):
     qtile.cmd_spawn("playerctl -p spotify stop")
     qtile.cmd_spawn("playerctl -p ncspot stop")
+    qtile.cmd_spawn("playerctl -p vlc stop")
 
 
 def ncsp(qtile):
