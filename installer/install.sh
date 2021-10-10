@@ -73,7 +73,7 @@ fi
 
 function i_settings(){
     /usr/local/bin/genwal 
-    sudo systemctl enable lightdm.service
+    #sudo systemctl enable lightdm.service
     pywalfox install 
     wpg-install.sh -g -d -i 
     /usr/local/bin/autostart 
