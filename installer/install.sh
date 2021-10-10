@@ -19,7 +19,7 @@ function i_zsh(){
 function i_paru(){
   git clone https://aur.archlinux.org/paru.git
   cd paru
-  makepkg -sri
+  makepkg -sri --no-confirm
   cd
   rm -rf paru
 }
