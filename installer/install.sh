@@ -27,8 +27,8 @@ function i_paru(){
 function i_cli(){
   git clone https://github.com/dpayne/cli-visualizer.git
   cd cli-visualizer
-  chmod +x installer.sh
-  ./installer.sh
+  chmod +x install.sh
+  ./install.sh
   cd
   rm -rf cli-visualizer
 }
