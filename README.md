@@ -16,6 +16,10 @@ by: gibranlp ![thisdoesnotwork@gibranlp.dev](mailto:thisdoesnotwork@gibranlp.dev
 Pff where to start..
 - 
 
+# How to Install?
+
+You have to install first ´´´base-devel´´´ & ´´´git´´´
+
 
 # Planned Upgrades
 
