@@ -36,7 +36,7 @@ done
 
 function i_aur () {
   packets=(
-    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git' 'spicetify-cli' 'otf-symbola' 'pamac-classic'
+    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git' 'otf-symbola' 'pamac-classic'
 )
 
 
@@ -49,6 +49,8 @@ done
 function i_files(){
   \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
+  mkdir -p ~/Pictures/wallPapers
+  cp ~/QARSlp/walls/* ~/Pictures/wallPapers
   sudo cp -r  ~/.cache/wal /root/.cache/
   sudo \cp ~/.face /usr/share/profile.png
   cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
