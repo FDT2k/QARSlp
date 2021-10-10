@@ -25,7 +25,7 @@ function i_paru(){
 }
 
 function i_base () {
-  packets=('htop' 'alsa-utils' 'alsa-lib' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lightdm-gtk' 'lightdm-gtk-greeter' 'lightdm-gtk-greeter-settings' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake'
+  packets=('xorg' 'xorg-xinit' 'htop' 'alsa-utils' 'alsa-lib' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lightdm-gtk' 'lightdm-gtk-greeter' 'lightdm-gtk-greeter-settings' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake'
 )
 
 for packet in "${packets[@]}"; do
@@ -49,6 +49,8 @@ done
 function i_files(){
   \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
+  \cp ~/.config/qtile/themes/default/theme.py ~/.config/qtile/
+  \cp ~/.config/qtile/themes/default/rofi/* ~/.config/rofi/
   mkdir -p ~/Pictures/wallPapers
   cp ~/QARSlp/walls/* ~/Pictures/wallPapers
   sudo cp -r  ~/.cache/wal /root/.cache/
