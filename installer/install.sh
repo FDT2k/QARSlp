@@ -17,19 +17,19 @@ function i_zsh(){
 }
 
 function i_paru(){
-  git clone https://aur.archlinux.org/paru.git &
-  cd paru &
-  makepkg -sri --noconfirm &
-  cd && rm -rf paru
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -sri --noconfirm
+  cd
+  rm -rf paru
 }
 
 function i_cli(){
-  git clone https://github.com/dpayne/cli-visualizer.git
-  cd cli-visualizer
-  chmod +x install.sh
-  ./install.sh
-  cd
-  rm -rf cli-visualizer
+  git clone https://github.com/dpayne/cli-visualizer.git &
+  cd cli-visualizer &
+  chmod +x install.sh &
+  ./install.sh *
+  cd && rm -rf cli-visualizer
 }
 
 function i_base () {
