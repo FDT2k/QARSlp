@@ -90,3 +90,5 @@ function i_settings(){
 
 i_zsh
 i_paru
+i_cli
+i_base
