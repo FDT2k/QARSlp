@@ -89,5 +89,5 @@ function i_settings(){
     
 }
 
-i_base
+i_zsh
 i_paru
