@@ -69,6 +69,7 @@ function i_files(){
   \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
   \cp ~/.config/qtile/themes/default/theme.py ~/.config/qtile/
+  mkdir -p ~/.config/rofi/
   \cp ~/.config/qtile/themes/default/rofi/* ~/.config/rofi/
   mkdir -p ~/Pictures/wallPapers
   cp ~/QARSlp/walls/* ~/Pictures/wallPapers
