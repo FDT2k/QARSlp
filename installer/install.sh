@@ -48,6 +48,7 @@ function i_aur () {
     'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git' 'spicetify-cli' 'otf-symbola' 'pamac-classic'
 )
 
+
 for packet in "${packets[@]}"; do
     echo "Instalando --> ${packet}"
     paru -S "${packet}" --noconfirm
@@ -61,29 +62,29 @@ function i_files(){
   sudo \cp ~/.face /usr/share/profile.png
   cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
   if [ -d "/usr/local/bin" ];  then
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
+    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin 
   else
-    sudo mkdir /usr/local/bin &
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
+    sudo mkdir /usr/local/bin 
+    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin 
  fi
 if [ -d "/root/.themes/FlatColor" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
+    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ 
   else
-    sudo mkdir -p /root/.themes/FlatColor &
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
+    sudo mkdir -p /root/.themes/FlatColor 
+    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/
 fi
 
 }
 
 function i_settings(){
-    /usr/local/bin/genwal &
+    /usr/local/bin/genwal 
     sudo systemctl enable lightdm.service
-    pywalfox install &
-    wpg-install.sh -g -d -i &
-    /usr/local/bin/autostart &
-    /usr/local/bin/alwaystart &
+    pywalfox install 
+    wpg-install.sh -g -d -i 
+    /usr/local/bin/autostart 
+    /usr/local/bin/alwaystart 
     
 }
 
