@@ -15,8 +15,7 @@ function i_zsh(){
     sed -i.tmp 's:env zsh::g' install.sh
     sed -i.tmp 's:chsh -s .*$::g' install.sh
     sh install.sh
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/  zsh-syntax-highlighting &
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 }
 
 function i_paru(){
@@ -91,3 +90,4 @@ function i_settings(){
 }
 
 i_base
+i_paru
