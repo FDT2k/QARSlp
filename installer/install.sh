@@ -17,11 +17,10 @@ function i_zsh(){
 }
 
 function i_paru(){
-  git clone https://aur.archlinux.org/paru.git
-  cd paru
-  makepkg -sri --noconfirm
-  cd
-  rm -rf paru
+  git clone https://aur.archlinux.org/paru.git &
+  cd paru &
+  makepkg -sri --noconfirm &
+  cd && rm -rf paru
 }
 
 function i_cli(){
