@@ -34,6 +34,25 @@ for packet in "${packets[@]}"; do
 done
 }
 
+function i_pip(){
+  pip_packets=(
+    'fontawesome'
+    'ipc'
+    'pywalfox'
+    'colorz'
+    'colorthief'
+    'haishoku'
+    'dbus-next'
+    'git+http://github.com/bcbnz/python-rofi.git'
+   
+  )
+
+  for pip_packet in "${pip_packets[@]}"; do
+    echo "Instalando --> ${pip_packet}"
+    sudo pip install "${pip_packet}"
+  done
+}
+
 function i_aur () {
   packets=(
     'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git' 'otf-symbola' 'pamac-classic'
@@ -84,5 +103,5 @@ function i_settings(){
 }
 
 
+i_pip
 i_files
-i_settings
