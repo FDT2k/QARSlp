@@ -12,8 +12,6 @@ current_theme=''
 copy_files(){
     \cp ~/.config/qtile/themes/$current_theme/theme.py ~/.config/qtile/
     \cp ~/.config/qtile/themes/$current_theme/rofi/* ~/.config/rofi/
-    rm -rf ~/Pictures/wallPapers/*
-    cp ~/.config/qtile/themes/$current_theme/wallPapers/* ~/Pictures/wallPapers/
     /usr/local/bin/genwal
 }
 
