@@ -81,6 +81,6 @@ function i_settings(){
     
 }
 
-i_aur
+
 i_files
 i_settings
