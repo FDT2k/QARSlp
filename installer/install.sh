@@ -88,5 +88,4 @@ function i_settings(){
     
 }
 
-
-i_paru
+i_cli
