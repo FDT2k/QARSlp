@@ -92,3 +92,5 @@ i_zsh
 i_paru
 i_cli
 i_base
+i_aur
+i_settings
