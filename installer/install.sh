@@ -78,11 +78,13 @@ function i_files(){
   cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
   if [ -d "/usr/local/bin" ];  then
     sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin 
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin
+    sudo chmod +x /usr/local/bin/*
   else
     sudo mkdir /usr/local/bin 
     sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin 
+    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin
+    sudo chmod +x /usr/local/bin/*
  fi
 if [ -d "/root/.themes/FlatColor" ]; then
     sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ 
@@ -95,11 +97,12 @@ fi
 
 function i_settings(){
     /usr/local/bin/genwal 
-    #sudo systemctl enable lightdm.service
+    sudo systemctl enable lightdm.service
     pywalfox install 
-    wpg-install.sh -g -d -i 
     /usr/local/bin/autostart 
-    /usr/local/bin/alwaystart 
+    /usr/local/bin/alwaystart
+    chsh -s /bin/zsh
+    wpg-install.sh -g -d -i
     
 }
 
