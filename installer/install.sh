@@ -107,5 +107,8 @@ function i_settings(){
 }
 
 
+i_zsh
 i_pip
+i_aur
 i_files
+i_settings
