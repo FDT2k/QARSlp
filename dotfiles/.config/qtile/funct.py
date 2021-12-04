@@ -20,12 +20,12 @@ from urllib.request import urlopen
 import urllib
 
 #### Variables ####
-ver = ' QARSlp v0.9a'
+ver = ' QARSlp v1.1'
 mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
 hostname = "gibranlp.dev"
-no_internet = 'Internet is working, Everything is fine!'
+internet = '  You are connected'
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
@@ -33,6 +33,7 @@ rofi_l = Rofi(rofi_args=['-theme', '~/.config/rofi/left_toolbar.rasi'])
 rofi_r = Rofi(rofi_args=['-theme', '~/.config/rofi/right_toolbar.rasi'])
 widgets = ('widget.TextBox', 'widget.Battery')
 widgets_index = 0
+
 #### Hooks ####
 @hook.subscribe.startup
 def start():
@@ -80,7 +81,7 @@ def get_public_ip():
         data = str(urlopen('http://checkip.dyndns.com/').read())
         return re.compile(r'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
     else:
-        internet = print('no Internet')
+        internet = print('OMG No Internet Run!')
         return(internet)
        
 public_ip = get_public_ip()
@@ -117,6 +118,7 @@ def init_specials():
 
 color = init_colors()
 special = init_specials()
+
 #### Send app to group ####
 
 @lazy.function
@@ -131,7 +133,7 @@ def window_to_next_group(qtile):
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
-##### Specific Apps/Groups / Apps/Grupos especificos #####
+##### Specific Apps/Groups #####
 
 def app_or_group(group, app):
     def f(qtile):
@@ -153,8 +155,6 @@ def set_rand_wallpaper(qtile):
     subprocess.run(["sudo", "cp", "%s" % rand_wallpaper,  "/usr/share/background.png"])
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
-
-#### Set randowm wallpaper every X minutes
 
 #### Widgets ####
 #### Display Shortcuts widget
@@ -208,7 +208,7 @@ def network_widget(qtile):
         connected = ' Turn Wifi On'
         active= "on"
     options = [connected,' Bandwith Monitor (CLI)', ' Network Manager (CLI)', ' Network Manager (GUI)']
-    index, key = rofi_r.select(wifi_icon, options)
+    index, key = rofi_r.select(wifi_icon + internet, options)
     if key == -1:
         rofi_r.close()
     else:
@@ -268,7 +268,6 @@ def ranger(qtile):
     qtile.cmd_spawn(term + ' -e ranger')
 
 def wsearx():
-    qtile.groups_map["4"].cmd_toscreen(toggle=False)
     run('/usr/local/bin/wsearch')
 
 def cfilex():

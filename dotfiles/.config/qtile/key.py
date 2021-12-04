@@ -25,7 +25,6 @@ def init_keys():
             
             #### Widgets ####
             Key([mod],"h",lazy.function(shortcuts)), # Sortcurts widget
-            Key([mod],"p",lazy.spawn('/usr/local/bin/qback')), # Launcher
             Key([mod],"f",lazy.spawn('/usr/local/bin/wsearch')), # WEB Search
             Key([mod],"x",lazy.function(session_widget)), # Log out
             Key([mod],"n",lazy.function(network_widget)), # Network Settings
@@ -34,8 +33,6 @@ def init_keys():
             Key([alt],"w",lazy.spawn('/usr/local/bin/change_theme')), # Change Theme
             Key([mod, "shift"],"x",lazy.spawn('/usr/local/bin/change_display')),
 
-            #### Add Screen ####
-            Key([mod, "shift"],"y",lazy.spawn(term + ' -e xrandr --output HDMI1 --auto --left-of eDP1')),
             #### Theming ####
             Key([alt], "r",lazy.function(set_rand_wallpaper)), # Set randwom wallpaper / colors to entire system
 
@@ -49,9 +46,7 @@ def init_keys():
             Key([mod, "shift"],"m",lazy.function(app_or_group('2', 'thunderbird'))),
             
             ## Group 3 (Social: Whatsapp, Telegram, )
-            Key([mod, "shift"],"w",lazy.function(app_or_group('3', 'whatsdesk'))),
-            Key([mod, "shift"],"t",lazy.function(app_or_group('3', 'telegram-desktop'))),
-            Key([mod, "shift"],"d",lazy.function(app_or_group('3', 'discord'))),
+            Key([mod, "shift"],"f",lazy.function(app_or_group('3', 't'))),
 
             ## Group 4 (WEB: Firefox)(Admin: Mail, notes, social)
             Key([mod, "shift"],"f",lazy.function(app_or_group('4', 'firefox'))),
@@ -69,8 +64,6 @@ def init_keys():
             Key([alt, "shift"],"s",lazy.function(ncsp)),
 
             ## Group 8 (Virtual Stuff games)
-            Key([mod, "shift"],"v",lazy.spawn(term + ' -e vis')),
-            Key([mod],"b",lazy.function(app_or_group('8', '/media/gibranlp/Games/albion/./Albion-Online'))),
             
             #### Layouts ####
             Key([mod], "Tab",lazy.layout.next()), # Change focus of windows down
@@ -88,8 +81,6 @@ def init_keys():
             Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
 
             #### Media Control ####
-            #Key([mod], "v", lazy.spawn('/home/gibranlp/MEGA/computerStuff/keyboard/keyboard_activate.sh')),
-            #Key([mod], "b", lazy.spawn('/home/gibranlp/MEGA/computerStuff/keyboard/keyboard_deactivate.sh')),
             Key([], "XF86AudioPlay", lazy.function(play_pause)),
             Key([], "XF86AudioNext", lazy.function(nexts)),
             Key([], "XF86AudioPrev", lazy.function(prev)),

@@ -13,11 +13,11 @@ current_theme='top_bar'
 ##### Groups #####
 group_names = ["1","2","3","4","5","6","7","8","9"]
 group_labels=["","","","","","","","",""]
-group_layouts=["monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall"]
+group_layouts=["monadtall", "matrix", "matrix","monadtall", "monadtall", "monadtall","monadtall", "monadtall", "monadtall"]
 group_matches=[
     [Match(wm_class=['gnome-disks','Gnome-disks','anydesk','Anydesk'])],
-    [Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote',])],
-    [Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord'])],
+    [Match(wm_class=['Zoom','zoom', 'Thunderbird', 'thunderbird','transmission-gtk','Transmission-gtk', 'Simplenote', 'filezilla', 'Filezilla', 'QOwnNotes'])],
+    [Match(wm_class=['whatsdesk','telegram-desktop-bin', 'TelegramDesktop', 'Discord', 'discord', 'slack', 'ferdi', 'Slack', 'Ferdi'])],
     [Match(wm_class=['firefox', 'google-chrome', 'Google-chrome'])],
     [Match(wm_class=['Code', 'code','Filezilla','typora'])],
     [Match(wm_class=['Gimp-2.10','Inkscape','Evince', 'libreoffice','Com.github.phase1geo.minder', 'libreoffice-writer', 'libreoffice-calc', 'libreoffice-impress', 'libreoffice-draw', 'libreoffice-calc'])],
@@ -26,6 +26,15 @@ group_matches=[
     None
 ]
 groups = []
+
+@hook.subscribe.client_new
+def follow_window(client):
+    for group in groups:
+        match = next((m for m in group.matches if m.compare(client)), None)
+        if match:
+            targetgroup = qtile.groups_map[group.name]
+            targetgroup.cmd_toscreen(toggle=False)
+            break
 
 for i in range(len(group_names)):
     groups.append(
@@ -43,7 +52,7 @@ for i in range(len(group_names)):
 def init_layout_theme():
     return {"font":"Fira Code Medium",
             "fontsize":14,
-            "margin":10,
+            "margin":5,
             "border_width":3,
             "border_normal":color[0],
             "border_focus":color[6],
