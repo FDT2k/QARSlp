@@ -1,5 +1,5 @@
 # QARSlp Qtile Auto Ricing Script v1.1
-by: gibranlp ![thisdoesnotwork@gibranlp.dev](mailto:thisdoesnotwork@gibranlp.dev)
+by: gibranlp [thisdoesnotwork@gibranlp.dev](mailto:thisdoesnotwork@gibranlp.dev)
 MIT licence
 
 Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
@@ -24,7 +24,7 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
   - [x] [Pack 3](https://gibranlp.dev/wallpacks/pack3.tar.gz)
   - [x] All the wallpapers should be on **~/Pictures/wallPapers** This folder is created with the installation.
 
-## Widgets ![Rofi](https://github.com/davatorium/rofi) based
+## Widgets [Rofi](https://github.com/davatorium/rofi) based
 
 ### Aplications Launcher
 
@@ -36,56 +36,56 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
 
 ### Themes
 
-- [x] QARSlp (Default)
+#### QARSlp (Default)
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/default.png)
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/default2.png)
 
-- [x] Top Bar
+#### Top Bar
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/top_bar.png)
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/top_bar2.png)
 
-- [x] Bottom Bar
+#### Bottom Bar
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/bottom_bar.png)
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/bottom_bar2.png)
 
-- [x] Minimal
+#### Minimal
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/minimal.png)
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/minimal2.png)
 
 ### Color Scheme Selector
 
-- [x] Same Wallpaper different Color Schemes
+#### Same Wallpaper different Color Schemes
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/color_scheme_selector.png)
 
 ### Dark Themes
 
-- Wal
+#### Wal
 ![Wal](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
-- Colorz
+#### Colorz
 ![Colorz](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorz.png)
-- Colorthief
+#### Colorthief
 ![Colorthief](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorthief.png)
-- Haishoku
+#### Haishoku
 ![Haishoku](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/Haishoku.png)
 
 
 ### Light Themes
 
-- Wal
+#### Wal
 ![Wal](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
-- Colorz
+#### Colorz
 ![Colorz](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorz.png)
-- Colorthief
+#### Colorthief
 ![Colorthief](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorthief.png)
-- Haishoku
+#### Haishoku
 ![Haishoku](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-haishoku.png)
 
 ### Search Files & Folders
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/search_files_folders.png)
 
-### Web Search Based on ![Surfraw](https://github.com/JNRowe/surfraw)
+### Web Search Based on [Surfraw](https://github.com/JNRowe/surfraw)
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/search_internet.png)
 
@@ -93,7 +93,7 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/network.png)
 
-### Screenshot menu based on ![scrot](https://github.com/dreamer/scrot)
+### Screenshot menu based on [scrot](https://github.com/dreamer/scrot)
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/take_screenshots.png)
 
@@ -139,7 +139,7 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro should work.
 
-- [x] First you need to clone this repository
+#### First you need to clone this repository
 
 ```bash
 git clone https://github.com/gibranlp/QARSlp.git
