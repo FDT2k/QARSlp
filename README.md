@@ -1,86 +1,20 @@
-# QARSlp OS Qtile + Arch + AutoRicing System v1.0
->Qtile & Arch Nerdbulous Awerd
-
-- Rofi Widgets
-- Awesome Wallpapers
-- Colors!
-- Tiling Windows
-- Themes!
-- Many shortcuts!
-- Combine wallpapers and color schemes
-
+# QARSlp Qtile Auto Ricing Script v1.1
 by: gibranlp ![thisdoesnotwork@gibranlp.dev](mailto:thisdoesnotwork@gibranlp.dev)
-
-# Known Bugs
-
-Pff where to start..
-- 
-
-# How to Install?
-
-You have to install first ´´´base-devel´´´ & ´´´git´´´
-
-
-# Planned Upgrades
-
-- [ ] Improve code a lot
-  - [ ] Make more dynamic the theme changes
-- [ ] Make it a Distro eventually, "Archlp"
-- [ ] Widget to Select Shortcuts template?
-- [ ] Theme all Widgets and make a sort of widget selector (Later)
-- [ ] widget for energy options
-  - [ ] sleep on x time
-  - [ ] Screensaver?
-  - [ ] dynamic widgets
-    - [ ] Battery
-    - [ ] Rofi group switcher/cycle
-
-# Qtile?
-
-
-
-A WM for everyone, 
-
-
-
-- Dinamic
-- Useful
-- Powered by Qtile + Arch
-
-
-
-
 MIT licence
 
 Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
+
+
+
+
 
 ## Installation
 
 This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
 
-## Prerequisites
+## All neded for installation is a Arch Based Distro
 
-- Qtile
-- Pywal
-- Wpgtk
-- rofi
-
-
-
-- [x] Arch based distro
-- [ ] Zen Kernel
-  - [ ] Best for multimedia, and gaming workloads.
-- [ ] Low Resource Consumption! 
-- [x] Zsh and Ohmyzsh installed,  you can check [here](https://ohmyz.sh/#install)
-- [x] Also install this 2 plugins for ZSH
-```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-```
-- [x] Add your user to the sudoers file, if you don't know how to do it check this [guide](https://gibranlp.dev/post/add-user-sudoers-file/) 
-
-## Installation
+### Installation
 
   First you need to clone this repository
 ```bash
@@ -103,7 +37,7 @@ chmod +x post_install.sh
   - [x] [Pack 1](https://gibranlp.dev/wallpacks/pack1.tar.gz)
   - [x] [Pack 2](https://gibranlp.dev/wallpacks/pack2.tar.gz)
   - [x] [Pack 3](https://gibranlp.dev/wallpacks/pack3.tar.gz)
-  - [x] All the wallpapers should be on **~/Pictures/wallPapers**
+  - [x] All the wallpapers should be on **~/Pictures/wallPapers** This folder is created with the installation.
 
 ### Menu launchers
 - [x] Launcher
@@ -129,16 +63,10 @@ chmod +x post_install.sh
     - [x] wal
     - [x] colorthief
 
-![Change theme](https://github.com/gibranlp/QARSlp/blob/main/screenshots/backend.png)
 
-- [x] Automatically change wallpaper every X minutes
-
-![Chwall](https://github.com/gibranlp/QARSlp/blob/main/screenshots/chwall.png)
 
 
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
-
-![Web search](https://github.com/gibranlp/QARSlp/blob/main/screenshots/search.png)
 
 - [x] Network / Internet
   - [x] Speedtest-cli (CLI Network settings)
@@ -164,7 +92,33 @@ chmod +x post_install.sh
 ![Session](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
 
 
-## Other included apps
+## Apps and Misc
+
+### Terminal & GTK
+
+![TGTK](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/2.png)
+![TGTK](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/10.png)
+
+### Thunderbird
+![Thunderbird](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/3.png)
+![Thunderbird](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/11.png)
+
+### Thunar & Icons
+![Thunar & Icons](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/4.png)
+![Thunar & Icons](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/12.png)
+
+### Firefox
+![Firefox](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/5.png)
+![Firefox](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/15.png)
+
+### Vscode
+![Vscode](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/6.png)
+![Vscode](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/16.png)
+
+### Libre Office
+![Libre Office](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/8.png)
+
+
 
 - [x] Firefox
   - You must install the addon pywalfox
