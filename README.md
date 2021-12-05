@@ -30,7 +30,17 @@ chmod +x post_install.sh
 ## Things to consider after installing
 
 ## Features
-- [x] Qtile adapts with the wallpaper colors 
+- [x] Qtile changes with the wallpapers colors.
+
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-09_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-22_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-31_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-36_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-38_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-41_1920x1080.png)
+![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-53_1920x1080.png)
+
+
 - [x] Auto detects the network card in use to display it on widgets
 - [x] Wallpaper generated is now saved into a file for further use (backend changes)
 - [x] Packs of wallpapers
@@ -111,35 +121,18 @@ chmod +x post_install.sh
 ![Firefox](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/5.png)
 ![Firefox](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/15.png)
 
+- [x] Firefox requires the [**Pywalfox**](https://addons.mozilla.org/en-US/firefox/addon/pywalfox/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search) plugin installed.
+
 ### Vscode
 ![Vscode](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/6.png)
 ![Vscode](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/16.png)
 
+- [x] Vscode Requires the **Wal Theme** Plugin Installed.
+
 ### Libre Office
 ![Libre Office](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/8.png)
 
-
-
-- [x] Firefox
-  - You must install the addon pywalfox
-- [x] Visual-studio-code
-- [x] Qtile (wm)
-- [x] Rofi
-- [x] Libre Office
-- [x] All GTK apps are color updated now thanks to [wpgtk](https://github.com/deviantfero/wpgtk)
-
 # Screenshots
-
-![1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/1.png)
-![2](https://github.com/gibranlp/QARSlp/blob/main/screenshots/2.png)
-![3](https://github.com/gibranlp/QARSlp/blob/main/screenshots/3.png)
-![4](https://github.com/gibranlp/QARSlp/blob/main/screenshots/4.png)
-![5](https://github.com/gibranlp/QARSlp/blob/main/screenshots/5.png)
-![7](https://github.com/gibranlp/QARSlp/blob/main/screenshots/6.png)
-![7](https://github.com/gibranlp/QARSlp/blob/main/screenshots/7.png)
-![8](https://github.com/gibranlp/QARSlp/blob/main/screenshots/8.png)
-![9](https://github.com/gibranlp/QARSlp/blob/main/screenshots/9.png)
-![10](https://github.com/gibranlp/QARSlp/blob/main/screenshots/10.png)
 
 
 <a href="https://www.buymeacoffee.com/gibranlp"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&emoji=&slug=gibranlp&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"></a>
