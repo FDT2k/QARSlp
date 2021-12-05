@@ -53,6 +53,28 @@ chmod +x post_install.sh
 
 ![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/launcher.png)
 
+### Theme Selector
+
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/theme_selector.png)
+
+### Themes
+
+- [x] QARSlp (Default)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/default.png)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/default2.png)
+
+- [x] Top Bar
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/top_bar.png)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/top_bar2.png)
+
+- [x] Bottom Bar
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/bottom_bar.png)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/bottom_bar2.png)
+
+- [x] Minimal
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/minimal.png)
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/themes/minimal2.png)
+
 ### Color Scheme Selector
 
 - [x] Same Wallpaper different Color Schemes
@@ -61,44 +83,52 @@ chmod +x post_install.sh
 
 ### Dark Themes
 
+- Wal
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
+- Colorz
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorz.png)
+- Colorthief
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorthief.png)
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
+- Haishoku
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/Haishoku.png)
 
 
 ### Light Themes
 
+- Wal
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
+- Colorz
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorz.png)
+- Colorthief
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorthief.png)
+- Haishoku
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
 
+### Search Files & Folders
 
-- [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/search_files_folders.png)
 
-- [x] Network / Internet
-  - [x] Speedtest-cli (CLI Network settings)
-  - [x] Wireshark-cli (CLI Network settings)
-  - [x] Nmtui (CLI Network settings)
-  - [x] Bmon (CLI Network monitor)
+### Web Search Based on ![Surfraw](https://github.com/JNRowe/surfraw)
 
-![Network](https://github.com/gibranlp/QARSlp/blob/main/screenshots/network.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/search_internet.png)
 
-- [x] Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
+### Network menu
 
-![Screenshot](https://github.com/gibranlp/QARSlp/blob/main/screenshots/screen.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/network.png)
 
-- [x] Shortcuts widget
+### Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
 
-![Shortcuts](https://github.com/gibranlp/QARSlp/blob/main/screenshots/shortcuts.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/take_screenshots.png)
 
-- [x] Session menu
-    - [x] Logout
-    - [x] Power Off
-    - [x] Reboot
+### Shortcuts for the system
 
-![Session](https://github.com/gibranlp/QARSlp/blob/main/screenshots/session.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/shortcuts.png)
+
+### Session menu
+
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/session.png)
+
+
 
 
 ## Apps and Misc
