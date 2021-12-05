@@ -4,29 +4,6 @@ MIT licence
 
 Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
-
-
-
-
-## Installation
-
-This is based on ![Arch](https://archlinux.org/) so any Arch based distro works, it also depends on Systemd, distros like ![Artix](https://artixlinux.org/) may need further configuration.
-
-## All neded for installation is a Arch Based Distro
-
-### Installation
-
-  First you need to clone this repository
-```bash
-git clone https://github.com/gibranlp/QARSlp.git
-cd QARSlp/installer
-chmod +x dependencies.sh
-chmod +x cp_files.sh
-chmod +x post_install.sh
-./dependencies.sh #This will install all the programs needed
-./cp_files.sh #This will copy all the dotfiles needed
-./post_install #This will run wpgtk for the first time
-```
 ## Things to consider after installing
 
 # Features
@@ -84,25 +61,25 @@ chmod +x post_install.sh
 ### Dark Themes
 
 - Wal
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
+![Wal](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
 - Colorz
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorz.png)
+![Colorz](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorz.png)
 - Colorthief
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorthief.png)
+![Colorthief](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorthief.png)
 - Haishoku
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/Haishoku.png)
+![Haishoku](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/Haishoku.png)
 
 
 ### Light Themes
 
 - Wal
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
+![Wal](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
 - Colorz
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorz.png)
+![Colorz](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorz.png)
 - Colorthief
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorthief.png)
+![Colorthief](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorthief.png)
 - Haishoku
-![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
+![Haishoku](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-haishoku.png)
 
 ### Search Files & Folders
 
@@ -116,7 +93,7 @@ chmod +x post_install.sh
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/network.png)
 
-### Screenshot based on ![scrot](https://github.com/dreamer/scrot) menu
+### Screenshot menu based on ![scrot](https://github.com/dreamer/scrot)
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/take_screenshots.png)
 
@@ -127,9 +104,6 @@ chmod +x post_install.sh
 ### Session menu
 
 ![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/session.png)
-
-
-
 
 ## Apps and Misc
 
@@ -161,7 +135,20 @@ chmod +x post_install.sh
 ### Libre Office
 ![Libre Office](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/8.png)
 
-# Screenshots
+## Installation
 
+This is based on ![Arch](https://archlinux.org/) so any Arch based distro should work.
 
+- [x] First you need to clone this repository
+
+```bash
+git clone https://github.com/gibranlp/QARSlp.git
+cd QARSlp/installer
+chmod +x dependencies.sh
+chmod +x cp_files.sh
+chmod +x post_install.sh
+./dependencies.sh #This will install all the programs needed
+./cp_files.sh #This will copy all the dotfiles needed
+./post_install #This will run wpgtk for the first time
+```
 <a href="https://www.buymeacoffee.com/gibranlp"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&emoji=&slug=gibranlp&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"></a>
