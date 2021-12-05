@@ -29,51 +29,50 @@ chmod +x post_install.sh
 ```
 ## Things to consider after installing
 
-## Features
-- [x] Qtile changes with the wallpapers colors.
+# Features
+
+## Qtile changes with the wallpapers colors.
 
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-09_1920x1080.png)
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-22_1920x1080.png)
-![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-31_1920x1080.png)
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-36_1920x1080.png)
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-38_1920x1080.png)
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-41_1920x1080.png)
 ![Wallpaper 1](https://github.com/gibranlp/QARSlp/blob/main/screenshots/walls/Sc_2021-12-53_1920x1080.png)
 
-
-- [x] Auto detects the network card in use to display it on widgets
-- [x] Wallpaper generated is now saved into a file for further use (backend changes)
+### More Awesome Wallpapers
 - [x] Packs of wallpapers
   - [x] [Pack 1](https://gibranlp.dev/wallpacks/pack1.tar.gz)
   - [x] [Pack 2](https://gibranlp.dev/wallpacks/pack2.tar.gz)
   - [x] [Pack 3](https://gibranlp.dev/wallpacks/pack3.tar.gz)
   - [x] All the wallpapers should be on **~/Pictures/wallPapers** This folder is created with the installation.
 
-### Menu launchers
-- [x] Launcher
-- [x] Web search
-- [x] Terminal
-- [x] Ranger ~/
-- [x] Randomize wallpaper
-- [x] Vis (CLI-visualizer)
-- [x] Ncspot (CLI Spotify client)
-- [x] Shortcuts widget
-- [x] Sessión menu(top-right)
+## Widgets ![Rofi](https://github.com/davatorium/rofi) based
 
-### Widgets ![Rofi](https://github.com/davatorium/rofi) based
+### Aplications Launcher
 
-- [x] Launcher
+![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/launcher.png)
 
-![Launcher](https://github.com/gibranlp/QARSlp/blob/main/screenshots/launcher.png)
+### Color Scheme Selector
 
-- [x] Change palette using the same wallpaper dark / light 
-    - [x] colorz
-    - [x] haishoku
-    - [x] schemer2
-    - [x] wal
-    - [x] colorthief
+- [x] Same Wallpaper different Color Schemes
+
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/widgets/color_scheme_selector.png)
+
+### Dark Themes
+
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorz.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/colorthief.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/wal.png)
 
 
+### Light Themes
+
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorz.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-colorthief.png)
+![Color Selector](https://github.com/gibranlp/QARSlp/blob/main/screenshots/schemes/light-wal.png)
 
 
 - [x] Web Search (Based on ![Surfraw](https://github.com/JNRowe/surfraw))
