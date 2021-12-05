@@ -52,7 +52,7 @@ for i in range(len(group_names)):
 def init_layout_theme():
     return {"font":"Fira Code Medium",
             "fontsize":14,
-            "margin":5,
+            "margin":10,
             "border_width":3,
             "border_normal":color[0],
             "border_focus":color[6],
