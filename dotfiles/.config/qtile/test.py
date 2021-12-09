@@ -1,6 +1,4 @@
-from funct import *
-def get_ip():
-    ip = requests.get("http://ipecho.net/plain?",timeout=1.0).text
-    print(ip)
+from key import *
 
-get_ip()
+
+print("sudo", "cm-rgb-cli set logo --mode=breathe --color=" + colors[1] + ' --speed=1 --brightness=5 fan --mode=breathe --color=' + colors[6] + ' --speed=4 --brightness=1 ring --mode=swirl --color=' + colors[3] + ' --speed=1 --brightness=1',shell=True)

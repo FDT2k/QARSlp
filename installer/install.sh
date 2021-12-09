@@ -55,7 +55,7 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git' 'otf-symbola' 'pamac-classic'
+    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git'
 )
 
 
