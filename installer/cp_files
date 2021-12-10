@@ -12,6 +12,8 @@ function i_files(){
   \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
   sudo cp -r  ~/.cache/wal /root/.cache/
+  sudo cp -r  ~/.config/wpg /root/.config/wpg
+  sudo cp -r  ~/.config/rofi /root/.config/rofi
   sudo \cp ~/.face /usr/share/profile.png
   cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
   if [ -d "/usr/local/bin" ];  then

@@ -147,7 +147,7 @@ def set_rand_wallpaper(qtile):
     selection = random.choice(os.listdir(dir))
     rand_wallpaper = os.path.join(dir, selection)
     subprocess.run(["wpg", "-s" + rand_wallpaper])
-    subprocess.run(["sudo", "cp", "%s" % rand_wallpaper,  "/usr/share/background.png"])
+    subprocess.run(["sudo", "cp", "%s" % rand_wallpaper,  "/usr/share/backgrounds/background.png"])
     subprocess.run(["wal", "-R"])
     qtile.cmd_restart()
 
