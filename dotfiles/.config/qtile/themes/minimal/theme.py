@@ -236,7 +236,7 @@ def init_widgets_top():
                     background=color[0],
                     padding=5,
                     visible_on_warn=False,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e ranger"')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e ranger')},
                     warn_color="ff0000"
                     ),
                 widget.Sep(

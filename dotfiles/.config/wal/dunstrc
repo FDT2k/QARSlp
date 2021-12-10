@@ -39,16 +39,19 @@ context = ctrl+shift+period
 history = ctrl+grave
 
 [urgency_critical]
+frame_color = "{color7}"
 background = "{foreground}"
 foreground = "{background}"
 timeout = 15
 
 [urgency_low]
+frame_color = "{color0}"
 background = "{background}"
 foreground = "{foreground}"
 timeout = 10
 
 [urgency_normal]
+frame_color = "{color1}"
 background = "{background}"
 foreground = "{foreground}"
 timeout = 10

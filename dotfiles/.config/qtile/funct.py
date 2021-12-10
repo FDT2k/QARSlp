@@ -24,7 +24,7 @@ ver = ' QARSlp v1.1'
 mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
-hostname = "gibranlp.dev"
+hostname = "google.com"
 internet = '  You are connected'
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -38,6 +38,7 @@ widgets_index = 0
 @hook.subscribe.startup
 def start():
     subprocess.call('/usr/local/bin/alwaystart')
+    wraith_colors()
     
 @hook.subscribe.startup_once
 def start_once():
@@ -102,23 +103,17 @@ with open(home + '/.cache/wal/colors.json') as wal_import:
     wallpaper = data['wallpaper']
     alpha = data['alpha']
     colors = data['colors']
-    specials = data['special']
     val_colors = list(colors.values())
     def getList(val_colors):
         return [*val_colors]
-    val_specials = list(specials.values())
-    def getList(val_specials):
-        return [*val_specials]
     
 def init_colors():
     return [*val_colors]
 
-def init_specials():
-    return [*val_specials]
-
 color = init_colors()
-special = init_specials()
 
+def wraith_colors():
+    subprocess.Popen(['sudo cm-rgb-cli set logo --mode=breathe --speed=1 --brightness=5 --color=%s fan --mode=breathe --speed=1 --brightness=5 --color=%s ring --mode=swirl --speed=2 --brightness=5 --color=%s' %(color[7], color[2], color[5])], shell = True)
 #### Send app to group ####
 
 @lazy.function
@@ -185,7 +180,7 @@ def screenshot(qtile):
         rofi.close()
     else:
         if index ==0:
-            subprocess.run("scrot -d 0.8 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
+            subprocess.run("scrot -d 1 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
         elif index==1:
             subprocess.run("scrot -u 'Sc_%Y-%m-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) #; viewnior $$(xdg-user-dir PICTURES)/$f' && dunstify ' Screenshot Taken!'",shell=True)
         elif index==2:
@@ -215,11 +210,12 @@ def network_widget(qtile):
         if index ==0:
             subprocess.run("nmcli radio wifi " + active, shell=True)
         elif index==1:
-            subprocess.run("urxvt -e bmon", shell=True)
+            qtile.cmd_spawn(term + ' -e bmon')
         elif index==2:
-            subprocess.run("urxvt -e nmtui", shell=True)
+            qtile.cmd_spawn(term + ' -e nmtui')
         else:
-            subprocess.run("nm-connection-editor")        
+            qtile.cmd_spawn('nm-connection-editor')
+                 
 
 #### Change Color scheme widget
 def change_color_scheme(qtile):
