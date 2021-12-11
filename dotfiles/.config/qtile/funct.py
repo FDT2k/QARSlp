@@ -25,7 +25,7 @@ mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
 hostname = "google.com"
-internet = '  You are connected'
+internet = ' Yei Internet is working!'
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
@@ -77,15 +77,18 @@ def get_private_ip():
 private_ip = get_private_ip()
 
 def get_public_ip():
-    ping = os.system("ping -c 1 " + hostname)
-    if ping == 0:
-        data = str(urlopen('http://checkip.dyndns.com/').read())
-        return re.compile(r'Address: (\d+.\d+.\d+.\d+)').search(data).group(1)
+    try:
+        raw = requests.get('https://api.duckduckgo.com/?q=ip&format=json')
+        answer = raw.json()["Answer"].split()[4]
+    except Exception as e:
+        return "0.0.0.0"
     else:
-        internet = print('OMG No Internet Run!')
-        return(internet)
+        return answer
        
 public_ip = get_public_ip()
+
+if public_ip.startswith('0'):
+    internet = "OMG You Have No Internet"
 
 ###### Import Battery for Laptops
 def get_bat():
@@ -113,7 +116,7 @@ def init_colors():
 color = init_colors()
 
 def wraith_colors():
-    subprocess.Popen(['sudo cm-rgb-cli set logo --mode=breathe --speed=1 --brightness=5 --color=%s fan --mode=breathe --speed=1 --brightness=5 --color=%s ring --mode=swirl --speed=2 --brightness=5 --color=%s' %(color[7], color[2], color[5])], shell = True)
+    subprocess.Popen(['sudo cm-rgb-cli set logo --mode=static --brightness=5 --color=%s fan --mode=static --brightness=5 --color=%s ring --mode=swirl --speed=2 --brightness=5 --color=%s' %(color[1], color[2], color[6])], shell = True)
 #### Send app to group ####
 
 @lazy.function
@@ -190,9 +193,9 @@ def screenshot(qtile):
 
 #### Network Widget
 def network_widget(qtile):
-    #get_ssid = "iwgetid -r"
-    #pos = subprocess.Popen(get_ssid,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
-    #ssid = pos.communicate()[0].decode('ascii').strip()
+    get_ssid = "iwgetid -r"
+    pos = subprocess.Popen(get_ssid,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    ssid = pos.communicate()[0].decode('ascii').strip()
     get_status = "nmcli radio wifi"
     ps = subprocess.Popen(get_status,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     status = ps.communicate()[0].decode('ascii').strip()

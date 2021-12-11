@@ -12,7 +12,7 @@ horizontal_padding = 8
 icon_folders = /usr/share/icons/Notifications
 icon_position = left
 min_icon_size = 0
-max_icon_size = 100
+max_icon_size = 60
 idle_threshold = 120
 ignore_newline = no
 indicate_hidden = yes
@@ -24,9 +24,9 @@ separator_height = 2
 show_age_threshold = -1
 show_indicators = yes
 sort = yes
-startup_notification = false
+startup_notification = true
 sticky_history = no
-transparency = 0
+transparency = 10
 word_wrap = yes
 
 frame_color = "{color2}"
@@ -60,12 +60,6 @@ timeout = 10
 appname = Discord Canary
 format = "Discord\n%s\n%b"
 new_icon = Discord
-
-[Dropbox]
-appname = Dropbox
-format = "Dropbox\n%s\n%b"
-new_icon = Dropbox
-timeout = 10
 
 [ImageMagick]
 appname = ImageMagick
