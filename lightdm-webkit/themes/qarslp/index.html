@@ -20,24 +20,21 @@
             height: 100%;
             width: 100%;
             background:url("/usr/share/backgrounds/background.png");
-            font-family: "Lato", "Open Sans", sans-serif;
+            background-size: cover;
+            font-family: "Fira Code";
             overflow: hidden;
           }
-          
+          #motherOfAllContainers {
+          width:100%;
+          height:100%;
+          font-family: sans-serif;
+          }
 
-
-            #motherOfAllContainers {
-            width:100%;
-            height:100%;
-                font-family: sans-serif;
-            }
-
-            div {
-                padding: 3px;
-            }
+          div {
+              padding: 3px;
+          }
 
             #sessionDisplay {
-                background-color: rgba(255, 255, 255, 0.2);
                 border-radius: 4px;
                 color: #222222;
                 display:none;
@@ -47,12 +44,29 @@
                 margin: 17px 3px 0px 3px;
             }
 
+            #shortcuts {
+                color: #222222;
+                text-align: center;
+                font-weight: 400;
+            }
+
             #inputBoxesContainer {
               position: absolute;
               top: calc(45% - 1em);
               left: calc(10% - 1em);
-              background-color: rgba(255, 255, 255, 0.1);
+              background-color: rgba(255, 255, 255, 0.4);
               border-radius: 8px;
+            }
+            #shortcutsContainer {
+              position: absolute;
+              top: calc(95% - 1em);
+              left: calc(65% - 2em);
+              background-color: rgba(255, 255, 255, 0.7);
+              border-radius: 8px;
+              padding:5px;
+              width: 40em;
+              line-height: 15px;
+              height: 25px;
             }
 
             .form-control {
@@ -61,7 +75,18 @@
         </style>
     </head>
     <body>
-        <div id="inputBoxesContainer" style="display:none">
+      
+      <div id="shortcutsContainer">
+        <p id="shortcuts">Alt + R: Restart | Alt + D: Shutdown | Alt + S: Sessions</p>
+      </div>
+        
+        <div id="inputBoxesContainer" style="display:block">
+          <div>
+            <span id="current_time" class="time text-center"></span>
+            </div>
+          <div>
+            <p id="shortcuts">Welcome to QARSlp</p>
+          </div>
             <div>
                 <input type="text" name="username" id="username" class="form-control">
             </div>
@@ -72,7 +97,6 @@
             <div id="sessionDisplay">
               Session: <span id="sessionNameContainer" style="" ></span>
             </div>
-        </div>
         </div>
     </body>
 </html>
