@@ -4,6 +4,23 @@ MIT licence
 
 Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing feature depends entirely on the Wallpaper, it generates several palettes using pywal and wpgtk to adapt the colors of the entire system to the wallpaper
 
+## Installation
+
+This is based on ![Arch](https://archlinux.org/) so any Arch based distro should work.
+
+#### First you need to clone this repository
+
+```bash
+git clone https://github.com/gibranlp/QARSlp.git
+cd QARSlp/installer
+chmod +x dependencies.sh
+chmod +x cp_files.sh
+chmod +x post_install.sh
+./dependencies.sh #This will install all the programs needed
+./cp_files.sh #This will copy all the dotfiles needed
+./post_install #This will run wpgtk for the first time
+```
+
 ## Things to consider after installing
 
 # Features
@@ -22,7 +39,7 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
   - [x] [Pack 1](https://gibranlp.dev/wallpacks/pack1.tar.gz)
   - [x] [Pack 2](https://gibranlp.dev/wallpacks/pack2.tar.gz)
   - [x] [Pack 3](https://gibranlp.dev/wallpacks/pack3.tar.gz)
-  - [x] All the wallpapers should be on **~/Pictures/wallPapers** This folder is created with the installation.
+  - [x] All the wallpapers should be put on **~/Pictures/wallPapers** This folder is created with the installation.
 
 ## Widgets [Rofi](https://github.com/davatorium/rofi) based
 
@@ -135,20 +152,5 @@ Fork / upgrade from [QAAS](https://github.com/gibranlp/QAAS), the  Autoricing fe
 ### Libre Office
 ![Libre Office](https://github.com/gibranlp/QARSlp/blob/main/screenshots/apps/8.png)
 
-## Installation
 
-This is based on ![Arch](https://archlinux.org/) so any Arch based distro should work.
-
-#### First you need to clone this repository
-
-```bash
-git clone https://github.com/gibranlp/QARSlp.git
-cd QARSlp/installer
-chmod +x dependencies.sh
-chmod +x cp_files.sh
-chmod +x post_install.sh
-./dependencies.sh #This will install all the programs needed
-./cp_files.sh #This will copy all the dotfiles needed
-./post_install #This will run wpgtk for the first time
-```
 <a href="https://www.buymeacoffee.com/gibranlp"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&emoji=&slug=gibranlp&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"></a>

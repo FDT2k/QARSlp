@@ -30,7 +30,7 @@ def init_keys():
             Key([mod],"n",lazy.function(network_widget)), # Network Settings
             Key([alt, "shift"],"r",lazy.function(change_color_scheme)), # Change Color Scheme
             Key([mod],"c",lazy.spawn('/usr/local/bin/fans')), # Fans
-            Key([alt],"w",lazy.spawn('/usr/local/bin/change_theme')), # Change Theme
+            Key([alt],"w",lazy.function(change_theme)), # Change Theme
             Key([mod, "shift"],"x",lazy.spawn('/usr/local/bin/change_display')),
 
             #### Theming ####

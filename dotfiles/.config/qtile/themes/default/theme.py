@@ -8,8 +8,6 @@
 # MIT licence 
 from funct import *
 
-current_theme='default'
-
 ##### Groups #####
 group_names = ["1","2","3","4","5","6","7","8","9"]
 group_labels=["","","","","","","","",""]

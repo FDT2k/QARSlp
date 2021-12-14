@@ -24,10 +24,10 @@ ver = ' QARSlp v1.1'
 mod = "mod4"
 alt = "mod1"                                   
 term = "urxvt"
-hostname = "google.com"
 internet = ' Yei Internet is working!'
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+theme=['default', 'top_bar', 'bottom_bar', 'minimal']
 backend = ["Wal", "Colorz", "Colorthief","Haishoku"]
 rofi_l = Rofi(rofi_args=['-theme', '~/.config/rofi/left_toolbar.rasi'])
 rofi_r = Rofi(rofi_args=['-theme', '~/.config/rofi/right_toolbar.rasi'])
@@ -219,6 +219,18 @@ def network_widget(qtile):
         else:
             qtile.cmd_spawn('nm-connection-editor')
                  
+
+#### Change Theme widget ####
+
+def change_theme(qtile):
+    options = [theme[0],theme[1],theme[2],theme[3]]
+    index, key = rofi_l.select('  Color Scheme', options)
+    if key == -1 or index >= 4:
+        rofi_r.close()
+    elif key == 0 and index < 4:
+        subprocess.run('\cp ~/.config/qtile/themes/%s/theme.py ~/.config/qtile/'% theme[index], shell=True)
+        subprocess.run('\cp ~/.config/qtile/themes/%s/rofi/* ~/.config/rofi/' % theme[index],shell=True)
+        qtile.cmd_restart()
 
 #### Change Color scheme widget
 def change_color_scheme(qtile):
