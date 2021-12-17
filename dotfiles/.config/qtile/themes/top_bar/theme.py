@@ -332,11 +332,16 @@ def init_widgets_top():
                     fontsize=15,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')}
                     ),
-                widget.Volume(
-                    channel='Master',
-                    background=color[3],
-                    foreground=color[0]
-                    ),
+                widget.ALSAWidget(
+                    background=color[0],
+                    device='Master',
+                    bar_colour_high=color[3],
+                    bar_colour_loud=color[3],
+                    bar_colour_normal=color[3],
+                    bar_colour_mute=color[3],
+                    hide_interval=3,
+                    update_interval=0.1,
+                ),
                 widget.Sep(
                     width=10,
                     foreground=color[0],

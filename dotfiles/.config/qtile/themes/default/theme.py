@@ -304,11 +304,16 @@ def init_widgets_top():
                     fontsize=15,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')}
                     ),
-                widget.Volume(
-                    channel='Master',
-                    background=color[6],
-                    foreground=color[0]
-                    ),
+                widget.ALSAWidget(
+                    background=color[0],
+                    device='Master',
+                    bar_colour_high=color[6],
+                    bar_colour_loud=color[6],
+                    bar_colour_normal=color[6],
+                    bar_colour_mute=color[6],
+                    hide_interval=3,
+                    update_interval=0.1,
+                ),
                 #### Date Clock Session Control ####
                 widget.TextBox(
                     text='◢',
@@ -317,6 +322,7 @@ def init_widgets_top():
                     padding=-2,
                     fontsize=65
                     ),
+                widget.UPowerWidget(),
                 widget.Clock(
                     foreground=color[7],
                     background=color[0],

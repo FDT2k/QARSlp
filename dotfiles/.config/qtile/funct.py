@@ -18,6 +18,7 @@ from libqtile.command import lazy
 from rofi import Rofi
 from urllib.request import urlopen
 import urllib
+from qtile_extras import widget
 
 #### Variables ####
 ver = ' QARSlp v1.1'
