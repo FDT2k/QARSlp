@@ -173,6 +173,8 @@ def init_widgets_top():
                     stop_pause_text='',
                     max_chars=50,
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
+                    scroll_interval=0.5,
+                    scroll_wait_intervals=8
                     ),
                 widget.Mpris2(
                     name='Spotify',
@@ -183,6 +185,8 @@ def init_widgets_top():
                     stop_pause_text='',
                     max_chars=50,
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
+                    scroll_interval=0.5,
+                    scroll_wait_intervals=8,
                     ),
                 widget.Sep(
                     width=10
@@ -257,20 +261,17 @@ def init_widgets_top():
                 widget.Sep(
                     width=10
                     ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    text=" ",
-                    foreground=color[6],
+                widget.ALSAWidget(
                     background=color[0],
-                    padding=0,
-                    fontsize=15,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('pavucontrol')}
-                    ),
-                widget.Volume(
-                    channel='Master',
-                    background=color[0],
-                    foreground=color[6]
-                    ),
+                    device='Master',
+                    bar_colour_high=color[6],
+                    bar_colour_loud=color[6],
+                    bar_colour_normal=color[6],
+                    bar_colour_mute=color[6],
+                    hide_interval=3,
+                    update_interval=0.1,
+                    text_format=' {volume}%',
+                ),
                 widget.Sep(
                     width=10
                     ),
@@ -289,7 +290,7 @@ def init_widgets_top():
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
-                    foreground=color[7],
+                    foreground=color[6],
                     text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)},
                     fontshadow=color[3]
