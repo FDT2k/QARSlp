@@ -182,9 +182,9 @@ def init_widgets_top():
                     ),
                 widget.CheckUpdates(
                     update_interval=1800,
-                    distro='Arch_paru',
+                    distro='Ubuntu',
                     foreground=color[0],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e paru -Syyu')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo apt upgrade')},
                     display_format="{updates} up",
                     background=color[4],
                     colour_have_updates=color[0],
@@ -217,16 +217,34 @@ def init_widgets_top():
                     bar_colour_mute=color[6],
                     hide_interval=3,
                     update_interval=0.1,
+                    bar_width=75,
+                    mode='bar',
+                ),
+                widget.TextBox(
+                    text='◢',
+                    background=color[6],
+                    foreground=color[1],
+                    padding=-2,
+                    fontsize=65
+                    ),
+                widget.UPowerWidget(
+                    background=color[1],
+                    border_charge_colour=color[7],
+                    border_colour=color[0],
+                    border_critical_colour='cc0000',
+                    fill_critical='cc0000',
+                    fill_low='aa00aa',
+                    fill_normal=color[0],
+                    font_colour=color[0],
                 ),
                 #### Date Clock Session Control ####
                 widget.TextBox(
                     text='◢',
-                    background=color[6],
+                    background=color[1],
                     foreground=color[0],
                     padding=-2,
                     fontsize=65
                     ),
-                widget.UPowerWidget(),
                 widget.Clock(
                     foreground=color[7],
                     background=color[0],
@@ -323,13 +341,13 @@ def init_widgets_bott():
                     background=color[0],
                     foreground=color[5],
                     widgets=[widget.TextBox(
-                        text=' '+private_ip,
+                        text='  '+private_ip,
                         background=color[0],
                         foreground=color[5],
                         mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
                         ),
                         widget.TextBox(
-                        text=' '+public_ip,
+                        text='  '+public_ip,
                         background=color[0],
                         foreground=color[5],
                         mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
@@ -503,7 +521,8 @@ def init_widgets_bott():
                         padding=5
                         )]
                 ),
-                #### Battery for laptops ####
+
+                #### System Tray ####
                 widget.TextBox(
                     text="◢",
                     background=color[1],

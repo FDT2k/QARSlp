@@ -8,8 +8,8 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-setxkbmap -layout us -variant intl &
-#setxkbmap -layout latam &
+#setxkbmap -layout us -variant intl &
+setxkbmap -layout latam &
 pywalfox update &
 killall dunst &
 /usr/local/bin/wvis &

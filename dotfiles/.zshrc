@@ -103,5 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 export PATH=~/usr/local/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
+export PATH=~/.local/bin:$PATH
 alias pywalfoxu='pywalfox update'
 wal -R -q && clear
