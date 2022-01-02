@@ -25,7 +25,7 @@ function i_paru(){
 }
 
 function i_base () {
-  packets=('xorg' 'xorg-xinit' 'htop' 'alsa-utils' 'alsa-lib' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lightdm' 'lightdm-gtk-greeter-settings' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake' 'lighdm-webkit2-greeter'
+  packets=('htop' 'alsa-utils' 'alsa-lib' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake' 'lighdm-webkit2-greeter'
 )
 
 for packet in "${packets[@]}"; do
@@ -55,7 +55,7 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc' 'gtk-theme-flat-color-git'
+    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc'
 )
 
 
@@ -65,48 +65,57 @@ for packet in "${packets[@]}"; do
 done
 }
 
+function i_settings(){
+  sudo timedatectl set-timezone America/Mexico_City &
+  sudo timedatectl set-ntp true &
+  pywalfox install &
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
+  git config --global user.name "gibranlp" &
+  git config --global user.email gibranlp@gmail.com & 
+  wpg-install.sh -g -d -i &
+  /opt/bin/autostart &
+  /opt/bin/alwaystart &
+  /opt/bin/genwal &
+}
+
 function i_files(){
-  \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
+  cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
   cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
-  \cp ~/.config/qtile/themes/default/theme.py ~/.config/qtile/
-  mkdir -p ~/.config/rofi/
-  \cp ~/.config/qtile/themes/default/rofi/* ~/.config/rofi/
-  mkdir -p ~/Pictures/wallPapers
-  cp ~/QARSlp/walls/* ~/Pictures/wallPapers
+  cp -r ~/QARSlp/wallPapers ~/Pictures
   sudo cp -r  ~/.cache/wal /root/.cache/
-  sudo \cp ~/.face /usr/share/profile.png
-  cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
-  if [ -d "/usr/local/bin" ];  then
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin
-    sudo chmod +x /usr/local/bin/*
+  sudo cp ~/QARSlp/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
+  ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
+  
+  if [ -d "/opt/bin" ];  then
+    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
   else
-    sudo mkdir /usr/local/bin 
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin 
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin
-    sudo chmod +x /usr/local/bin/*
+    sudo mkdir /opt/bin &
+    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
+    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
  fi
-if [ -d "/root/.themes/FlatColor" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ 
+  if [ -d "/root/.config/rofi" ]; then
+    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
   else
-    sudo mkdir -p /root/.themes/FlatColor 
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/
+    sudo mkdir -p /root/.config/rofi &
+    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+fi
+if [ -d "/root/.themes/FlatColor" ]; then
+    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
+  else
+    sudo mkdir -p /root/.themes/FlatColor &
+    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
 fi
 
 }
 
-function i_settings(){
-    /usr/local/bin/genwal 
-    sudo systemctl enable lightdm.service
-    pywalfox install 
-    /usr/local/bin/autostart 
-    /usr/local/bin/alwaystart
-    chsh -s /bin/zsh
-    wpg-install.sh -g -d -i
-    
-}
 
-
-
+i_zsh
+i_paru
+i_base
 i_pip
+i_aur
+i_files
+i_settings
 

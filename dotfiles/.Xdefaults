@@ -22,5 +22,5 @@ Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-URxvt.font:xft:Fira Code Medium:size=12
-URxvt.boldfont:xft:Fira Code Medium:size=12
+URxvt.font:xft:Fira Code Medium:size=13
+URxvt.boldfont:xft:Fira Code Medium:size=13
