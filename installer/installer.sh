@@ -152,10 +152,6 @@ done
 function i_settings(){
   sudo timedatectl set-timezone America/Mexico_City &
   sudo timedatectl set-ntp true &
-  sudo chmod a+wr /opt/spotify
-  sudo chmod a+wr /opt/spotify/Apps -R
-  spicetify
-  spicetify backup apply enable-devtool
   pywalfox install &
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions &
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting &
