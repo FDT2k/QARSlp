@@ -77,7 +77,7 @@ def init_widgets_top():
                     objname='org.mpris.MediaPlayer2.ncspot',
                     scroll_chars=30,
                     background=color[0],
-                    foreground=color[5],
+                    foreground=color[2],
                     stop_pause_text='',
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
                     ),
@@ -86,7 +86,7 @@ def init_widgets_top():
                     objname='org.mpris.MediaPlayer2.spotify',
                     scroll_chars=30,
                     background=color[0],
-                    foreground=color[5],
+                    foreground=color[2],
                     stop_pause_text='',
                     display_metadata=['xesam:title', 'xesam:artist', 'xesam:album'],
                     ),
@@ -95,7 +95,7 @@ def init_widgets_top():
                     objname='org.mpris.MediaPlayer2.vlc',
                     scroll_chars=30,
                     background=color[0],
-                    foreground=color[5],
+                    foreground=color[2],
                     stop_pause_text='',
                     display_metadata=['xesam:title'],
                     scroll_interval=1,
@@ -109,7 +109,7 @@ def init_widgets_top():
                     ),
                 widget.TextBox(
                     background=color[0],
-                    foreground=color[1],
+                    foreground=color[2],
                     text="",
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(play_pause)},
                     ),
@@ -140,17 +140,17 @@ def init_widgets_top():
                 widget.TextBox(
                     text='◢',
                     background=color[1],
-                    foreground=color[5],
+                    foreground=color[3],
                     padding=-2,
                     fontsize=65
                     ),
                 widget.WidgetBox(
                     text_closed='',
                     text_open='  ',
-                    background=color[5],
+                    background=color[3],
                     foreground=color[0],
                     widgets=[widget.Pomodoro(
-                        background=color[5],
+                        background=color[3],
                         foreground=color[0],
                         color_active=color[0],
                         color_break=color[2],
@@ -168,15 +168,15 @@ def init_widgets_top():
                 #### Updates ####
                 widget.TextBox(
                     text='◢',
-                    background=color[5],
-                    foreground=color[4],
+                    background=color[3],
+                    foreground=color[2],
                     padding=-2,
                     fontsize=65
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
-                    background=color[4],
+                    background=color[2],
                     foreground=color[0],
                     text="  ",
                     ),
@@ -186,7 +186,7 @@ def init_widgets_top():
                     foreground=color[0],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo apt upgrade')},
                     display_format="{updates} up",
-                    background=color[4],
+                    background=color[2],
                     colour_have_updates=color[0],
                     colour_no_updates=color[0],
                     no_update_string="",
@@ -194,7 +194,7 @@ def init_widgets_top():
                     ),
                 widget.TextBox(
                     text='◢',
-                    background=color[4],
+                    background=color[2],
                     foreground=color[6],
                     padding=-2,
                     fontsize=65
@@ -255,7 +255,7 @@ def init_widgets_top():
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
-                    foreground=color[1],
+                    foreground=color[2],
                     text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_function(session_widget)}
                     ),
@@ -320,14 +320,6 @@ def init_widgets_bott():
                     text="",
                     mouse_callbacks={'Button1': lambda: qtile.cmd_function(shortcuts)}
                     ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    foreground=color[7],
-                    text="",
-                    mouse_callbacks={'Button1': lambda: qtile.current_window.kill()},
-                    desc="Close Window"
-                    ),
                 #### Spacer ####
                 widget.Spacer(
                     length=bar.STRETCH,
@@ -339,11 +331,11 @@ def init_widgets_bott():
                     text_closed=wifi_icon,
                     text_open='',
                     background=color[0],
-                    foreground=color[5],
+                    foreground=color[1],
                     widgets=[widget.TextBox(
                         text='  '+private_ip,
                         background=color[0],
-                        foreground=color[5],
+                        foreground=color[2],
                         mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
                         ),
                         widget.TextBox(
@@ -357,14 +349,14 @@ def init_widgets_bott():
                     interface=wifi,
                     format=' {essid} {percent:2.0%} ',
                     disconnected_message='Unplugged',
-                    foreground=color[5],
+                    foreground=color[2],
                     background=color[0],
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
                     ),
                 widget.Net(
                     interface=wifi,
                     format=' {down}',
-                    foreground=color[5],
+                    foreground=color[1],
                     background=color[0],
                     use_bits=True,
                     mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
@@ -396,6 +388,27 @@ def init_widgets_bott():
                 widget.TextBox(
                     text="◢",
                     background=color[1],
+                    foreground=color[3],
+                    padding=-2,
+                    fontsize=65
+                    ),
+                widget.TextBox(
+                    font='Font Awesome 5 Free Solid',
+                    fontsize=15,
+                    background=color[3],
+                    foreground=color[0],
+                    text=""
+                    ),
+                widget.Memory(
+                    format='{MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}',
+                    foreground=color[0],
+                    background=color[3],
+                    padding=5
+                    ),
+                #### CPU ####
+                widget.TextBox(
+                    text="◢",
+                    background=color[3],
                     foreground=color[2],
                     padding=-2,
                     fontsize=65
@@ -405,15 +418,15 @@ def init_widgets_bott():
                     fontsize=15,
                     background=color[2],
                     foreground=color[0],
-                    text=""
+                    text=""
                     ),
-                widget.Memory(
-                    format='{MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}',
+                widget.CPU(
+                    format='{load_percent}%',
                     foreground=color[0],
                     background=color[2],
-                    padding=5
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e htop')},
                     ),
-                #### CPU ####
+                #### Disk Space ####
                 widget.TextBox(
                     text="◢",
                     background=color[2],
@@ -426,27 +439,6 @@ def init_widgets_bott():
                     fontsize=15,
                     background=color[5],
                     foreground=color[0],
-                    text=""
-                    ),
-                widget.CPU(
-                    format='{load_percent}%',
-                    foreground=color[0],
-                    background=color[5],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e htop')},
-                    ),
-                #### Disk Space ####
-                widget.TextBox(
-                    text="◢",
-                    background=color[5],
-                    foreground=color[3],
-                    padding=-2,
-                    fontsize=65
-                    ),
-                widget.TextBox(
-                    font='Font Awesome 5 Free Solid',
-                    fontsize=15,
-                    background=color[3],
-                    foreground=color[0],
                     text=""
                     ),
                 widget.DF(
@@ -455,7 +447,7 @@ def init_widgets_bott():
                     Partition='/',
                     update_interval=60,
                     foreground=color[0],
-                    background=color[3],
+                    background=color[5],
                     padding=5,
                     visible_on_warn=False,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e ranger')},
@@ -464,8 +456,8 @@ def init_widgets_bott():
                 #### Thermal Sensors ####
                 widget.TextBox(
                     text="◢",
-                    background=color[3],
-                    foreground=color[7],
+                    background=color[5],
+                    foreground=color[4],
                     padding=-2,
                     fontsize=65
                     ),
@@ -473,18 +465,18 @@ def init_widgets_bott():
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     text=" ",
-                    background=color[7],
+                    background=color[4],
                     foreground=color[0]
                     ),
                 widget.ThermalSensor(
-                    background = color[7],
+                    background = color[4],
                     foreground=color[0],
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('/usr/local/bin/fans')},
                     ),
                 #### Keyboard Layout ####
                 widget.TextBox(
                     text="◢",
-                    background=color[7],
+                    background=color[4],
                     foreground=color[0],
                     padding=-2,
                     fontsize=65

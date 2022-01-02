@@ -22,7 +22,7 @@ from qtile_extras import widget
 ver = ' QARSlp v1.1'
 mod = "mod4"
 alt = "mod1"                                   
-term = "gnome-terminal"
+term = "urxvt"
 home = os.path.expanduser('~')
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 #### Internet Chekup ####

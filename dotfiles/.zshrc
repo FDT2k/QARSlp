@@ -104,5 +104,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=~/usr/local/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=$PATH:/opt/ade
 alias pywalfoxu='pywalfox update'
 wal -R -q && clear
