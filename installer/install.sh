@@ -20,12 +20,12 @@ function i_paru(){
   git clone https://aur.archlinux.org/paru.git
   cd paru
   makepkg -sri --noconfirm
-  cd
+  cd ..
   rm -rf paru
 }
 
 function i_base () {
-  packets=('htop' 'alsa-utils' 'alsa-lib' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake' 'lightdm-webkit2-greeter'
+  packets=('htop' 'alsa-utils' 'alsa-lib' 'bc' 'nextcloud-client' 'hugo' 'ntfs-3g' 'grub-customizer' 'libreoffice-fresh' 'alsa-firmware' 'ttf-fira-code' 'ttf-font-awesome' 'playerctl' 'kdeconnect' 'firefox' 'pulseaudio' 'pulseaudio-alsa' 'pavucontrol' 'volumeicon' 'picom' 'scrot' 'rofi' 'surfraw' 'python-pip' 'pkgfile' 'ranger' 'tumbler' 'feh' 'neofetch' 'lxappearance' 'lxsession' 'numlockx' 'unzip' 'bmon' 'dunst' 'lightdm' 'lm_sensors' 'obconf' 'viewnior' 'ntp' 'nm-connection-editor' 'network-manager-applet' 'arandr' 'cmatrix' 'thunar' 'thunar-archive-plugin' 'thunar-volman' 'python-pywal' 'python-psutil' 'python-xdg' 'python-iwlib' 'python-dateutil' 'ueberzug' 'xsettingsd' 'otf-ipafont' 'acpi' 'qtile' 'wget' 'cmake' 'lightdm-webkit2-greeter'
 )
 
 for packet in "${packets[@]}"; do
@@ -55,7 +55,7 @@ function i_pip(){
 
 function i_aur () {
   packets=(
-    'visual-studio-code-bin' '7-zip' 'rxvt-unicode-patched-with-scrolling' 'wpgtk-git' 'nbfc'
+    'visual-studio-code-bin' '7-zip' 'rxvt-unicode' 'wpgtk-git' 'nbfc' 'slack-desktop' 'ncspot' 'telegram-desktop' 'notion-app' 'qtile-extras-git'
 )
 
 
@@ -66,6 +66,7 @@ done
 }
 
 function i_settings(){
+  /usr/local/bin/genwal &
   sudo timedatectl set-timezone America/Mexico_City &
   sudo timedatectl set-ntp true &
   pywalfox install &
@@ -74,9 +75,9 @@ function i_settings(){
   git config --global user.name "gibranlp" &
   git config --global user.email gibranlp@gmail.com & 
   wpg-install.sh -g -d -i &
-  /opt/bin/autostart &
-  /opt/bin/alwaystart &
-  /opt/bin/genwal &
+  /usr/local/bin/autostart &
+  /usr/local/bin/alwaystart &
+  
 }
 
 function i_files(){
@@ -96,10 +97,10 @@ function i_files(){
     sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
  fi
   if [ -d "/root/.config/rofi" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+    sudo cp -r  ~/QARSlp/dotfiles/.config/qtile/themes/default/rofi/* /root/.config/rofi/ &
   else
     sudo mkdir -p /root/.config/rofi &
-    sudo cp -r  ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/ &
+    sudo cp -r  ~/QARSlp/dotfiles/.config/qtile/themes/default/rofi/* /root/.config/rofi/
 fi
 if [ -d "/root/.themes/FlatColor" ]; then
     sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
