@@ -182,9 +182,9 @@ def init_widgets_top():
                     ),
                 widget.CheckUpdates(
                     update_interval=1800,
-                    distro='Ubuntu',
+                    distro='Arch_paru',
                     foreground=color[0],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo apt upgrade')},
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(term + ' -e sudo paru -Syu')},
                     display_format="{updates} up",
                     background=color[2],
                     colour_have_updates=color[0],

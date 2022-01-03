@@ -9,11 +9,10 @@
 # MIT licence 
 #
 
-xrandr --output HDMI-0 --mode 2560x1080 --primary --output VGA-0 --mode 1366x768 --left-of HDMI-0 &
 picom --config ~/.config/picom/picom.conf &
 /usr/local/bin/wvis &
-#setxkbmap -layout us -variant intl &
-setxkbmap -layout latam &
+setxkbmap -layout us -variant intl &
+#setxkbmap -layout latam &
 pywalfox update &
 killall dunst &
 spicetify update &
@@ -21,6 +20,6 @@ numlockx on &
 nextcloud &
 kdeconnect-indicator &
 blueman-tray &
-#nbfc config --apply "Acer Aspire E5-575G"
+nbfc config --apply "Asus Transformer 3 Pro"
 wal -R -q &
 
