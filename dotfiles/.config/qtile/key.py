@@ -70,6 +70,7 @@ def init_keys():
             Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
             Key([alt], "Tab", lazy.layout.swap_left()),
             Key([alt, "shift"], "Tab", lazy.layout.swap_right()),
+            Key([alt], "space", lazy.widget["keyboardlayout"].next_keyboard()),
 
             #### Brightness ####
             Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),

@@ -10,12 +10,10 @@
 #
 
 picom --config ~/.config/picom/picom.conf &
-/usr/local/bin/wvis &
-setxkbmap -layout us -variant intl &
+#setxkbmap -layout us -variant intl &
 #setxkbmap -layout latam &
 pywalfox update &
 killall dunst &
-spicetify update &
 numlockx on &
 nextcloud &
 kdeconnect-indicator &

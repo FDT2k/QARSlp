@@ -489,6 +489,7 @@ def init_widgets_bott():
                     background=color[0]
                     ),
                 widget.KeyboardLayout(
+                    configured_keyboards=['us intl', 'latam'],
                     foreground=color[7],
                     background=color[0],
                     padding=5

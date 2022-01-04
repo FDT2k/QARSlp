@@ -81,11 +81,13 @@ function i_settings(){
 }
 
 function i_files(){
-  \cp -r ~/QARSlp/dotfiles/.[^.]* ~/ 
+\cp -r ~/QARSlp/dotfiles/.[^.]* ~/ 
 sudo \cp -r ~/QARSlp/dotfiles/.[^.]* /root 
 \cp -r ~/QARSlp/dotfiles/.config/qtile/themes/default/wallPapers ~/Pictures 
 sudo \cp -r  ~/QARSlp/scripts/* /usr/local/bin 
 sudo chmod +x /usr/local/bin/*
+sudo \cp -r ~/QARSlp/lightdm/* /etc/lightdm
+sudo \cp -r ~/QARSlp/lightdm-webkit /usr/share
   
 fi
 

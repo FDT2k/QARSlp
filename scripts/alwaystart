@@ -8,12 +8,10 @@
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
 # 
-setxkbmap -layout us -variant intl &
+#setxkbmap -layout us -variant intl &
 #setxkbmap -layout latam &
 pywalfox update &
 killall dunst &
-/usr/local/bin/wvis &
-spicetify update &
 picom --config ~/.config/picom/picom.conf &
 ps -C spotify >/dev/null && spicetify -l watch  || echo ""  &
 if [ -d "~/.config/dunst/" ];  then
