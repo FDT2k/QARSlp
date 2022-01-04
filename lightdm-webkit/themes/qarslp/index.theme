@@ -1,5 +1,5 @@
 [theme]
-name=Musfealle
+name=qarslp
 description=The lightdm greeter for QARSlp
 engine=lightdm-webkit-greeter
 url=index.html

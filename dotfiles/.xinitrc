@@ -1,4 +1,4 @@
-exec openbox-session
+exec qtile-session
 default_user        gibranlp
 
 case "$1" in

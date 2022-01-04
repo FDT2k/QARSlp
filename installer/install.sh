@@ -81,32 +81,12 @@ function i_settings(){
 }
 
 function i_files(){
-  cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
-  cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
-  cp -r ~/QARSlp/wallPapers ~/Pictures
-  sudo cp -r  ~/.cache/wal /root/.cache/
-  sudo cp ~/QARSlp/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
-  ln -s ~/.config/qtile/themes/qarslp.py  ~/.config/qtile/theme.py
+  \cp -r ~/QARSlp/dotfiles/.[^.]* ~/ 
+sudo \cp -r ~/QARSlp/dotfiles/.[^.]* /root 
+\cp -r ~/QARSlp/dotfiles/.config/qtile/themes/default/wallPapers ~/Pictures 
+sudo \cp -r  ~/QARSlp/scripts/* /usr/local/bin 
+sudo chmod +x /usr/local/bin/*
   
-  if [ -d "/opt/bin" ];  then
-    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
-  else
-    sudo mkdir /opt/bin &
-    sudo cp -r  ~/QARSlp/scripts/* /opt/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /opt/bin &
- fi
-  if [ -d "/root/.config/rofi" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.config/qtile/themes/default/rofi/* /root/.config/rofi/ &
-  else
-    sudo mkdir -p /root/.config/rofi &
-    sudo cp -r  ~/QARSlp/dotfiles/.config/qtile/themes/default/rofi/* /root/.config/rofi/
-fi
-if [ -d "/root/.themes/FlatColor" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
-  else
-    sudo mkdir -p /root/.themes/FlatColor &
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
 fi
 
 }

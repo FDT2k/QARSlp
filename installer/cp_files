@@ -9,29 +9,15 @@
 # MIT licence 
 # 
 function i_files(){
-  \cp -r  ~/QARSlp/dotfiles/.[^.]* ~/
-  cp -r  ~/QARSlp/dotfiles/shortc.conf ~/
-  sudo cp -r  ~/.cache/wal /root/.cache/
-  sudo cp -r  ~/.config/wpg /root/.config/wpg
-  sudo cp -r  ~/.config/rofi /root/.config/rofi
-  sudo \cp ~/.face /usr/share/profile.png
-  cp ~/QARSlp/dotfiles/.config/wal/dunstrc ~/.config/wal/templates/
-  if [ -d "/usr/local/bin" ];  then
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
-  else
-    sudo mkdir /usr/local/bin &
-    sudo cp -r  ~/QARSlp/scripts/* /usr/local/bin &
-    sudo cp -r  ~/QARSlp/widgets/* /usr/local/bin &
- fi
-if [ -d "/root/.themes/FlatColor" ]; then
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
-  else
-    sudo mkdir -p /root/.themes/FlatColor &
-    sudo cp -r  ~/QARSlp/dotfiles/.themes/FlatColor/* /root/.themes/FlatColor/ &
-fi
+\cp -r ~/QARSlp/dotfiles/.[^.]* ~/ 
+sudo \cp -r ~/QARSlp/dotfiles/.[^.]* /root 
+\cp -r ~/QARSlp/dotfiles/.config/qtile/themes/default/wallPapers ~/Pictures 
+sudo \cp -r  ~/QARSlp/scripts/* /usr/local/bin 
+sudo chmod +x /usr/local/bin/*
+sudo \cp -r ~/QARSlp/lightdm/* /etc/lightdm
+sudo \cp -r ~/QARSlp/lightdm-webkit /usr/share
+
 
 }
 
 i_files
-
