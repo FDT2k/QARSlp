@@ -333,13 +333,13 @@ def init_widgets_bott():
                     background=color[0],
                     foreground=color[1],
                     widgets=[widget.TextBox(
-                        text='  '+private_ip,
+                        text='  '+private_ip,
                         background=color[0],
                         foreground=color[2],
                         mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
                         ),
                         widget.TextBox(
-                        text='  '+public_ip,
+                        text='  '+public_ip,
                         background=color[0],
                         foreground=color[5],
                         mouse_callbacks={'Button1':lambda: qtile.cmd_function(network_widget)}
@@ -369,21 +369,20 @@ def init_widgets_bott():
                     fontsize=65
                     ),
                 #### Weather ####
-                widget.WidgetBox(
-                    text_closed='  ',
-                    text_open='  ',
+                widget.TextBox(
+                    text='  ',
                     background=color[1],
                     foreground=color[0],
-                    widgets=[widget.OpenWeather(
-                        app_key=w_appkey,
-                        cityid=w_cityid,
-                        background=color[1],
-                        foreground=color[0],
-                        format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
-                        metric=True,
-                        update_interval=600
-                        )]
                 ),
+                widget.OpenWeather(
+                    app_key=w_appkey,
+                    cityid=w_cityid,
+                    background=color[1],
+                    foreground=color[0],
+                    format='{main_temp}°{units_temperature} {humidity}% {weather_details}',
+                    metric=True,                        update_interval=600
+                    ),
+            
                 #### RAM ####
                 widget.TextBox(
                     text="◢",
@@ -411,14 +410,14 @@ def init_widgets_bott():
                     background=color[3],
                     foreground=color[2],
                     padding=-2,
-                    fontsize=65
+                    fontsize=65,
                     ),
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
                     background=color[2],
                     foreground=color[0],
-                    text=""
+                    text=""
                     ),
                 widget.CPU(
                     format='{load_percent}%',
@@ -464,7 +463,7 @@ def init_widgets_bott():
                 widget.TextBox(
                     font='Font Awesome 5 Free Solid',
                     fontsize=15,
-                    text=" ",
+                    text=" ",
                     background=color[4],
                     foreground=color[0]
                     ),
@@ -503,18 +502,11 @@ def init_widgets_bott():
                     padding=-2,
                     fontsize=65
                     ),
-                widget.WidgetBox(
-                    text_closed=' ',
-                    text_open='  ',
-                    background=color[1],
+                widget.CapsNumLockIndicator(
                     foreground=color[0],
-                    widgets=[widget.CapsNumLockIndicator(
-                        foreground=color[0],
-                        background=color[1],
-                        padding=5
-                        )]
-                ),
-
+                    background=color[1],
+                    padding=5
+                    ),
                 #### System Tray ####
                 widget.TextBox(
                     text="◢",
